@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> 
+<head>
+   <title>Modify Company</title>
+   <meta charset="UTF-8" />
+   <link rel="stylesheet"       
+     href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+</head>
+<body>
+    <h2>Modify company</h2>
+    <form action="#" th:action="@{/company/update}" 
+                     th:object="${company}" method="post"> 
+      <table>
+        <tr>
+            <td><label>Name</label></td>
+            <td><input type="text" th:field="*{name}" /></td> 
+        </tr>
+        <tr>
+            <td><label>CIF</label></td>
+            <td><input type="text" th:field="*{CIF}" /></td>
+        </tr>
+        <tr>
+            <td><label>Address</label></td>
+            <td><input type="text" th:field="*{address}" /></td>
+        </tr>
+        <tr>
+            <td><label>Contact Person Name</label></td>
+            <td><input type="text" th:field="*{contactPersonName}" /></td>
+        </tr>
+        <tr>
+            <td><label>Contact Person Phone Number</label></td>
+            <td><input type="text" th:field="*{contactPersonPhoneNumber}" /></td>
+        </tr>
+        <tr>
+            <td><label>Contact Persone Email</label></td>
+            <td><input type="text" th:field="*{contactPersonEmail}" /></td>
+        </tr>
+        <tr>
+            <td><label>Service Type</label></td>
+            <td><input type="text" th:field="*{serviceType}" /></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Modify Company" /></td>
+        </tr>
+      </table>
+    </form>
+</body>
+</html>
