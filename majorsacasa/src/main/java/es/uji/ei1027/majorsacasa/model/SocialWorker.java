@@ -45,6 +45,11 @@ public class SocialWorker {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	@Override
+	public String toString() {
+		return "SocialWorker [name=" + name + ", elderlyDNI=" + elderlyDNI + ", userCAS=" + userCAS + ", pwd=" + pwd
+				+ ", phoneNumber=" + phoneNumber + ", email=" + email + "]";
+	}
 	
 	
 }

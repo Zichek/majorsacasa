@@ -1,6 +1,7 @@
 package es.uji.ei1027.majorsacasa.model;
 
 public class Company {
+	
 	private String name;
 	private String CIF;
 	private String address;
@@ -49,5 +50,11 @@ public class Company {
 	}
 	public void setContactPersonPhoneNumber(int contactPersonPhoneNumber) {
 		this.contactPersonPhoneNumber = contactPersonPhoneNumber;
+	}
+	@Override
+	public String toString() {
+		return "Company [name=" + name + ", CIF=" + CIF + ", address=" + address + ", contactPersonName="
+				+ contactPersonName + ", contactPersonPhoneNumber=" + contactPersonPhoneNumber + ", contactPersonEmail="
+				+ contactPersonEmail + ", serviceType=" + serviceType + "]";
 	}
 }

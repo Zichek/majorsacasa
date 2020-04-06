@@ -89,6 +89,13 @@ public class Elderly {
 	public void setDiseases(String diseases) {
 		this.diseases = diseases;
 	}
+	@Override
+	public String toString() {
+		return "Elderly [name=" + name + ", DNI=" + DNI + ", surname=" + surname + ", birthDate=" + birthDate
+				+ ", address=" + address + ", phoneNumber=" + phoneNumber + ", bankAccountNumber=" + bankAccountNumber
+				+ ", email=" + email + ", userPwd=" + userPwd + ", dateCreation=" + dateCreation + ", alergies="
+				+ alergies + ", diseases=" + diseases + "]";
+	}
 	
 }
 
