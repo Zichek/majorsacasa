@@ -1,34 +1,34 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"> 
 <head>
-   <title>New Companyr</title>
+   <title>New Contract</title>
    <meta charset="UTF-8" />
    <link rel="stylesheet"       
      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
 </head>
 <body>
-    <h2>New company</h2>
-    <form action="#" th:action="@{/company/add}" 
-                     th:object="${company}" method="post"> 
+    <h2>New contract</h2>
+    <form action="#" th:action="@{/contract/add}" 
+                     th:object="${contract}" method="post"> 
       <table>
         <tr>
-            <td><label>Name</label></td>
-            <td><input type="text" th:field="*{name}" /></td> 
+            <td><label>Number</label></td>
+            <td><input type="text" th:field="*{number}" /></td> 
         </tr>
         <tr>
-            <td><label>CIF</label></td>
-            <td><input type="text" th:field="*{CIF}" /></td>
+            <td><label>Company CIF</label></td>
+            <td><input type="text" th:field="*{companyCIF}" /></td>
         </tr>
         <tr>
-            <td><label>Address</label></td>
-            <td><input type="text" th:field="*{address}" /></td>
+            <td><label>Date Beginning</label></td>
+            <td><input type="text" th:field="*{dateBeginning}" /></td>
         </tr>
         <tr>
-            <td><label>Contact Person Name</label></td>
-            <td><input type="text" th:field="*{contactPersonName}" /></td>
+            <td><label>Date Ending</label></td>
+            <td><input type="text" th:field="*{dateEnding}" /></td>
         </tr>
         <tr>
-            <td><label>Contact Person Phone Number</label></td>
+            <td><label>Description</label></td>
             <td><input type="text" th:field="*{contactPersonPhoneNumber}" /></td>
         </tr>
         <tr>
@@ -37,7 +37,7 @@
         </tr>
         <tr>
             <td><label>Service Type</label></td>
-             <td><select class="form_control" type="text" th:field="*{serviceType}"> 
+            <td><select class="form_control" type="text" th:field="*{serviceType}"> 
 				<option value="No seleccionat">Selecciona el servei</option> 
 				<option value="MenjarsADomicili">Menjars a domicili</option>
 				<option value="ServeiSanitari">Servei sanitari</option>

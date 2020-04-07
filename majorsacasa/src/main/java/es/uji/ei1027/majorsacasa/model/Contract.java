@@ -8,6 +8,9 @@ public class Contract {
 	private Date dateBeginning;
 	private Date dateEnding;
 	private String description;
+	private enum serviceType {
+		
+	}
 	private String serviceType;
 	private int quantityServices;
 	private String unitsOfMesure;
