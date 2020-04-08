@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> 
+<head>
+   <title>New Invoice</title>
+   <meta charset="UTF-8" />
+   <link rel="stylesheet"       
+     href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+</head>
+<body>
+    <h2>New invoice</h2>
+    <form action="#" th:action="@{/invoice/add}" 
+                     th:object="${invoice}" method="post"> 
+      <table>
+        <tr>
+            <td><label>Number</label></td>
+            <td><input type="text" th:field="*{number}" /></td> 
+        </tr>
+        <tr>
+            <td><label>Elderly DNI</label></td>
+            <td><input type="text" th:field="*{elderlyDNI}" /></td>
+        </tr>
+        <tr>
+            <td><label>Request Number</label></td>
+            <td><input type="text" th:field="*{requestNumber	}" /></td>
+        </tr>
+        <tr>
+            <td><label>Date</label></td>
+            <td><input type="text" th:field="*{date}" placeholder="dd/MM/yyyy"/></td>
+        </tr>
+        <tr>
+            <td><label>Amount</label></td>
+            <td><input type="text" th:field="*{amount}" /></td>
+        </tr>
+        <tr>
+            <td><label>Concept</label></td>
+            <td><input type="text" th:field="*{concept}" /></td>
+        </tr>
+        
+    
+        <tr>
+            <td colspan="2"><input type="submit" value="Add Invoice" /></td>
+        </tr>
+      </table>
+    </form>
+</body>
+</html>
