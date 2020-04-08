@@ -8,10 +8,7 @@ public class Contract {
 	private Date dateBeginning;
 	private Date dateEnding;
 	private String description;
-	private enum serviceType {
-		
-	}
-	private String serviceType;
+	private ServiceType serviceType;
 	private int quantityServices;
 	private String unitsOfMesure;
 	private int priceUnit;
@@ -47,12 +44,6 @@ public class Contract {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getServiceType() {
-		return serviceType;
-	}
-	public void setServiceType(String serviceType) {
-		this.serviceType = serviceType;
-	}
 	public int getQuantityServices() {
 		return quantityServices;
 	}
@@ -70,6 +61,12 @@ public class Contract {
 	}
 	public void setPriceUnit(int priceUnit) {
 		this.priceUnit = priceUnit;
+	}
+	public ServiceType getServiceType() {
+		return serviceType;
+	}
+	public void setServiceType(ServiceType serviceType) {
+		this.serviceType = serviceType;
 	}
 	@Override
 	public String toString() {

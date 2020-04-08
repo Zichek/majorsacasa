@@ -23,9 +23,9 @@ public class RequestDao {
 	}
 	
 	public void addRequest(Request request) {
-		jdbcTemplate.update("INSERT INTO REQUEST VALUES(?,?,?,?,?,?,?,?,?,?)",
-				request.getNumber(),request.getElderlyDNI(),request.getContractNumber(),request.getServiceType(),request.getCreationDate(),
-				request.getState(),request.getApprovedDate(),request.getRejectedDate(),request.getComments(),request.getEndDate());
+		jdbcTemplate.update("INSERT INTO REQUEST VALUES(?,?,?,CAST(? AS serviceType),?,CAST(? AS state),?,?,?,?)",
+				request.getNumber(),request.getElderlyDNI(),request.getContractNumber(),request.getServiceType().name(),request.getCreationDate(),
+				request.getState().name(),request.getApprovedDate(),request.getRejectedDate(),request.getComments(),request.getEndDate());
 	}
 	
 	public void deleteRequest(int number) {
@@ -33,9 +33,9 @@ public class RequestDao {
 	}
 	
 	public void updateRequest(Request request) {
-		jdbcTemplate.update("UPDATE REQUEST SET elderlyDNI=?, contractNumber=?, serviceType=?,"
-				+ "creationDate=?, state=?, approvedDate=?, rejectedDate=?, comments=?, endDate=? where number=?",
-				request.getElderlyDNI(),request.getContractNumber(),request.getServiceType(),request.getCreationDate(),request.getState(),
+		jdbcTemplate.update("UPDATE REQUEST SET elderlyDNI=?, contractNumber=?, CAST(? AS serviceType),"
+				+ "creationDate=?, CAST(? AS state), approvedDate=?, rejectedDate=?, comments=?, endDate=? where number=?",
+				request.getElderlyDNI(),request.getContractNumber(),request.getServiceType().name(),request.getCreationDate(),request.getState().name(),
 				request.getApprovedDate(),request.getRejectedDate(),request.getComments(),request.getEndDate());
 	}
 	

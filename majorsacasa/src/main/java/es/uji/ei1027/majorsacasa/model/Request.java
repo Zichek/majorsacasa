@@ -6,9 +6,9 @@ public class Request {
 	private int number;
 	private String elderlyDNI;
 	private int contractNumber;
-	private String serviceType;
+	private ServiceType serviceType;
 	private Date creationDate;
-	private String state;
+	private States state;
 	private Date approvedDate;
 	private Date rejectedDate;
 	private String comments;
@@ -32,10 +32,10 @@ public class Request {
 	public void setContractNumber(int contractNumber) {
 		this.contractNumber = contractNumber;
 	}
-	public String getServiceType() {
+	public ServiceType getServiceType() {
 		return serviceType;
 	}
-	public void setServiceTyoe(String serviceType) {
+	public void setServiceType(ServiceType serviceType) {
 		this.serviceType = serviceType;
 	}
 	public Date getCreationDate() {
@@ -43,11 +43,11 @@ public class Request {
 	}
 	public void setCreationDate(Date creationDate) {
 		this.creationDate = creationDate;
-	}
-	public String getState() {
+	}	
+	public States getState() {
 		return state;
 	}
-	public void setState(String state) {
+	public void setState(States state) {
 		this.state = state;
 	}
 	public Date getApprovedDate() {
