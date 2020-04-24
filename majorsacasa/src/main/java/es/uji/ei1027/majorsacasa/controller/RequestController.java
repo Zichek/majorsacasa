@@ -9,9 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import es.uji.ei1027.majorsacasa.dao.CompanyDao;
+
 import es.uji.ei1027.majorsacasa.dao.RequestDao;
-import es.uji.ei1027.majorsacasa.model.Company;
 import es.uji.ei1027.majorsacasa.model.Request;
 
 
