@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import org.springframework.jdbc.core.RowMapper;
 import es.uji.ei1027.majorsacasa.model.Company;
+import es.uji.ei1027.majorsacasa.model.ServiceType;
 
 public final class CompanyRowMapper implements RowMapper<Company> {
 	public Company mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -14,7 +15,7 @@ public final class CompanyRowMapper implements RowMapper<Company> {
 		company.setContactPersonName(rs.getString("contactPersonName"));
 		company.setContactPersonPhoneNumber(rs.getInt("contactPersonPhoneNumber"));
 		company.setContactPersonEmail(rs.getString("contactPersonEmail"));
-		company.setServiceType(rs.getString("serviceType"));
+		company.setServiceType(ServiceType.valueOf(rs.getString("serviceType")));
 		return company;
 	}
 }

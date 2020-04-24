@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"> 
 <head>
-   <title>New Companyr</title>
+   <title>New Company</title>
    <meta charset="UTF-8" />
    <link rel="stylesheet"       
      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
@@ -37,13 +37,12 @@
         </tr>
         <tr>
             <td><label>Service Type</label></td>
-             <td><select class="form_control" type="text" th:field="*{serviceType}"> 
-				<option value="No seleccionat">Selecciona el servei</option> 
-				<option value="MenjarsADomicili">Menjars a domicili</option>
-				<option value="ServeiSanitari">Servei sanitari</option>
-				<option value="Neteja">Neteja</option>
+            <td><select class="form_control" type="ServiceType" th:field="*{serviceType}"> 
+				<option value="DINNER">Dinner</option>
+				<option value="HEALTH_SERVICE">Health service</option>
+				<option value="CLEANING">Cleaning</option>
 				</select>
-  </td>
+  			</td>
         </tr>
         <tr>
             <td colspan="2"><input type="submit" value="Add Company" /></td>

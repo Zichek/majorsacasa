@@ -29,11 +29,7 @@
         </tr>
         <tr>
             <td><label>Description</label></td>
-            <td><input type="text" th:field="*{contactPersonPhoneNumber}" /></td>
-        </tr>
-        <tr>
-            <td><label>Contact Person Email</label></td>
-            <td><input type="text" th:field="*{contactPersonEmail}" /></td>
+            <td><input type="text" th:field="*{description}" /></td>
         </tr>
         <tr>
             <td><label>Service Type</label></td>
@@ -44,6 +40,18 @@
 				<option value="CLEANING">Cleaning</option>
 				</select>
   			</td>
+        </tr>
+        <tr>
+            <td><label>Quantity Services</label></td>
+            <td><input type="text" th:field="*{quantityServices}" /></td>
+        </tr>
+        <tr>
+            <td><label>Units of Mesure</label></td>
+            <td><input type="text" th:field="*{unitsOfMesure}" /></td>
+        </tr>
+        <tr>
+            <td><label>Price Unit</label></td>
+            <td><input type="text" th:field="*{priceUnit}" /></td>
         </tr>
         <tr>
             <td colspan="2"><input type="submit" value="Add Company" /></td>

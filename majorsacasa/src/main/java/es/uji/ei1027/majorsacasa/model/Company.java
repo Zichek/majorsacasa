@@ -8,7 +8,7 @@ public class Company {
 	private String contactPersonName;
 	private int contactPersonPhoneNumber;
 	private String contactPersonEmail;
-	private String serviceType;
+	private ServiceType serviceType;
 	public String getName() {
 		return name;
 	}
@@ -39,10 +39,10 @@ public class Company {
 	public void setContactPersonEmail(String contactPersonEmail) {
 		this.contactPersonEmail = contactPersonEmail;
 	}
-	public String getServiceType() {
+	public ServiceType getServiceType() {
 		return serviceType;
 	}
-	public void setServiceType(String serviceType) {
+	public void setServiceType(ServiceType serviceType) {
 		this.serviceType = serviceType;
 	}
 	public int getContactPersonPhoneNumber() {

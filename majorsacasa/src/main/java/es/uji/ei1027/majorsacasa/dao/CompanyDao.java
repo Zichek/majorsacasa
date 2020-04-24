@@ -23,9 +23,9 @@ public class CompanyDao {
 	}
 	
 	public void addCompany(Company company) {
-		jdbcTemplate.update("INSERT INTO COMPANY VALUES(?,?,?,?,?,?,?)",
+		jdbcTemplate.update("INSERT INTO COMPANY VALUES(?,?,?,?,?,?,CAST(? AS serviceType))",
 				company.getName(),company.getCIF(),company.getAddress(),company.getContactPersonName(),
-				company.getContactPersonPhoneNumber(),company.getContactPersonEmail(),company.getServiceType());
+				company.getContactPersonPhoneNumber(),company.getContactPersonEmail(),company.getServiceType().name());
 	}
 	
 	public void deleteCompany(String CIF) {
@@ -34,10 +34,10 @@ public class CompanyDao {
 	
 	public void updateCompany(Company company) {
 		jdbcTemplate.update("UPDATE COMPANY SET name=?, address=?, contactPersonName=?,"
-				+ "contactPersonPhoneNumber=?, contactPersonEmail=?, serviceType=? where CIF=?",
+				+ "contactPersonPhoneNumber=?, contactPersonEmail=?, serviceType=CAST(? AS serviceType) where CIF=?",
 				company.getName(), company.getAddress(), company.getContactPersonName(), 
 				company.getContactPersonPhoneNumber(), company.getContactPersonEmail(),
-				company.getServiceType(), company.getCIF());
+				company.getServiceType().name(), company.getCIF());
 	}
 	
 	public Company getCompany(String CIF) {
