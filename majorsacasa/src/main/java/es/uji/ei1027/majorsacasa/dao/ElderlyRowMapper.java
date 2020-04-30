@@ -19,7 +19,7 @@ public class ElderlyRowMapper implements RowMapper<Elderly> {
 		elderly.setSurname(rs.getString("surname"));
 		elderly.setBirthDate(rs.getObject("birthDate", Date.class));
 		elderly.setAddress(rs.getString("address"));
-		elderly.setPhoneNumber(rs.getInt("phoneNumber"));
+		elderly.setPhoneNumber(rs.getString("phoneNumber"));
 		elderly.setBankAccountNumber(rs.getInt("bankAccountNumber"));
 		elderly.setEmail(rs.getString("email"));
 		elderly.setUserPwd(rs.getString("userPwd"));

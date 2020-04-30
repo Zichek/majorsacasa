@@ -9,7 +9,7 @@ public class Elderly {
     private String surname;
     private Date birthDate;
     private String address;
-	private int phoneNumber;
+	private String phoneNumber;
 	private int bankAccountNumber;
 	private String email;
 	private String userPwd;
@@ -47,10 +47,10 @@ public class Elderly {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public int getPhoneNumber() {
+	public String getPhoneNumber() {
 		return phoneNumber;
 	}
-	public void setPhoneNumber(int phoneNumber) {
+	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 	public int getBankAccountNumber() {

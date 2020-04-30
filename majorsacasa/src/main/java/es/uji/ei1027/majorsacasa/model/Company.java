@@ -6,7 +6,7 @@ public class Company {
 	private String CIF;
 	private String address;
 	private String contactPersonName;
-	private int contactPersonPhoneNumber;
+	private String contactPersonPhoneNumber;
 	private String contactPersonEmail;
 	private ServiceType serviceType;
 	public String getName() {
@@ -45,10 +45,10 @@ public class Company {
 	public void setServiceType(ServiceType serviceType) {
 		this.serviceType = serviceType;
 	}
-	public int getContactPersonPhoneNumber() {
+	public String getContactPersonPhoneNumber() {
 		return contactPersonPhoneNumber;
 	}
-	public void setContactPersonPhoneNumber(int contactPersonPhoneNumber) {
+	public void setContactPersonPhoneNumber(String contactPersonPhoneNumber) {
 		this.contactPersonPhoneNumber = contactPersonPhoneNumber;
 	}
 	@Override

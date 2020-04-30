@@ -6,7 +6,7 @@ public class SocialWorker {
 	public String elderlyDNI;
 	public String userCAS;
 	public String pwd;
-	public int phoneNumber;
+	public String phoneNumber;
 	public String email;
 	
 	public String getName() {
@@ -33,10 +33,10 @@ public class SocialWorker {
 	public void setPwd(String pwd) {
 		this.pwd = pwd;
 	}
-	public int getPhoneNumber() {
+	public String getPhoneNumber() {
 		return phoneNumber;
 	}
-	public void setPhoneNumber(int phoneNumber) {
+	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 	public String getEmail() {
