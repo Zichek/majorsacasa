@@ -54,7 +54,7 @@ public class ContractController {
 	}
    @RequestMapping(value="/update", method = RequestMethod.POST) 
 	public String processUpdateSubmit(
-                           @ModelAttribute("comtract") Contract contract, 
+                           @ModelAttribute("contract") Contract contract, 
                            BindingResult bindingResult) {
 		 if (bindingResult.hasErrors()) 
 			 return "contract/update";
