@@ -6,8 +6,14 @@
 	<link rel="stylesheet"
 		href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
 	
-	<style>
-	td {
+     <style>
+	td.a {
+		text-align: rigth;
+		width: 100px;
+	}
+	
+	td.b {
+		text-align: left;
 		width: 100px;
 	}
 	
@@ -17,6 +23,7 @@
 	}
 	
 	table {
+		text-align: right;
 		margin-left: auto;
 		margin-right: auto;		
 	}
@@ -29,32 +36,32 @@
 		method="post">
 		<table class="table table-sm">
 			<tr>
-				<td><label>Name:</label></td>
-				<td><input type="text" th:field="*{name}" /></td>
+				<td class="a"><label>Name:</label></td>
+				<td class="b"><input type="text" th:field="*{name}" /></td>
 			</tr>
 			<tr>
-				<td><label>CIF:</label></td>
-				<td><input type="text" th:field="*{CIF}" /></td>
+				<td class="a"><label>CIF:</label></td>
+				<td class="b"><input type="text" th:field="*{CIF}" /></td>
 			</tr>
 			<tr>
-				<td><label>Address:</label></td>
-				<td><input type="text" th:field="*{address}" /></td>
+				<td class="a"><label>Address:</label></td>
+				<td class="b"><input type="text" th:field="*{address}" /></td>
 			</tr>
 			<tr>
-				<td><label>Contact person name:</label></td>
-				<td><input type="text" th:field="*{contactPersonName}" /></td>
+				<td class="a"><label>Contact person name:</label></td>
+				<td class="b"><input type="text" th:field="*{contactPersonName}" /></td>
 			</tr>
 			<tr>
-				<td><label>Contact person phone number:</label></td>
-				<td><input type="text" th:field="*{contactPersonPhoneNumber}" /></td>
+				<td class="a"><label>Contact person phone number:</label></td>
+				<td class="b"><input type="text" th:field="*{contactPersonPhoneNumber}" /></td>
 			</tr>
 			<tr>
-				<td><label>Contact person email:</label></td>
-				<td><input type="text" th:field="*{contactPersonEmail}" /></td>
+				<td class="a"><label>Contact person email:</label></td>
+				<td class="b"><input type="text" th:field="*{contactPersonEmail}" /></td>
 			</tr>
 			<tr>
-				<td><label>Service type:</label></td>
-				<td><select class="form_control" type="ServiceType"
+				<td class="a"><label>Service type:</label></td>
+				<td class="b"><select class="form_control" type="ServiceType"
 					th:field="*{serviceType}">
 						<option value="DINNER">Dinner</option>
 						<option value="HEALTH_SERVICE">Health service</option>

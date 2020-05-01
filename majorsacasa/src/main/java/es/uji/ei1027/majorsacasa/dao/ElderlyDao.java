@@ -44,6 +44,7 @@ public class ElderlyDao {
                elderly.getName(), elderly.getSurname(), elderly.getBirthDate(), elderly.getAddress(), elderly.getPhoneNumber(),
                elderly.getBankAccountNumber(), elderly.getEmail(), elderly.getUserPwd(), elderly.getDateCreation(), elderly.getAlergies(),
                elderly.getDiseases());
+        jdbcTemplate.update("UPDATE users SET username=?, password=?", elderly.getDNI(),elderly.getUserPwd());
     }
 
     /* Obt� el elderly amb el nom donat. Torna null si no existeix. */

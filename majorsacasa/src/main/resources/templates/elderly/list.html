@@ -1,51 +1,62 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"> 
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-   <title>List Elderly</title>
-   <meta charset="UTF-8" />
-   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+<title>List Elderly</title>
+<meta charset="UTF-8" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+
+<style>
+h1 {
+	color: black;
+	text-align: center;
+}
+</style>
 </head>
 <body>
-   <h1>List Elderly</h1>
-   <table>
-     <thead>
-       <tr>
-         <th>Name</th>
-         <th>surname</th>
-         <th>DNI</th>
-         <th>Birth Date</th>
-         <th>Address</th>
-         <th>Phone Number</th>
-         <th>Banc Account Number</th>
-         <th>Email</th>
-         <th>Date Creation</th>
-         <th>Alergies</th>
-         <th>Diseases</th>
-         <th></th>
-         <th></th>
-       </tr>
-     </thead>
-     <tbody>
-       <tr th:each="elderly: ${elderlys}"> 
-         <td th:text="${elderly.name}"></td> 
-         <td th:text="${elderly.surname}"></td>
-         <td th:text="${elderly.DNI}"></td>
-         <td th:text="${elderly.birthDate}"></td>
-         <td th:text="${elderly.address}"></td>
-         <td th:text="${elderly.phoneNumber}"></td>
-         <td th:text="${elderly.bankAccountNumber}"></td>
-         <td th:text="${elderly.email}"></td>
-         <td th:text="${elderly.userPwd}"></td>
-         <td th:text="${elderly.dateCreation}"></td>
-         <td th:text="${elderly.alergies}"></td>
-         <td th:text="${elderly.diseases}"></td>
-         <td><a th:href="@{/elderly/update/{DNI}(DNI=${elderly.DNI})}">Edita</a> 
-         </td>
-         <td><a th:href="@{/elderly/delete/{DNI}(DNI=${elderly.DNI})}">Esborra</a>
-         </td>
-       </tr>
-     </tbody>
-   </table>
-   <a href="add">Add elderly</a> 
+	<h1>List of elderlies</h1>
+	<table class="table table-sm">
+		<thead class="thead-dark">
+			<tr>
+				<th>Name</th>
+				<th>Surname</th>
+				<th>DNI</th>
+				<th>Birthdate</th>
+				<th>Address</th>
+				<th>Phone number</th>
+				<th>Bank account number</th>
+				<th>Email</th>
+				<th>Date creation</th>
+				<th>Alergies</th>
+				<th>Diseases</th>
+				<th></th>
+				<th></th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="elderly: ${elderlys}">
+				<td th:text="${elderly.name}"></td>
+				<td th:text="${elderly.surname}"></td>
+				<td th:text="${elderly.DNI}"></td>
+				<td th:text="${elderly.birthDate}"></td>
+				<td th:text="${elderly.address}"></td>
+				<td th:text="${elderly.phoneNumber}"></td>
+				<td th:text="${elderly.bankAccountNumber}"></td>
+				<td th:text="${elderly.email}"></td>
+				<td th:text="${elderly.userPwd}"></td>
+				<td th:text="${elderly.dateCreation}"></td>
+				<td th:text="${elderly.alergies}"></td>
+				<td th:text="${elderly.diseases}"></td>
+				<td><a class="btn btn-warning"
+					th:href="@{/elderly/update/{DNI}(DNI=${elderly.DNI})}">Edita</a></td>
+				<td><a class="btn btn-danger"
+					th:href="@{/elderly/delete/{DNI}(DNI=${elderly.DNI})}">Esborra</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<a class="btn btn-secondary btn-lg btn-block " href="add">Add
+		elderly</a>
 </body>
 </html>
