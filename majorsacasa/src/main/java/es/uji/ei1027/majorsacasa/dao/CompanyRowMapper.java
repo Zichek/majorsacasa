@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import org.springframework.jdbc.core.RowMapper;
 import es.uji.ei1027.majorsacasa.model.Company;
 import es.uji.ei1027.majorsacasa.model.ServiceType;
-
+//
 public final class CompanyRowMapper implements RowMapper<Company> {
 	public Company mapRow(ResultSet rs, int rowNum) throws SQLException {
 		Company company = new Company();
