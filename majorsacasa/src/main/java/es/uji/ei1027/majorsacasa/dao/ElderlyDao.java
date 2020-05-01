@@ -34,6 +34,7 @@ public class ElderlyDao {
     /* Esborra el elderly de la base de dades */
     public void deleteElderly(String DNI) {
         jdbcTemplate.update("DELETE from elderly where DNI=?", DNI);
+        jdbcTemplate.update("DELETE from users where username=?", DNI);
     }
 
     /* Actualitza els atributs del elderly
