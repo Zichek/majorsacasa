@@ -24,7 +24,7 @@ public class ContractDao {
 	
 	public void addContract(Contract contract) {
 		jdbcTemplate.update("INSERT INTO CONTRACT VALUES(?,?,?,?,CAST(? AS serviceType),?,?,?,?)",
-				contract.getNumber(),contract.getDateBeginning(),contract.getDateEnding(),contract.getDescription(),contract.getServiceType().name(),
+				contract.getNumber(), contract.getCompanyCIF(),contract.getDateBeginning(),contract.getDateEnding(),contract.getServiceType().name(), contract.getDescription(),
 				contract.getQuantityServices(),contract.getUnitsOfMesure(),contract.getPriceUnit());
 	}
 	

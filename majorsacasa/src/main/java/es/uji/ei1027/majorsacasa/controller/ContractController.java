@@ -62,7 +62,7 @@ public class ContractController {
 		 return "redirect:list"; 
 	}
 
-   @RequestMapping(value="/delete/{CIF}")
+   @RequestMapping(value="/delete/{number}")
 	public String processDelete(@PathVariable int number) {
           contractDao.deleteContract(number);
           return "redirect:../list"; 
