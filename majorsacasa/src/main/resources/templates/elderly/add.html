@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> 
+<head>
+   <title>New Elderly</title>
+   <meta charset="UTF-8" />
+   <link rel="stylesheet"       
+     href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+</head>
+<body>
+    <h2>New Elderly</h2>
+    <form action="#" th:action="@{/elderly/add}" 
+                     th:object="${elderly}" method="post"> 
+      <table>
+        <tr>
+            <td><label>Name</label></td>
+            <td><input type="text" th:field="*{name}" /></td> 
+        </tr>
+        <tr>
+            <td><label>Surname</label></td>
+            <td><input type="text" th:field="*{surname}" /></td>
+        </tr>
+        <tr>
+            <td><label>DNI</label></td>
+            <td><input type="text" th:field="*{DNI}" /></td>
+        </tr>
+        <tr>
+            <td><label>Birth Date</label></td>
+            <td><input type="date" th:field="*{birthDate}" /></td>
+        </tr>
+        <tr>
+            <td><label>Address</label></td>
+            <td><input type="text" th:field="*{address}" /></td>
+        </tr>
+        <tr>
+            <td><label>Phone Number</label></td>
+            <td><input type="text" th:field="*{phoneNumber}" /></td>
+        </tr>
+        <tr>
+            <td><label>Bank Account Number</label></td>
+            <td><input type="text" th:field="*{bankAccountNumber}" /></td>
+        </tr>
+        <tr>
+            <td><label>Email</label></td>
+            <td><input type="email" th:field="*{email}" /></td>
+        </tr>
+        <tr>
+            <td><label>Password</label></td>
+            <td><input type="password" th:field="*{userPwd}" /></td>
+        </tr>
+        <tr>
+            <td><label>Date Creation</label></td>
+            <td><input type="date" th:field="*{dateCreation}" /></td>
+        </tr>
+        <tr>
+            <td><label>Alergies</label></td>
+            <td><input type="text" th:field="*{alergies}" /></td>
+        </tr>
+        <tr>
+            <td><label>Diseases</label></td>
+            <td><input type="text" th:field="*{diseases}" /></td>
+        </tr>
+        
+        <tr>
+            <td colspan="2"><input type="submit" value="Add Elderly" /></td>
+        </tr>
+      </table>
+    </form>
+</body>
+</html>
