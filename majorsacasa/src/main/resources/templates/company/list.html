@@ -4,19 +4,25 @@
    <title>List Company</title>
    <meta charset="UTF-8" />
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+   <style>
+		h1 {
+		  color: black;
+		  text-align: center;
+	} 
+</style>
 </head>
 <body>
-   <h1>List of Company</h1>
-   <table>
-     <thead>
+   <h1>List of company</h1>
+   <table class="table table-sm">
+     <thead class="thead-dark">
        <tr>
          <th>Name</th>
          <th>CIF</th>
          <th>Address</th>
-         <th>Contact Person Name</th>
-         <th>Contact Person Phone Number</th>
-         <th>Contact Person Email</th>
-         <th>Service Type</th>
+         <th>Contact person name</th>
+         <th>Contact person phone number</th>
+         <th>Contact person email</th>
+         <th>Service type</th>
          <th></th>
          <th></th>
        </tr>
@@ -30,13 +36,13 @@
          <td th:text="${company.contactPersonPhoneNumber}"></td>
          <td th:text="${company.contactPersonEmail}"></td>
          <td th:text="${company.serviceType}"></td>
-         <td><a th:href="@{/company/update/{CIF}(CIF=${company.CIF})}">Edita</a> 
+         <td><a class="btn btn-warning" th:href="@{/company/update/{CIF}(CIF=${company.CIF})}">Edita</a> 
          </td>
-         <td><a th:href="@{/company/delete/{CIF}(CIF=${company.CIF})}">Esborra</a>
+         <td><a class="btn btn-danger"th:href="@{/company/delete/{CIF}(CIF=${company.CIF})}">Esborra</a>
          </td>
        </tr>
      </tbody>
    </table>
-   <a href="add">Add company</a> 
+   <a class="btn btn-secondary btn-lg btn-block " href="add">Add company</a> 
 </body>
 </html>

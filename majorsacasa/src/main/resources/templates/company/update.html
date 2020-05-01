@@ -5,42 +5,62 @@
    <meta charset="UTF-8" />
    <link rel="stylesheet"       
      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+     <style>
+	td {
+		width: 100px;
+	}
+	
+	h1 {
+		color: black;
+		text-align: center;
+	}
+	
+	table {
+		margin-left: auto;
+		margin-right: auto;		
+	}
+	</style>
 </head>
 <body>
-    <h2>Modify company</h2>
+    <h1>Modify company</h1>
     <form action="#" th:action="@{/company/update}" 
                      th:object="${company}" method="post"> 
-      <table>
+      <table class="table table-sm">
         <tr>
-            <td><label>Name</label></td>
-            <td><input type="text" th:field="*{name}" /></td> 
-        </tr>
+				<td><label>Name:</label></td>
+				<td><input type="text" th:field="*{name}" /></td>
+			</tr>
+			<tr>
+				<td><label>CIF:</label></td>
+				<td><input type="text" th:field="*{CIF}" /></td>
+			</tr>
+			<tr>
+				<td><label>Address:</label></td>
+				<td><input type="text" th:field="*{address}" /></td>
+			</tr>
+			<tr>
+				<td><label>Contact person name:</label></td>
+				<td><input type="text" th:field="*{contactPersonName}" /></td>
+			</tr>
+			<tr>
+				<td><label>Contact person phone number:</label></td>
+				<td><input type="text" th:field="*{contactPersonPhoneNumber}" /></td>
+			</tr>
+			<tr>
+				<td><label>Contact person email:</label></td>
+				<td><input type="text" th:field="*{contactPersonEmail}" /></td>
+			</tr>
+			<tr>
+				<td><label>Service type:</label></td>
+				<td><select class="form_control" type="ServiceType"
+					th:field="*{serviceType}">
+						<option value="DINNER">Dinner</option>
+						<option value="HEALTH_SERVICE">Health service</option>
+						<option value="CLEANING">Cleaning</option>
+				</select></td>
+			</tr>
         <tr>
-            <td><label>CIF</label></td>
-            <td><input type="text" th:field="*{CIF}" /></td>
-        </tr>
-        <tr>
-            <td><label>Address</label></td>
-            <td><input type="text" th:field="*{address}" /></td>
-        </tr>
-        <tr>
-            <td><label>Contact Person Name</label></td>
-            <td><input type="text" th:field="*{contactPersonName}" /></td>
-        </tr>
-        <tr>
-            <td><label>Contact Person Phone Number</label></td>
-            <td><input type="text" th:field="*{contactPersonPhoneNumber}" /></td>
-        </tr>
-        <tr>
-            <td><label>Contact Persone Email</label></td>
-            <td><input type="text" th:field="*{contactPersonEmail}" /></td>
-        </tr>
-        <tr>
-            <td><label>Service Type</label></td>
-            <td><input type="text" th:field="*{serviceType}" /></td>
-        </tr>
-        <tr>
-            <td colspan="2"><input type="submit" value="Modify Company" /></td>
+            <td colspan="2"><input class="btn btn-secondary btn-lg btn-block " type="submit" value="Modify Company" /></td>
         </tr>
       </table>
     </form>
