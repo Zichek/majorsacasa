@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>New Contract</title>
+<title>Modify Contract</title>
 <meta charset="UTF-8" />
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" />
@@ -29,9 +29,9 @@ table {
 </style>
 </head>
 <body>
-	<h1>New contract</h1>
-	<form action="#" th:action="@{/contract/add}" th:object="${contract}"
-		method="post">
+	<h1>Modify contract</h1>
+	<form action="#" th:action="@{/contract/update}"
+		th:object="${contract}" method="post">
 		<table class="table table-sm">
 			<tr>
 				<td class="a"><label>Number:</label></td>
@@ -78,7 +78,7 @@ table {
 			<tr>
 				<td colspan="2"><input
 					class="btn btn-secondary btn-lg btn-block " type="submit"
-					value="Add company" /></td>
+					value="Modify contract" /></td>
 			</tr>
 		</table>
 	</form>

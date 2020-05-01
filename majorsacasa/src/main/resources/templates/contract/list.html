@@ -1,46 +1,56 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"> 
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-   <title>List Company</title>
-   <meta charset="UTF-8" />
-   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+<title>List Contracts</title>
+<meta charset="UTF-8" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+
+<style>
+h1 {
+	color: black;
+	text-align: center;
+}
+</style>
 </head>
 <body>
-   <h1>List of Company</h1>
-   <table>
-     <thead>
-       <tr>
-         <th>Number</th>
-         <th>Company CIF</th>
-         <th>Date Beginning</th>
-         <th>Date Ending</th>
-         <th>Description</th>
-         <th>Service Type</th>
-         <th>Quantity Services</th>
-         <th>Units of Mesure</th>
-         <th>Price Unit</th>
-         <th></th>
-         <th></th>
-       </tr>
-     </thead>
-     <tbody>
-       <tr th:each="contract: ${contracts}"> 
-         <td th:text="${contract.number}"></td> 
-         <td th:text="${contract.companyCIF}"></td>
-         <td th:text="${contract.dateBeginning}"></td>
-         <td th:text="${contract.dateEnding}"></td>
-         <td th:text="${contract.description}"></td>
-         <td th:text="${contract.serviceType}"></td>
-         <td th:text="${contract.quantityServices}"></td>
-         <td th:text="${contract.unitsOfMesure}"></td>
-         <td th:text="${contract.priceUnit}"></td>
-         <td><a th:href="@{/contract/update/{number}(number=${contract.number})}">Edita</a> 
-         </td>
-         <td><a th:href="@{/contract/delete/{number}(number=${contract.number})}">Esborra</a>
-         </td>
-       </tr>
-     </tbody>
-   </table>
-   <a href="add">Add contract</a> 
+	<h1>List of contracts</h1>
+	<table class="table table-sm">
+		<thead class="thead-dark">
+			<tr>
+				<th>Number</th>
+				<th>Company CIF</th>
+				<th>Date beginning</th>
+				<th>Date ending</th>
+				<th>Description</th>
+				<th>Service type</th>
+				<th>Quantity services</th>
+				<th>Units of mesure</th>
+				<th>Price unit</th>
+				<th></th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="contract: ${contracts}">
+				<td th:text="${contract.number}"></td>
+				<td th:text="${contract.companyCIF}"></td>
+				<td th:text="${contract.dateBeginning}"></td>
+				<td th:text="${contract.dateEnding}"></td>
+				<td th:text="${contract.description}"></td>
+				<td th:text="${contract.serviceType}"></td>
+				<td th:text="${contract.quantityServices}"></td>
+				<td th:text="${contract.unitsOfMesure}"></td>
+				<td th:text="${contract.priceUnit}"></td>
+				<td><a class="btn btn-warning"
+					th:href="@{/contract/update/{number}(number=${contract.number})}">Edita</a>
+				</td>
+				<td><a class="btn btn-danger"
+					th:href="@{/contract/delete/{number}(number=${contract.number})}">Esborra</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<a class="btn btn-secondary btn-lg btn-block " href="add">Add contract</a>
 </body>
 </html>
