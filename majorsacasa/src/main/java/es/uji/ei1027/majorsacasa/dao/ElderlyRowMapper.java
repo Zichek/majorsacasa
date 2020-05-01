@@ -11,7 +11,7 @@ import org.springframework.jdbc.core.RowMapper;
 import es.uji.ei1027.majorsacasa.model.Elderly;
 
 
-public class ElderlyRowMapper implements RowMapper<Elderly> {
+public final class ElderlyRowMapper implements RowMapper<Elderly> {
 	public Elderly mapRow(ResultSet rs, int rowNum) throws SQLException {
 		Elderly elderly = new Elderly();
 		elderly.setName(rs.getString("name"));

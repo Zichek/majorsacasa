@@ -11,27 +11,21 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 
 import es.uji.ei1027.majorsacasa.dao.ElderlyDao;
+import es.uji.ei1027.majorsacasa.model.Company;
 import es.uji.ei1027.majorsacasa.model.Elderly;
 
 @Controller
 @RequestMapping("/elderly")
 public class ElderlyController {
 
-	@RequestMapping("/test")
-	public String provaWeb(Model model) {
-		String message = "Provant la Web de Toopots";
-		model.addAttribute("message", message);
-		return "prova";
-	}
+	
+	
+	private ElderlyDao elderlyDao;
+	
 	@Autowired
-	ElderlyDao elderlyDao;
-
-//	@RequestMapping("/provaActividad")
-//	public String provaUnaActividad(Model model) {
-//		Elderly elderly = elderlyDao.getElderly("Juan");
-//		model.addAttribute("message", elderly.toString());
-//		return "elderly";
-//	}
+	public void serElderlyDao(ElderlyDao elderlyDao) {
+		this.elderlyDao=elderlyDao;
+	}
 
 	@RequestMapping("/list")
 	public String listElderly(Model model) {
@@ -59,23 +53,20 @@ public class ElderlyController {
 	        return "redirect:list"; 
 	    }
 	   
-	   //Modificar
-	   //Modificaci� d'objectes
 	   @RequestMapping(value="/update/{DNI}", method = RequestMethod.GET) 
-	   public String editElderly(Model model, @PathVariable String DNI) { 
-	       model.addAttribute("elderly", elderlyDao.getElderly(DNI));
-	       return "elderly/update"; 
-	   }
-	   //Resposta de modificaci� d'objectes
-	   @RequestMapping(value="/update/{DNI}", method = RequestMethod.POST) 
-	   public String processUpdateSubmit(@PathVariable String DNI, 
+		public String editElderly(Model model, @PathVariable String DNI) { 
+			model.addAttribute("elderly", elderlyDao.getElderly(DNI));
+			return "elderly/update"; 
+		}
+	   @RequestMapping(value="/update", method = RequestMethod.POST) 
+		public String processUpdateSubmit(
 	                           @ModelAttribute("elderly") Elderly elderly, 
 	                           BindingResult bindingResult) {
-	        if (bindingResult.hasErrors()) 
-	            return "elderly/update";
-	        elderlyDao.getElderly(DNI);
-	        return "redirect:../list"; 
-	   }
+			 if (bindingResult.hasErrors()) 
+				 return "elderly/update";
+			 elderlyDao.updateElderly(elderly);
+			 return "redirect:list"; 
+		}
 	   
 	   //Borrar una actividad
 	   @RequestMapping(value="/delete/{DNI}")
