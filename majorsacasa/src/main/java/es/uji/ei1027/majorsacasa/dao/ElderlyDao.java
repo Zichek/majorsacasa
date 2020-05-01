@@ -27,6 +27,8 @@ public class ElderlyDao {
         jdbcTemplate.update("INSERT INTO elderly VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
                 elderly.getName(), elderly.getDNI(), elderly.getSurname(), elderly.getBirthDate(), elderly.getAddress(), elderly.getPhoneNumber(), elderly.getBankAccountNumber(),
                 elderly.getEmail(), elderly.getUserPwd(), elderly.getDateCreation(), elderly.getAlergies(), elderly.getDiseases());
+        jdbcTemplate.update("INSERT INTO users VALUES(?, ?, ?)",
+        		elderly.getDNI(),elderly.getUserPwd(), "elderly");
     }
 
     /* Esborra el elderly de la base de dades */

@@ -10,7 +10,7 @@ public class Elderly {
     private Date birthDate;
     private String address;
 	private String phoneNumber;
-	private int bankAccountNumber;
+	private String bankAccountNumber;
 	private String email;
 	private String userPwd;
 	private Date dateCreation;
@@ -53,10 +53,10 @@ public class Elderly {
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
-	public int getBankAccountNumber() {
+	public String getBankAccountNumber() {
 		return bankAccountNumber;
 	}
-	public void setBankAccountNumber(int bankAccountNumber) {
+	public void setBankAccountNumber(String bankAccountNumber) {
 		this.bankAccountNumber = bankAccountNumber;
 	}
 	public String getEmail() {
