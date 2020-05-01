@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<title>New Company</title>
-	<meta charset="UTF-8" />
-	<link rel="stylesheet"
-		href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
-	<link rel="stylesheet" type="text/css" href="/css/estilosadd.css"
-                                    th:href="@{/css/estilosadd.css}"/>
-			
+<title>New Company</title>
+<meta charset="UTF-8" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/css/estilosadd.css"
+	th:href="@{/css/estilosadd.css}" />
+
 </head>
 <body>
 	<h1>New company</h1>
@@ -28,15 +28,18 @@
 			</tr>
 			<tr>
 				<td class="a"><label>Contact person name:</label></td>
-				<td class="b"><input type="text" th:field="*{contactPersonName}" /></td>
+				<td class="b"><input type="text"
+					th:field="*{contactPersonName}" /></td>
 			</tr>
 			<tr>
 				<td class="a"><label>Contact person phone number:</label></td>
-				<td class="b"><input type="text" th:field="*{contactPersonPhoneNumber}" /></td>
+				<td class="b"><input type="text"
+					th:field="*{contactPersonPhoneNumber}" /></td>
 			</tr>
 			<tr>
 				<td class="a"><label>Contact person email:</label></td>
-				<td class="b"><input type="text" th:field="*{contactPersonEmail}" /></td>
+				<td class="b"><input type="text"
+					th:field="*{contactPersonEmail}" /></td>
 			</tr>
 			<tr>
 				<td class="a"><label>Service type:</label></td>

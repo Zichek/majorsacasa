@@ -5,32 +5,11 @@
    <meta charset="UTF-8" />
    <link rel="stylesheet"       
      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
-     
-     <style>
-	td.a {
-		text-align: rigth;
-		width: 100px;
-	}
-	
-	td.b {
-		text-align: left;
-		width: 100px;
-	}
-	
-	h1 {
-		color: black;
-		text-align: center;
-	}
-	
-	table {
-		text-align: right;
-		margin-left: auto;
-		margin-right: auto;		
-	}
-	</style>
+<link rel="stylesheet" type="text/css" href="/css/estilosadd.css"
+                                    th:href="@{/css/estilosadd.css}"/>
 </head>
 <body>
-    <h1>New Elderly</h1>
+    <h1>New elderly</h1>
     <form action="#" th:action="@{/elderly/add}" 
                      th:object="${elderly}" method="post"> 
       <table class="table table-sm">
@@ -84,7 +63,9 @@
         </tr>
         
         <tr>
-            <td colspan="2"><input class="btn btn-secondary btn-lg btn-block" type="submit" value="Add elderly" /></td>
+            <td colspan="2"><input
+					class="btn btn-secondary btn-lg btn-block" type="submit"
+					value="Add elderly" /></td>
         </tr>
       </table>
     </form>
