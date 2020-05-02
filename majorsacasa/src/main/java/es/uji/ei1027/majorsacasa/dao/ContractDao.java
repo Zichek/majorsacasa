@@ -24,9 +24,9 @@ public class ContractDao {
 	}
 	
 	public void addContract(Contract contract) {
-		jdbcTemplate.update("INSERT INTO CONTRACT VALUES(?,?,?,?,CAST(? AS serviceType),?,?,?,?)",
-				contract.getNumber(), contract.getCompanyCIF(),contract.getDateBeginning(),contract.getDateEnding(),contract.getServiceType().name(), contract.getDescription(),
-				contract.getQuantityServices(),contract.getUnitsOfMesure(),contract.getPriceUnit());
+		jdbcTemplate.update("INSERT INTO CONTRACT VALUES(?,?,?,?,?,CAST(? AS serviceType),?,?,?)",
+				contract.getNumber(), contract.getCompanyCIF(),contract.getDateBeginning(),contract.getDateEnding(),contract.getDescription(),contract.getServiceType().name(), 
+				contract.getQuantityServices(),contract.getUnitsOfMeasure(),contract.getPriceUnit());
 	}
 	
 	public void deleteContract(int number) {
@@ -37,7 +37,7 @@ public class ContractDao {
 		jdbcTemplate.update("UPDATE CONTRACT SET companyCIF=?, dateBeginning=?, dateEnding=?,"
 				+ "description=?, CAST(? AS serviceType), quantityService=?, unitsOfMesure=?, priceUnit=? where number=?",
 				contract.getCompanyCIF(),contract.getDateBeginning(),contract.getDateEnding(), contract.getDescription(),
-				contract.getServiceType().name(),contract.getQuantityServices(),contract.getUnitsOfMesure(),contract.getPriceUnit());
+				contract.getServiceType().name(),contract.getQuantityServices(),contract.getUnitsOfMeasure(),contract.getPriceUnit());
 	}
 	
 	public Contract getContract(int number) {
@@ -51,7 +51,7 @@ public class ContractDao {
 	
 	public List<Contract> getAllContract() {
 		try {
-			return jdbcTemplate.query("SELECT * FROM contract",
+			return jdbcTemplate.query("SELECT * FROM Contract",
 					new ContractRowMapper());
 		} catch(EmptyResultDataAccessException e) {
 	           return new ArrayList<Contract>();

@@ -10,7 +10,7 @@ public class Contract {
 	private String description;
 	private ServiceType serviceType;
 	private int quantityServices;
-	private String unitsOfMesure;
+	private String unitsOfMeasure;
 	private int priceUnit;
 	
 	
@@ -50,11 +50,12 @@ public class Contract {
 	public void setQuantityServices(int quantityServices) {
 		this.quantityServices = quantityServices;
 	}
-	public String getUnitsOfMesure() {
-		return unitsOfMesure;
+	
+	public String getUnitsOfMeasure() {
+		return unitsOfMeasure;
 	}
-	public void setUnitsOfMesure(String unitsOfMesure) {
-		this.unitsOfMesure = unitsOfMesure;
+	public void setUnitsOfMeasure(String unitsOfMeasure) {
+		this.unitsOfMeasure = unitsOfMeasure;
 	}
 	public int getPriceUnit() {
 		return priceUnit;
@@ -72,7 +73,7 @@ public class Contract {
 	public String toString() {
 		return "Contract [number=" + number + ", companyCIF=" + companyCIF + ", dateBeginning=" + dateBeginning
 				+ ", dateEnding=" + dateEnding + ", description=" + description + ", serviceType=" + serviceType
-				+ ", quantityServices=" + quantityServices + ", unitsOfMesure=" + unitsOfMesure + ", priceUnit="
+				+ ", quantityServices=" + quantityServices + ", unitsOfMesure=" + unitsOfMeasure + ", priceUnit="
 				+ priceUnit + "]";
 	}
 	

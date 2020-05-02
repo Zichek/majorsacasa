@@ -5,13 +5,8 @@
 <meta charset="UTF-8" />
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
-
-<style>
-h1 {
-	color: black;
-	text-align: center;
-}
-</style>
+<link rel="stylesheet" type="text/css" href="/css/estiloslist.css"
+	th:href="@{/css/estiloslist.css}" />
 </head>
 <body>
 	<h1>List of contracts</h1>
@@ -25,7 +20,7 @@ h1 {
 				<th>Description</th>
 				<th>Service type</th>
 				<th>Quantity services</th>
-				<th>Units of mesure</th>
+				<th>Units of measure</th>
 				<th>Price unit</th>
 				<th></th>
 				<th></th>
@@ -40,7 +35,7 @@ h1 {
 				<td th:text="${contract.description}"></td>
 				<td th:text="${contract.serviceType}"></td>
 				<td th:text="${contract.quantityServices}"></td>
-				<td th:text="${contract.unitsOfMesure}"></td>
+				<td th:text="${contract.unitsOfMeasure}"></td>
 				<td th:text="${contract.priceUnit}"></td>
 				<td><a class="btn btn-warning"
 					th:href="@{/contract/update/{number}(number=${contract.number})}">Edita</a>
