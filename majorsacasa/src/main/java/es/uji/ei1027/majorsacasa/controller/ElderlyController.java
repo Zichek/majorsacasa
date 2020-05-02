@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 
 import es.uji.ei1027.majorsacasa.dao.ElderlyDao;
+import es.uji.ei1027.majorsacasa.dao.UserDao;
 import es.uji.ei1027.majorsacasa.model.Company;
 import es.uji.ei1027.majorsacasa.model.Elderly;
 
@@ -21,10 +22,15 @@ public class ElderlyController {
 	
 	
 	private ElderlyDao elderlyDao;
+	private UserDao userDao;
 	
 	@Autowired
-	public void serElderlyDao(ElderlyDao elderlyDao) {
+	public void setElderlyDao(ElderlyDao elderlyDao) {
 		this.elderlyDao=elderlyDao;
+	}
+	@Autowired
+	public void setUserDao(UserDao userDao) {
+		this.userDao=userDao;
 	}
 
 	@RequestMapping("/list")
@@ -49,7 +55,11 @@ public class ElderlyController {
 	                                   BindingResult bindingResult) {  
 	        if (bindingResult.hasErrors()) 
 	               return "elderly/add";
+	        
+	        
 	        elderlyDao.addElderly(elderly);
+	        
+	        userDao.addUser(elderly.getDNI(), elderly.getUserPwd(), "elderly");;
 	        return "redirect:list"; 
 	    }
 	   
@@ -65,6 +75,7 @@ public class ElderlyController {
 			 if (bindingResult.hasErrors()) 
 				 return "elderly/update";
 			 elderlyDao.updateElderly(elderly);
+			 userDao.updateUser(elderly.getDNI(), elderly.getUserPwd());
 			 return "redirect:list"; 
 		}
 	   
