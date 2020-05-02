@@ -1,6 +1,7 @@
 package es.uji.ei1027.majorsacasa.model;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -9,7 +10,7 @@ public class Invoice {
 	private String elderlyDNI;
 	private int requestNumber;
 	@DateTimeFormat(iso=DateTimeFormat.ISO.DATE)
-	private LocalDate date;
+	private Date date;
 	private int amount;
 	private String concept;
 	
@@ -32,10 +33,10 @@ public class Invoice {
 	public void setRequestNumber(int requestNumber) {
 		this.requestNumber = requestNumber;
 	}
-	public LocalDate getDate() {
+	public Date getDate() {
 		return date;
 	}
-	public void setDate(LocalDate date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 	public int getAmount() {

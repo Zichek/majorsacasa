@@ -10,6 +10,7 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import es.uji.ei1027.majorsacasa.model.Company;
 import es.uji.ei1027.majorsacasa.model.Contract;
 
 @Repository
@@ -50,7 +51,7 @@ public class ContractDao {
 	
 	public List<Contract> getAllContract() {
 		try {
-			return jdbcTemplate.query("SELECT * FROM CONTRACT",
+			return jdbcTemplate.query("SELECT * FROM contract",
 					new ContractRowMapper());
 		} catch(EmptyResultDataAccessException e) {
 	           return new ArrayList<Contract>();
