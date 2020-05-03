@@ -25,8 +25,13 @@ class UserValidator implements Validator {
 	@Override 
 	public void validate(Object obj, Errors errors) {
 	  // Exercici: Afegeix codi per comprovar que 
-         // l'usuari i la contrasenya no estiguen buits 
-         // ...
+		User user = (User) obj;
+		if (user.getUsername().equals("")) {
+			errors.rejectValue("usuario", "obligatori", "Cal introduir un DNI/CIF vàlid");
+		}
+		if (user.getPassword().equals("") || user.getPassword().length() < 8) {
+			errors.rejectValue("pwd", "obligatori", "Cal introduir una contrasenya vàlida");
+		}
 	}
 }
 
@@ -44,14 +49,14 @@ public class UserController {
 	@RequestMapping(value="/login", method=RequestMethod.POST)
 	public String checkLogin(@ModelAttribute("user") User user,  		
 				BindingResult bindingResult, HttpSession session) {
-		UserValidator userValidator = new UserValidator(); 
-		userValidator.validate(user, bindingResult); 
+//		UserValidator userValidator = new UserValidator(); 
+//		userValidator.validate(user, bindingResult); 
 		if (bindingResult.hasErrors()) {
 			return "login";
 		}
 	       // Comprova que el login siga correcte 
 		// intentant carregar les dades de l'usuari 
-		user = userDao.getUser(user.getUsername()); 
+		user = userDao.getUser(user.getUsername(), user.getPassword()); 
 		if (user == null) {
 			bindingResult.rejectValue("password", "badpw", "Wrong password"); 
 			return "login";
@@ -59,14 +64,15 @@ public class UserController {
 		// Autenticats correctament. 
 		// Guardem les dades de l'usuari autenticat a la sessió
 		session.setAttribute("user", user); 
-		
-		if (user.getRole() == "elderly")
-			return "redirect:/elderly/index";
+		if (user.getRole().equals("elderly"))
+			return "redirect:elderly/indexElderly";
 		else if (user.getRole() == "company")
-			return "redirect:/company/index";
+			return "redirect:/company/indexCompany";
+		else if (user.getRole() == "admin")
+			return "redirect:/admin/indexAdmin";
 		
 		// Torna a la pàgina principal
-		return "redirect:/index";
+		return "redirect:/";
 	}
 
 	@RequestMapping("/logout") 

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+    >
+<head>
+<title>Login</title>
+<meta charset="UTF-8"/>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+
+</head>
+<body>
+
+	<h2>Accés</h2>
+	<form action="#" th:action="@{/login}" 
+	      th:object="${user}" method="post">
+		<p>
+		   	<label>Nom d'usuari:</label>
+            <input class="form_control" type="text" th:field="*{username}"/>
+          
+		</p>
+		<p>
+		   	<label>Contrasenya:</label>
+            <input class="form_control" type="password" th:field="*{password}"/>
+            
+		</p>		
+		<input type="submit" value="Accedir" />
+	</form>
+
+</body>
+</html>

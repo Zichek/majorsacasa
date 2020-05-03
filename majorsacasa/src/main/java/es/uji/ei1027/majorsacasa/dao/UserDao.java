@@ -28,22 +28,30 @@ public class UserDao {
 		}
 	
 	public void deleteUser(String username) {
-		jdbcTemplate.update("DELETE FROM REQUEST WHERE username=?", username);
+		jdbcTemplate.update("DELETE FROM users WHERE username=?", username);
 	}
 	
 	public void updateUser(String username, String password) {
-		jdbcTemplate.update("UPDATE REQUEST SET password=? where username=?",
+		jdbcTemplate.update("UPDATE users SET password=? where username=?",
 				username, password);
 	}
 	public void updateUser(User user) {
-		jdbcTemplate.update("UPDATE REQUEST SET password=? where username=?",
+		jdbcTemplate.update("UPDATE users SET password=? where username=?",
 				user.getPassword(), user.getUsername());
 	}
 	
-	public User getUser(String username) {
+	public User getUser(String username, String password) {
 		try {
-			return jdbcTemplate.queryForObject("SELECT * FROM users WHERE username = ?",
-					new UserRowMapper(), username);
+			return jdbcTemplate.queryForObject("SELECT * FROM users WHERE username=? AND password=?",
+					new UserRowMapper(), username, password);
+		} catch(EmptyResultDataAccessException e) {
+	           return null;
+	       }
+	}
+	public User getUser(User user) {
+		try {
+			return jdbcTemplate.queryForObject("SELECT * FROM users WHERE username=?",
+					new UserRowMapper(), user.getUsername());
 		} catch(EmptyResultDataAccessException e) {
 	           return null;
 	       }
