@@ -65,11 +65,11 @@ public class UserController {
 		// Guardem les dades de l'usuari autenticat a la sessió
 		session.setAttribute("user", user); 
 		if (user.getRole().equals("elderly"))
-			return "redirect:elderly/indexElderly";
+			return "redirect:/elderly/list";
 		else if (user.getRole().equals("company"))
-			return "redirect:company/indexCompany";
+			return "redirect:/company/indexCompany";
 		else if (user.getRole().equals("casManager")) 
-			return "redirect:manager/indexcasmanager";
+			return "redirect:/cas/indexManager";
 		else if (user.getRole().equals("casComite"))
 			return "redirect:manager/indexCasCommitee";
 		
