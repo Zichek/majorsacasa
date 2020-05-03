@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+     xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+     layout:decorate="~{fragments/base}">
 <head>
 <title>New Company</title>
 <meta charset="UTF-8" />
@@ -8,18 +10,10 @@
 <link rel="stylesheet" type="text/css" href="/css/estilosadd.css"
 	th:href="@{/css/estilosadd.css}" />
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
 </head>
 <body>
-
-	<!--Navigation bar-->
-	<div id="nav-placeholder"></div>
-
-	<script>
-		$(function() {
-			$("#nav-placeholder").load("navbar.html");
-		});
-	</script>
-	<!--end of Navigation bar-->
+<div layout:fragment="content">
 	<h1>New company</h1>
 	<form action="#" th:action="@{/company/add}" th:object="${company}"
 		method="post">
@@ -67,5 +61,6 @@
 			</tr>
 		</table>
 	</form>
+	</div>
 </body>
 </html>

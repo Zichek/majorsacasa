@@ -1,42 +1,32 @@
 <!DOCTYPE html>
-<html lang="es">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{fragments/base}">
 <head>
-<title>EI1027</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
-<link rel="stylesheet" type="text/css" href="/css/estiloslogin.css"
-	th:href="@{/css/estiloslogin.css}" />
+<link
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" />
+
 </head>
 <body>
-	<!--Navigation bar-->
-	<div id="nav-placeholder"></div>
-
-	<script>
-		$(function() {
-			$("#nav-placeholder").load("navbar.html");
-		});
-	</script>
-	<!--end of Navigation bar-->
-
-	<div class="jumbotron jumbotron-fluid">
-		<div class="container">
-			<h1 class="display-4">Bienvenidos a Majors a casa</h1>
-			<p class="lead">¿Tienes problemas de movilidad? Ya no tienes nada
-				por lo que preocuparte, nosotros te llevamos la comida o las
-				medicinas a tu casa.</p>
-			<p class="lead">¿Necesitas asistencia médica de calidad a
-				domicilio? Trabajamos con los mejores expertos del sector para lo
-				que necesites.</p>
+	<div layout:fragment="content">
+		<div class="jumbotron jumbotron-fluid">
+			<div class="container">
+				<h1 class="display-4">Bienvenidos a Majors a casa</h1>
+				<p class="lead">¿Tienes problemas de movilidad? Ya no tienes
+					nada por lo que preocuparte, nosotros te llevamos la comida o las
+					medicinas a tu casa.</p>
+				<p class="lead">¿Necesitas asistencia médica de calidad a
+					domicilio? Trabajamos con los mejores expertos del sector para lo
+					que necesites.</p>
+			</div>
 		</div>
+		<img src="seniors.jpg" class="img-fluid" alt="Responsive image">
 	</div>
-	<img src="seniors.jpg" class="img-fluid" alt="Responsive image">
+
 </body>
 </html>
