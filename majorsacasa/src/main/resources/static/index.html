@@ -10,71 +10,22 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-	
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
 <link rel="stylesheet" type="text/css" href="/css/estiloslogin.css"
 	th:href="@{/css/estiloslogin.css}" />
 </head>
 <body>
-
-	<nav class="navbar navbar-inverse">
-		<a class="navbar-brand" href="/"> <img src="logo.png" width="70"
-			height="30" alt="">
-		</a>
-		<div class="container-fluid">
-			<ul class="nav navbar-nav">
-				<li class="active"><a href="#">Sobre nosotros</a></li>
-			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#"><span class="glyphicon glyphicon-user"></span>
-						Sign Up</a></li>
-				<li><a
-					onclick="document.getElementById('id01').style.display='block'"
-					href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-			</ul>
-		</div>
-	</nav>
-	<div id="id01" class="modal">
-
-		<form class="modal-content animate" action="/action_page.php"
-			method="post">
-			<div class="imgcontainer">
-				<span onclick="document.getElementById('id01').style.display='none'"
-					class="close" title="Close Modal">&times;</span>
-			</div>
-
-			<div class="container">
-				<label for="uname"><b>Username</b></label> <input type="text"
-					placeholder="Enter Username" name="uname" required> <label
-					for="psw"><b>Password</b></label> <input type="password"
-					placeholder="Enter Password" name="psw" required>
-
-				<button type="submit">Login</button>
-				<label> <input type="checkbox" checked="checked"
-					name="remember"> Remember me
-				</label>
-			</div>
-
-			<div class="container" style="background-color: #f1f1f1">
-				<button type="button"
-					onclick="document.getElementById('id01').style.display='none'"
-					class="cancelbtn">Cancel</button>
-				<span class="psw">Forgot <a href="#">password?</a></span>
-			</div>
-		</form>
-	</div>
+	<!--Navigation bar-->
+	<div id="nav-placeholder"></div>
 
 	<script>
-		// Get the modal
-		var modal = document.getElementById('id01');
-
-		// When the user clicks anywhere outside of the modal, close it
-		window.onclick = function(event) {
-			if (event.target == modal) {
-				modal.style.display = "none";
-			}
-		}
+		$(function() {
+			$("#nav-placeholder").load("navbar.html");
+		});
 	</script>
-	
+	<!--end of Navigation bar-->
+
 	<div class="jumbotron jumbotron-fluid">
 		<div class="container">
 			<h1 class="display-4">Bienvenidos a Majors a casa</h1>

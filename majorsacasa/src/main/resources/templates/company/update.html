@@ -7,9 +7,18 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css" href="/css/estilosupdate.css"
 	th:href="@{/css/estilosupdate.css}" />
-	
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
 <body>
+	<!--Navigation bar-->
+	<div id="nav-placeholder"></div>
+
+	<script>
+		$(function() {
+			$("#nav-placeholder").load("navbar.html");
+		});
+	</script>
+	<!--end of Navigation bar-->
 	<h1>Modify company</h1>
 	<form action="#" th:action="@{/company/update}" th:object="${company}"
 		method="post">
