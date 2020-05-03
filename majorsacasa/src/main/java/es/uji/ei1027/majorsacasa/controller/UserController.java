@@ -66,10 +66,12 @@ public class UserController {
 		session.setAttribute("user", user); 
 		if (user.getRole().equals("elderly"))
 			return "redirect:elderly/indexElderly";
-		else if (user.getRole() == "company")
-			return "redirect:/company/indexCompany";
-		else if (user.getRole() == "admin")
-			return "redirect:/admin/indexAdmin";
+		else if (user.getRole().equals("company"))
+			return "redirect:company/indexCompany";
+		else if (user.getRole().equals("casManager")) 
+			return "redirect:manager/indexcasmanager";
+		else if (user.getRole().equals("casComite"))
+			return "redirect:manager/indexCasCommitee";
 		
 		// Torna a la pàgina principal
 		return "redirect:/";
