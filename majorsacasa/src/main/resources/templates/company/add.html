@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-     xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-     layout:decorate="~{fragments/base}">
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{fragments/base}">
 <head>
-<title>New Company</title>
+<title>New company</title>
 <meta charset="UTF-8" />
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
@@ -13,54 +13,55 @@
 
 </head>
 <body>
-<div layout:fragment="content">
-	<h1>New company</h1>
-	<form action="#" th:action="@{/company/add}" th:object="${company}"
-		method="post">
-		<table class="table table-sm">
-			<tr>
-				<td class="a"><label>Name:</label></td>
-				<td class="b"><input type="text" th:field="*{name}" /></td>
-			</tr>
-			<tr>
-				<td class="a"><label>CIF:</label></td>
-				<td class="b"><input type="text" th:field="*{CIF}" /></td>
-			</tr>
-			<tr>
-				<td class="a"><label>Address:</label></td>
-				<td class="b"><input type="text" th:field="*{address}" /></td>
-			</tr>
-			<tr>
-				<td class="a"><label>Contact person name:</label></td>
-				<td class="b"><input type="text"
-					th:field="*{contactPersonName}" /></td>
-			</tr>
-			<tr>
-				<td class="a"><label>Contact person phone number:</label></td>
-				<td class="b"><input type="text"
-					th:field="*{contactPersonPhoneNumber}" /></td>
-			</tr>
-			<tr>
-				<td class="a"><label>Contact person email:</label></td>
-				<td class="b"><input type="text"
-					th:field="*{contactPersonEmail}" /></td>
-			</tr>
-			<tr>
-				<td class="a"><label>Service type:</label></td>
-				<td class="b"><select class="form_control" type="ServiceType"
-					th:field="*{serviceType}">
-						<option value="DINNER">Dinner</option>
-						<option value="HEALTH_SERVICE">Health service</option>
-						<option value="CLEANING">Cleaning</option>
-				</select></td>
-			</tr>
-			<tr>
-				<td colspan="2"><input
-					class="btn btn-secondary btn-lg btn-block " type="submit"
-					value="Add Company" /></td>
-			</tr>
-		</table>
-	</form>
+
+	<div layout:fragment="content">
+		<h1>New company</h1>
+		<form action="#" th:action="@{/company/add}" th:object="${company}"
+			method="post">
+			<table class="table table-sm">
+				<tr>
+					<td class="a"><label>Name:</label></td>
+					<td class="b"><input type="text" th:field="*{name}" /></td>
+				</tr>
+				<tr>
+					<td class="a"><label>CIF:</label></td>
+					<td class="b"><input type="text" th:field="*{CIF}" /></td>
+				</tr>
+				<tr>
+					<td class="a"><label>Address:</label></td>
+					<td class="b"><input type="text" th:field="*{address}" /></td>
+				</tr>
+				<tr>
+					<td class="a"><label>Contact person name:</label></td>
+					<td class="b"><input type="text"
+						th:field="*{contactPersonName}" /></td>
+				</tr>
+				<tr>
+					<td class="a"><label>Contact person phone number:</label></td>
+					<td class="b"><input type="text"
+						th:field="*{contactPersonPhoneNumber}" /></td>
+				</tr>
+				<tr>
+					<td class="a"><label>Contact person email:</label></td>
+					<td class="b"><input type="text"
+						th:field="*{contactPersonEmail}" /></td>
+				</tr>
+				<tr>
+					<td class="a"><label>Service type:</label></td>
+					<td class="b"><select class="form_control" type="ServiceType"
+						th:field="*{serviceType}">
+							<option value="DINNER">Dinner</option>
+							<option value="HEALTH_SERVICE">Health service</option>
+							<option value="CLEANING">Cleaning</option>
+					</select></td>
+				</tr>
+				<tr>
+					<td colspan="2"><input
+						class="btn btn-secondary btn-lg btn-block " type="submit"
+						value="Add Company" /></td>
+				</tr>
+			</table>
+		</form>
 	</div>
 </body>
 </html>
