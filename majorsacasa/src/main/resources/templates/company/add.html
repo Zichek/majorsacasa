@@ -22,29 +22,39 @@
 				<tr>
 					<td class="a"><label>Name:</label></td>
 					<td class="b"><input type="text" th:field="*{name}" /></td>
+					<td th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></td>
 				</tr>
 				<tr>
 					<td class="a"><label>CIF:</label></td>
 					<td class="b"><input type="text" th:field="*{CIF}" /></td>
+					<td th:if="${#fields.hasErrors('CIF')}" th:errors="*{CIF}"></td>
+				</tr>
+				<tr>
+					<td class="a"><label>Password:</label></td>
+					<td class="b"><input type="password" th:field="*{password}" /></td>
 				</tr>
 				<tr>
 					<td class="a"><label>Address:</label></td>
 					<td class="b"><input type="text" th:field="*{address}" /></td>
+					<td th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></td>
 				</tr>
 				<tr>
 					<td class="a"><label>Contact person name:</label></td>
 					<td class="b"><input type="text"
 						th:field="*{contactPersonName}" /></td>
+						<td th:if="${#fields.hasErrors('contactPersonName')}" th:errors="*{contactPersonName}"></td>
 				</tr>
 				<tr>
 					<td class="a"><label>Contact person phone number:</label></td>
 					<td class="b"><input type="text"
 						th:field="*{contactPersonPhoneNumber}" /></td>
+						<div th:if="${#fields.hasErrors('contactPersonPhoneNumber')}" th:errors="*{contactPersonPhoneNumber}"></div>
 				</tr>
 				<tr>
 					<td class="a"><label>Contact person email:</label></td>
 					<td class="b"><input type="text"
 						th:field="*{contactPersonEmail}" /></td>
+						<div th:if="${#fields.hasErrors('contactPersonEmail')}" th:errors="*{contactPersonEmail}"></div>
 				</tr>
 				<tr>
 					<td class="a"><label>Service type:</label></td>

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import es.uji.ei1027.majorsacasa.dao.CompanyDao;
+import es.uji.ei1027.majorsacasa.dao.UserDao;
 import es.uji.ei1027.majorsacasa.model.Company;
 
 
@@ -18,11 +19,16 @@ import es.uji.ei1027.majorsacasa.model.Company;
 public class CompanyController {
 
    private CompanyDao companyDao;
+   private UserDao userDao;
 
    @Autowired
    public void setCompanyDao(CompanyDao companyDao) { 
        this.companyDao=companyDao;
    }
+   @Autowired
+	public void setUserDao(UserDao userDao) {
+		this.userDao=userDao;
+	}
 
    // Operacions: Crear, llistar, actualitzar, esborrar
    
@@ -40,10 +46,12 @@ public class CompanyController {
    @RequestMapping(value="/add", method=RequestMethod.POST)
    public String processAddSubmit(@ModelAttribute("company") Company company,
                                    BindingResult bindingResult) { 
-	   //CompanyValidator companyValidator = new CompanyValidator();
-	  // companyValidator.validate(company, bindingResult);
+	  //CompanyValidator companyValidator = new CompanyValidator();
+	  //companyValidator.validate(company, bindingResult);
    	 if (bindingResult.hasErrors()) 
    			return "company/add";
+   	 
+   	 userDao.addUser(company.getCIF(), company.getPassword(), "company");
    	 companyDao.addCompany(company);
    	 return "redirect:list"; 
     }
@@ -58,8 +66,8 @@ public class CompanyController {
 	public String processUpdateSubmit(
                            @ModelAttribute("company") Company company, 
                            BindingResult bindingResult) {
-//	   CompanyValidator companyValidator = new CompanyValidator();
-//	   companyValidator.validate(company, bindingResult);
+	   CompanyValidator companyValidator = new CompanyValidator();
+	   companyValidator.validate(company, bindingResult);
 		 if (bindingResult.hasErrors()) 
 			 return "company/update";
 		 companyDao.updateCompany(company);
@@ -73,3 +81,4 @@ public class CompanyController {
 	}
 
 }
+

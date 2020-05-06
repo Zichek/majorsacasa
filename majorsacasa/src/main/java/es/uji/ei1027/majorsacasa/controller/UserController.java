@@ -8,7 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult; 
 import org.springframework.web.bind.annotation.ModelAttribute; 
 import org.springframework.web.bind.annotation.RequestMapping; 
-import org.springframework.web.bind.annotation.RequestMethod; 
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.validation.Errors; 
 import org.springframework.validation.Validator;
@@ -27,10 +28,10 @@ class UserValidator implements Validator {
 	  // Exercici: Afegeix codi per comprovar que 
 		User user = (User) obj;
 		if (user.getUsername().equals("")) {
-			errors.rejectValue("usuario", "obligatori", "Cal introduir un DNI/CIF vàlid");
+			errors.rejectValue("usuario", "obligatori", "DNI or CIF invalid");
 		}
 		if (user.getPassword().equals("") || user.getPassword().length() < 8) {
-			errors.rejectValue("pwd", "obligatori", "Cal introduir una contrasenya vàlida");
+			errors.rejectValue("pwd", "obligatori", "No password");
 		}
 	}
 }
@@ -69,7 +70,7 @@ public class UserController {
 		else if (user.getRole().equals("company"))
 			return "redirect:/company/indexCompany";
 		else if (user.getRole().equals("casManager")) 
-			return "redirect:/cas/indexManager";
+			return "redirect:/cas/manager";
 		else if (user.getRole().equals("casComite"))
 			return "redirect:manager/indexCasCommitee";
 		

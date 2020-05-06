@@ -25,6 +25,7 @@
 			<tr>
 				<th>Name</th>
 				<th>CIF</th>
+				<th>Password</th>
 				<th>Address</th>
 				<th>Contact person name</th>
 				<th>Contact person phone number</th>
@@ -38,6 +39,7 @@
 			<tr th:each="company: ${companys}">
 				<td th:text="${company.name}"></td>
 				<td th:text="${company.CIF}"></td>
+				<td th:text="${company.password}"></td>
 				<td th:text="${company.address}"></td>
 				<td th:text="${company.contactPersonName}"></td>
 				<td th:text="${company.contactPersonPhoneNumber}"></td>

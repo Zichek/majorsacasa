@@ -4,6 +4,13 @@ public class Company {
 	
 	private String name;
 	private String CIF;
+	private String password;
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	private String address;
 	private String contactPersonName;
 	private String contactPersonPhoneNumber;
@@ -53,8 +60,9 @@ public class Company {
 	}
 	@Override
 	public String toString() {
-		return "Company [name=" + name + ", CIF=" + CIF + ", address=" + address + ", contactPersonName="
-				+ contactPersonName + ", contactPersonPhoneNumber=" + contactPersonPhoneNumber + ", contactPersonEmail="
-				+ contactPersonEmail + ", serviceType=" + serviceType + "]";
+		return "Company [name=" + name + ", CIF=" + CIF + ", password=" + password + ", address=" + address
+				+ ", contactPersonName=" + contactPersonName + ", contactPersonPhoneNumber=" + contactPersonPhoneNumber
+				+ ", contactPersonEmail=" + contactPersonEmail + ", serviceType=" + serviceType + "]";
 	}
+	
 }
