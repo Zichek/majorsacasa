@@ -21,37 +21,37 @@ public class ContractValidator implements Validator {
         public void validate(Object obj, Errors errors) {
             Contract contract = (Contract) obj;
             ContractDao contractDao = new ContractDao();
-            List<Contract> listContract = contractDao.getAllContract();
+//            List<Contract> listContract = contractDao.getAllContract();
+//
+//            for(Contract contract2 : listContract){
+//                if(contract2.getNumber()==contract.getNumber())
+//                    errors.rejectValue("number", "required",
+//                            "Existing number");
+//            }
 
-            for(Contract contract2 : listContract){
-                if(contract2.getNumber()==contract.getNumber())
-                    errors.rejectValue("number", "required",
-                            "Existing number");
-            }
-
-        if (contract.getCompanyCIF().equals("") || contract.getCompanyCIF().length() != 9)
-            errors.rejectValue("cif", "required",
+        if (contract.getCompanyCIF().trim().equals("") || contract.getCompanyCIF().length() != 9)
+            errors.rejectValue("companyCIF", "required",
                     "It must be valid value");
-
-        if (contract.getServiceType().equals(""))
-            errors.rejectValue("serviceType", "required",
-                    "It must be a valid value");
-
-        if (contract.getPriceUnit()==0)
-            errors.rejectValue("price", "required",
+        
+        if (contract.getNumber()<0)
+            errors.rejectValue("number", "required",
+                    "It must be valid value");
+      
+        if (contract.getPriceUnit()<=0)
+            errors.rejectValue("priceUnit", "required",
                     "It must be a valid value");
 
         if (contract.getDateBeginning()==null)
-            errors.rejectValue("dateBegining", "required",
+            errors.rejectValue("dateBeginning", "required",
                     "It must be a valid value");
 
         if (contract.getDateEnding()==null)
             errors.rejectValue("dateEnding", "required",
                     "It must be a valid value");
 
-        if (!contract.getDateEnding().after(contract.getDateBeginning())) {
-            errors.rejectValue("dateEnding", "date", "\r\n" + 
-            		"The end date must be later than the start date");
-        }
+//        if (!contract.getDateEnding().after(contract.getDateBeginning())) {
+//            errors.rejectValue("dateEnding", "date", "\r\n" + 
+//            		"The end date must be later than the start date");
+//        }
     }
 }

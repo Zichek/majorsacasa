@@ -6,7 +6,7 @@ import es.uji.ei1027.majorsacasa.model.Company;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
-
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -22,6 +22,7 @@ public class CompanyValidator implements Validator {
         Company company = (Company) obj;
         CompanyDao companyDao = new CompanyDao();
         List<Company> listCompany = companyDao.getAllCompany();
+        
 
         for(Company company2 : listCompany){
             if(company2.getCIF().equals(company.getCIF()))
@@ -29,34 +30,37 @@ public class CompanyValidator implements Validator {
                         "Existing CIF");
         }
 
-        if (company.getName().equals(""))
+        if (company.getName().trim().equals(""))
             errors.rejectValue("name", "required",
                     "Enter a valid value");
+        
+        if (company.getPassword().trim().equals(""))
+            errors.rejectValue("password", "required",
+                    "Enter a valid value");
+        
 
-        if (company.getCIF().equals("") || company.getCIF().length() != 9)
-            errors.rejectValue("cif", "required",
+        if (company.getCIF().trim().equals("") || company.getCIF().length() != 9)
+            errors.rejectValue("CIF", "required",
                     "Enter a valid value. It must be 9 characters");
 
 
-        if (company.getAddress().equals(""))
+        if (company.getAddress().trim().equals(""))
             errors.rejectValue("address", "required",
                     "Enter a valid value");
 
-        if (company.getContactPersonPhoneNumber().equals("") || company.getContactPersonPhoneNumber().length() != 9)
+        if (company.getContactPersonPhoneNumber().length() != 9)
             errors.rejectValue("contactPersonPhoneNumber", "required",
                     "It must be 9 numbers.");
 
-        if (company.getContactPersonEmail().equals(""))
+        if (company.getContactPersonEmail().trim().equals(""))
             errors.rejectValue("contactPersonEmail", "required",
                     "Enter a valid value");
 
-        if (company.getContactPersonName().equals(""))
+        if (company.getContactPersonName().trim().equals(""))
             errors.rejectValue("contactPersonName", "required",
                     "Enter a valid value");
 
-        if (company.getServiceType().equals(""))
-            errors.rejectValue("serviceType", "required",
-            		"Enter a valid value");
+       
 
     }
 

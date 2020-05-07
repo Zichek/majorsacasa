@@ -26,18 +26,22 @@
 			<tr>
 				<td class="a"><label>Number:</label></td>
 				<td class="b"><input type="text" th:field="*{number}" /></td>
+				<td th:if="${#fields.hasErrors('number')}" th:errors="*{number}"></td>
 			</tr>
 			<tr>
 				<td class="a"><label>Company CIF:</label></td>
 				<td class="b"><input type="text" th:field="*{companyCIF}" /></td>
+				<td th:if="${#fields.hasErrors('companyCIF')}" th:errors="*{companyCIF}"></td>
 			</tr>
 			<tr>
 				<td class="a"><label>Date beginning:</label></td>
 				<td class="b"><input type="date" th:field="*{dateBeginning}" /></td>
+				<td th:if="${#fields.hasErrors('dateBeginning')}" th:errors="*{dateBeginning}"></td>
 			</tr>
 			<tr>
 				<td class="a"><label>Date ending:</label></td>
 				<td class="b"><input type="date" th:field="*{dateEnding}" /></td>
+				<td th:if="${#fields.hasErrors('dateEnding')}" th:errors="*{dateEnding}"></td>
 			</tr>
 			<tr>
 				<td class="a"><label>Description:</label></td>
@@ -47,7 +51,6 @@
 				<td class="a"><label>Service type:</label></td>
 				<td class="b"><select class="form_control" type="ServiceType"
 					th:field="*{serviceType}">
-						<option value="No seleccionat">Select service</option>
 						<option value="DINNER">Dinner</option>
 						<option value="HEALTH_SERVICE">Health service</option>
 						<option value="CLEANING">Cleaning</option>
@@ -64,6 +67,7 @@
 			<tr>
 				<td class="a"><label>Price unit</label></td>
 				<td class="b"><input type="text" th:field="*{priceUnit}" /></td>
+				<td th:if="${#fields.hasErrors('priceUnit')}" th:errors="*{priceUnit}"></td>
 			</tr>
 			<tr>
 				<td colspan="2"><input

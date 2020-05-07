@@ -32,6 +32,7 @@
 				<tr>
 					<td class="a"><label>Password:</label></td>
 					<td class="b"><input type="password" th:field="*{password}" /></td>
+					<td th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></td>
 				</tr>
 				<tr>
 					<td class="a"><label>Address:</label></td>
@@ -48,13 +49,13 @@
 					<td class="a"><label>Contact person phone number:</label></td>
 					<td class="b"><input type="text"
 						th:field="*{contactPersonPhoneNumber}" /></td>
-						<div th:if="${#fields.hasErrors('contactPersonPhoneNumber')}" th:errors="*{contactPersonPhoneNumber}"></div>
+						<td th:if="${#fields.hasErrors('contactPersonPhoneNumber')}" th:errors="*{contactPersonPhoneNumber}"></td>
 				</tr>
 				<tr>
 					<td class="a"><label>Contact person email:</label></td>
 					<td class="b"><input type="text"
 						th:field="*{contactPersonEmail}" /></td>
-						<div th:if="${#fields.hasErrors('contactPersonEmail')}" th:errors="*{contactPersonEmail}"></div>
+						<td th:if="${#fields.hasErrors('contactPersonEmail')}" th:errors="*{contactPersonEmail}"></td>
 				</tr>
 				<tr>
 					<td class="a"><label>Service type:</label></td>

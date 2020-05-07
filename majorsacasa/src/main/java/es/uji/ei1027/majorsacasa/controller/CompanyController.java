@@ -46,8 +46,8 @@ public class CompanyController {
    @RequestMapping(value="/add", method=RequestMethod.POST)
    public String processAddSubmit(@ModelAttribute("company") Company company,
                                    BindingResult bindingResult) { 
-	  //CompanyValidator companyValidator = new CompanyValidator();
-	  //companyValidator.validate(company, bindingResult);
+	  CompanyValidator companyValidator = new CompanyValidator();
+	  companyValidator.validate(company, bindingResult);
    	 if (bindingResult.hasErrors()) 
    			return "company/add";
    	 
@@ -70,13 +70,17 @@ public class CompanyController {
 	   companyValidator.validate(company, bindingResult);
 		 if (bindingResult.hasErrors()) 
 			 return "company/update";
+		 userDao.updateUser(company.getCIF(), company.getPassword());
 		 companyDao.updateCompany(company);
 		 return "redirect:list"; 
 	}
 
    @RequestMapping(value="/delete/{CIF}")
 	public String processDelete(@PathVariable String CIF) {
+	   		userDao.deleteUser(CIF);
           companyDao.deleteCompany(CIF);
+         
+          
           return "redirect:../list"; 
 	}
 
