@@ -21,14 +21,15 @@ public class CompanyValidator implements Validator {
     public void validate(Object obj, Errors errors) {
         Company company = (Company) obj;
         CompanyDao companyDao = new CompanyDao();
-        List<Company> listCompany = companyDao.getAllCompany();
         
-
-        for(Company company2 : listCompany){
-            if(company2.getCIF().equals(company.getCIF()))
-                errors.rejectValue("CIF", "required",
-                        "Existing CIF");
-        }
+//        List<Company> listCompany = companyDao.getAllCompany();
+//        
+//        
+//        for(Company company2 : listCompany){
+//            if(company2.getCIF().equals(company.getCIF()))
+//                errors.rejectValue("CIF", "required",
+//                        "Existing CIF");
+//        }
 
         if (company.getName().trim().equals(""))
             errors.rejectValue("name", "required",

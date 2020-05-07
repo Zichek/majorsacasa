@@ -22,45 +22,41 @@
 				<tr>
 					<td class="a"><label>Name:</label></td>
 					<td class="b"><input type="text" th:field="*{name}" /></td>
-					<td th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></td>
+					<td class="b" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></td>
 				</tr>
 				<tr>
 					<td class="a"><label>CIF:</label></td>
 					<td class="b"><input type="text" th:field="*{CIF}" /></td>
-					<td th:if="${#fields.hasErrors('CIF')}" th:errors="*{CIF}"></td>
+					<td class="b" th:if="${#fields.hasErrors('CIF')}" th:errors="*{CIF}"></td>
 				</tr>
 				<tr>
 					<td class="a"><label>Password:</label></td>
 					<td class="b"><input type="password" th:field="*{password}" /></td>
-					<td th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></td>
+					<td class="b" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></td>
 				</tr>
 				<tr>
 					<td class="a"><label>Address:</label></td>
 					<td class="b"><input type="text" th:field="*{address}" /></td>
-					<td th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></td>
+					<td class="b" th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></td>
 				</tr>
 				<tr>
 					<td class="a"><label>Contact person name:</label></td>
-					<td class="b"><input type="text"
-						th:field="*{contactPersonName}" /></td>
-						<td th:if="${#fields.hasErrors('contactPersonName')}" th:errors="*{contactPersonName}"></td>
+					<td class="b"><input type="text" th:field="*{contactPersonName}" /></td>
+					<td class="b" th:if="${#fields.hasErrors('contactPersonName')}" th:errors="*{contactPersonName}"></td>
 				</tr>
 				<tr>
 					<td class="a"><label>Contact person phone number:</label></td>
-					<td class="b"><input type="text"
-						th:field="*{contactPersonPhoneNumber}" /></td>
-						<td th:if="${#fields.hasErrors('contactPersonPhoneNumber')}" th:errors="*{contactPersonPhoneNumber}"></td>
+					<td class="b"><input type="text" th:field="*{contactPersonPhoneNumber}" /></td>
+					<td class="b" th:if="${#fields.hasErrors('contactPersonPhoneNumber')}" th:errors="*{contactPersonPhoneNumber}"></td>
 				</tr>
 				<tr>
 					<td class="a"><label>Contact person email:</label></td>
-					<td class="b"><input type="text"
-						th:field="*{contactPersonEmail}" /></td>
-						<td th:if="${#fields.hasErrors('contactPersonEmail')}" th:errors="*{contactPersonEmail}"></td>
+					<td class="b"><input type="text" th:field="*{contactPersonEmail}" /></td>
+					<td class="b" th:if="${#fields.hasErrors('contactPersonEmail')}" th:errors="*{contactPersonEmail}"></td>
 				</tr>
 				<tr>
 					<td class="a"><label>Service type:</label></td>
-					<td class="b"><select class="form_control" type="ServiceType"
-						th:field="*{serviceType}">
+					<td class="b"><select class="form_control" type="ServiceType" th:field="*{serviceType}">
 							<option value="DINNER">Dinner</option>
 							<option value="HEALTH_SERVICE">Health service</option>
 							<option value="CLEANING">Cleaning</option>
