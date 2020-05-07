@@ -65,13 +65,14 @@ public class UserController {
 		// Autenticats correctament. 
 		// Guardem les dades de l'usuari autenticat a la sessió
 		session.setAttribute("user", user); 
+		System.out.println(user.getRole()); //	COMPORBAMOS QUE EL USUARIO SEA EL CORRECTO
 		if (user.getRole().equals("elderly"))
-			return "redirect:/elderly/list";
-		else if (user.getRole().equals("company"))
+			return "redirect:/elderly/list"; //FUNCIONA
+		else if (user.getRole().equals("company")) //NO IMPLEMENTADO
 			return "redirect:/company/indexCompany";
-		else if (user.getRole().equals("casManager")) 
+		else if (user.getRole().equals("casManager"))  //NO FUNCIONA
 			return "redirect:/cas/manager";
-		else if (user.getRole().equals("casComite"))
+		else if (user.getRole().equals("casComite")) //NO IMPLEMENTADO	
 			return "redirect:manager/indexCasCommitee";
 		
 		// Torna a la pàgina principal

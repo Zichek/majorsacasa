@@ -55,8 +55,8 @@ public class CompanyValidator implements Validator {
                     "Enter a valid value");
 
         if (company.getServiceType().equals(""))
-            errors.rejectValue("serviceType", "obligatori",
-                    "Cal introduir un valor");
+            errors.rejectValue("serviceType", "required",
+            		"Enter a valid value");
 
     }
 

@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import es.uji.ei1027.majorsacasa.dao.ElderlyDao;
 import es.uji.ei1027.majorsacasa.dao.UserDao;
-import es.uji.ei1027.majorsacasa.model.Company;
 import es.uji.ei1027.majorsacasa.model.Elderly;
 
 @Controller
