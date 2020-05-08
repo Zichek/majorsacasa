@@ -1,0 +1,10 @@
+.img-responsive {
+	width: 1200px !important;
+	height: 450px !important;
+}
+.boton {
+	width: 200px ;
+	height: 100px;
+	text-align: center;
+	margin-top:25px;
+}

@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{fragments/base}">
 <head>
 <title>List Company</title>
 <meta charset="UTF-8" />
@@ -10,15 +12,7 @@
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
 <body>
-	<!--Navigation bar-->
-	<div id="nav-placeholder"></div>
-
-	<script>
-		$(function() {
-			$("#nav-placeholder").load("navbar.html");
-		});
-	</script>
-	<!--end of Navigation bar-->
+	<div layout:fragment="content">
 	<h1>List of companies</h1>
 	<table class="table table-sm">
 		<thead class="thead-dark">
@@ -55,5 +49,6 @@
 	</table>
 	<a class="btn btn-secondary btn-lg btn-block " href="add">Add
 		company</a>
+	</div>
 </body>
 </html>

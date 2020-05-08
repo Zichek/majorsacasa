@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorate="~{fragments/base}">
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,24 +9,46 @@
 
 <link
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" />
-
+<link rel="stylesheet" type="text/css" href="/css/estilosnav.css"
+	th:href="@{/css/estilosnav.css}" />
 </head>
 <body>
-	<div layout:fragment="content">
-		<div class="jumbotron jumbotron-fluid">
-			<div class="container">
-			<a href="/login">Login</a>
-				<h1 class="display-4">Bienvenidos a Majors a casa</h1>
-				<p class="lead">¿Tienes problemas de movilidad? Ya no tienes
-					nada por lo que preocuparte, nosotros te llevamos la comida o las
-					medicinas a tu casa.</p>
-				<p class="lead">¿Necesitas asistencia médica de calidad a
-					domicilio? Trabajamos con los mejores expertos del sector para lo
-					que necesites.</p>
-			</div>
+	<nav class="navbar navbar-inverse">
+		<img src="logo.png" alt="Stickman" width="250" height="120" align="left">
+		<div class="container-fluid">
+			
+			<ul class="nav navbar-nav">
+				<li><a class="boton" href="/">Home</a></li>
+			</ul>
+			<ul class="nav navbar-nav">
+				<li><a class="boton" href="company/list">Sobre nosotros</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a class="boton" href="../elderly/add"><span
+						class="glyphicon glyphicon-user"></span> Regístrate</a></li>
+				<li><a class="boton" href="../login"><span
+						class="glyphicon glyphicon-log-in"></span> Login</a></li>
+			</ul>
 		</div>
-		<img src="seniors.jpg" class="img-fluid" alt="Responsive image">
+	</nav>
+
+	<div class="jumbotron jumbotron-fluid">
+		<div class="container">
+			<h1 class="display-4">Bienvenidos a Majors a casa</h1>
+			<p class="lead">¿Tienes problemas de movilidad? Ya no tienes nada
+				por lo que preocuparte, nosotros te llevamos la comida o las
+				medicinas a tu casa.</p>
+			<p class="lead">¿Necesitas asistencia médica de calidad a
+				domicilio? Trabajamos con los mejores expertos del sector para lo
+				que necesites.</p>
+		</div>
 	</div>
 
+	<img src="seniors.jpg" class="img-responsive" style="width:1800px !important; height:245px !important" alt="">
+	<footer>
+		<hr>
+		<p class="text-muted">EI1027 - Disseny i Implementació de
+			Sistemes d'Informació</p>
+	</footer>
 </body>
 </html>
