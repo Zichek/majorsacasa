@@ -34,10 +34,10 @@ public class ContractDao {
 	}
 	
 	public void updateContract(Contract contract) {
-		jdbcTemplate.update("UPDATE CONTRACT SET companyCIF=?, dateBeginning=?, dateEnding=?,"
-				+ "description=?, CAST(? AS serviceType), quantityService=?, unitsOfMesure=?, priceUnit=? where number=?",
-				contract.getCompanyCIF(),contract.getDateBeginning(),contract.getDateEnding(), contract.getDescription(),
-				contract.getServiceType().name(),contract.getQuantityServices(),contract.getUnitsOfMeasure(),contract.getPriceUnit());
+		jdbcTemplate.update("UPDATE CONTRACT SET  dateBeginning=?, dateEnding=?,"
+				+ "description=?,serviceType=CAST(? AS serviceType), quantityServices=?, unitsOfMeasure=?, priceUnit=? where number=?",
+				contract.getDateBeginning(),contract.getDateEnding(), contract.getDescription(),
+				contract.getServiceType().name(),contract.getQuantityServices(),contract.getUnitsOfMeasure(),contract.getPriceUnit(), contract.getNumber());
 	}
 	
 	public Contract getContract(int number) {

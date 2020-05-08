@@ -20,7 +20,7 @@ public class ContractValidator implements Validator {
 
         public void validate(Object obj, Errors errors) {
             Contract contract = (Contract) obj;
-            ContractDao contractDao = new ContractDao();
+
 //            List<Contract> listContract = contractDao.getAllContract();
 //
 //            for(Contract contract2 : listContract){

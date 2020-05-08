@@ -10,15 +10,7 @@
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
 <body>
-	<!--Navigation bar-->
-	<div id="nav-placeholder"></div>
 
-	<script>
-		$(function() {
-			$("#nav-placeholder").load("navbar.html");
-		});
-	</script>
-	<!--end of Navigation bar-->
 	<h1>Modify contract</h1>
 	<form action="#" th:action="@{/contract/update}"
 		th:object="${contract}" method="post">
@@ -26,18 +18,22 @@
 			<tr>
 				<td class="a"><label>Number:</label></td>
 				<td class="b"><input type="text" th:field="*{number}" /></td>
+				<td th:if="${#fields.hasErrors('number')}" th:errors="*{number}"></td>
 			</tr>
 			<tr>
 				<td class="a"><label>Company CIF:</label></td>
 				<td class="b"><input type="text" th:field="*{companyCIF}" /></td>
+				<td th:if="${#fields.hasErrors('companyCIF')}" th:errors="*{companyCIF}"></td>
 			</tr>
 			<tr>
 				<td class="a"><label>Date beginning:</label></td>
 				<td class="b"><input type="date" th:field="*{dateBeginning}" /></td>
+				<td th:if="${#fields.hasErrors('dateBeginning')}" th:errors="*{dateBeginning}"></td>
 			</tr>
 			<tr>
 				<td class="a"><label>Date ending:</label></td>
 				<td class="b"><input type="date" th:field="*{dateEnding}" /></td>
+				<td th:if="${#fields.hasErrors('dateEnding')}" th:errors="*{dateEnding}"></td>
 			</tr>
 			<tr>
 				<td class="a"><label>Description:</label></td>
@@ -63,11 +59,12 @@
 			<tr>
 				<td class="a"><label>Price unit</label></td>
 				<td class="b"><input type="text" th:field="*{priceUnit}" /></td>
+				<td th:if="${#fields.hasErrors('priceUnit')}" th:errors="*{priceUnit}"></td>
 			</tr>
 			<tr>
 				<td colspan="2"><input
 					class="btn btn-secondary btn-lg btn-block " type="submit"
-					value="Modify contract" /></td>
+					value="Edit contract" /></td>
 			</tr>
 		</table>
 	</form>
