@@ -24,8 +24,8 @@ public class ContractDao {
 	}
 	
 	public void addContract(Contract contract) {
-		jdbcTemplate.update("INSERT INTO CONTRACT VALUES(?,?,?,?,?,CAST(? AS serviceType),?,?,?)",
-				contract.getNumber(), contract.getCompanyCIF(),contract.getDateBeginning(),contract.getDateEnding(),contract.getDescription(),contract.getServiceType().name(), 
+		jdbcTemplate.update("INSERT INTO CONTRACT VALUES(DEFAULT,?,?,?,?,CAST(? AS serviceType),?,?,?)",
+				 contract.getCompanyCIF(),contract.getDateBeginning(),contract.getDateEnding(),contract.getDescription(),contract.getServiceType().name(), 
 				contract.getQuantityServices(),contract.getUnitsOfMeasure(),contract.getPriceUnit());
 	}
 	
@@ -34,9 +34,11 @@ public class ContractDao {
 	}
 	
 	public void updateContract(Contract contract) {
-		jdbcTemplate.update("UPDATE CONTRACT SET  dateBeginning=?, dateEnding=?,"
+		System.out.println(contract.getNumber());
+		int numero = 
+		jdbcTemplate.updates("UPDATE CONTRACT SET  companyCIF=?, dateBeginning=?, dateEnding=?,"
 				+ "description=?,serviceType=CAST(? AS serviceType), quantityServices=?, unitsOfMeasure=?, priceUnit=? where number=?",
-				contract.getDateBeginning(),contract.getDateEnding(), contract.getDescription(),
+				contract.getCompanyCIF(),contract.getDateBeginning(),contract.getDateEnding(), contract.getDescription(),
 				contract.getServiceType().name(),contract.getQuantityServices(),contract.getUnitsOfMeasure(),contract.getPriceUnit(), contract.getNumber());
 	}
 	

@@ -23,8 +23,8 @@ public class InvoiceDao {
 	}
 	
 	public void addInvoice(Invoice invoice) {
-		jdbcTemplate.update("INSERT INTO INVOICE VALUES(?,?,?,?,?,?)",
-				invoice.getNumber(),invoice.getElderlyDNI(), invoice.getRequestNumber(),invoice.getDate(),invoice.getAmount(),invoice.getConcept());
+		jdbcTemplate.update("INSERT INTO INVOICE VALUES(DEFAULT,?,?,?,?,?)",
+				invoice.getElderlyDNI(), invoice.getRequestNumber(),invoice.getDate(),invoice.getAmount(),invoice.getConcept());
 	}
 	
 	public void deleteInvoice(int number) {
