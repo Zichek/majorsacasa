@@ -1,73 +1,78 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"> 
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{fragments/base}">
 <head>
-   <title>New elderly</title>
-   <meta charset="UTF-8" />
-   <link rel="stylesheet"       
-     href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+<title>New elderly</title>
+<meta charset="UTF-8" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css" href="/css/estilosadd.css"
-                                    th:href="@{/css/estilosadd.css}"/>
+	th:href="@{/css/estilosadd.css}" />
 </head>
 <body>
-    <h1>New elderly</h1>
-    <form action="#" th:action="@{/elderly/add}" 
-                     th:object="${elderly}" method="post"> 
-      <table class="table table-sm">
-        <tr>
-            <td class="a"><label>Name:</label></td>
-            <td class="b"><input type="text" th:field="*{name}" /></td> 
-        </tr>
-        <tr>
-            <td class="a"><label>Surname:</label></td>
-            <td class="b"><input type="text" th:field="*{surname}" /></td>
-        </tr>
-        <tr>
-            <td class="a"><label>DNI:</label></td>
-            <td class="b"><input type="text" th:field="*{DNI}" /></td>
-        </tr>
-        <tr>
-            <td class="a"><label>Birthdate:</label></td>
-            <td class="b"><input type="date" th:field="*{birthDate}" /></td>
-        </tr>
-        <tr>
-            <td class="a"><label>Address:</label></td>
-            <td class="b"><input type="text" th:field="*{address}" /></td>
-        </tr>
-        <tr>
-            <td class="a"><label>Phone number:</label></td>
-            <td class="b"><input type="text" th:field="*{phoneNumber}" /></td>
-        </tr>
-        <tr>
-            <td class="a"><label>Bank account number:</label></td>
-            <td class="b"><input type="text" th:field="*{bankAccountNumber}" /></td>
-        </tr>
-        <tr>
-            <td class="a"><label>Email:</label></td>
-            <td class="b"><input type="email" th:field="*{email}" /></td>
-        </tr>
-        <tr>
-            <td class="a"><label>Password:</label></td>
-            <td class="b"><input type="password" th:field="*{userPwd}" /></td>
-        </tr>
-        <tr>
-            <td class="a"><label>Date creation:</label></td>
-            <td class="b"><input type="date" th:field="*{dateCreation}" /></td>
-        </tr>
-        <tr>
-            <td class="a"><label>Alergies:</label></td>
-            <td class="b"><input type="text" th:field="*{alergies}" /></td>
-        </tr>
-        <tr>
-            <td class="a"><label>Diseases:</label></td>
-            <td class="b"><input type="text" th:field="*{diseases}" /></td>
-        </tr>
-        
-        <tr>
-            <td colspan="2"><input
-					class="btn btn-secondary btn-lg btn-block" type="submit"
-					value="Add elderly" /></td>
-        </tr>
-      </table>
-    </form>
+	<div layout:fragment="content">
+		<h1>New elderly</h1>
+		<form action="#" th:action="@{/elderly/add}" th:object="${elderly}"
+			method="post">
+			<table class="table">
+				<tr>
+					<td class="a"><label>Name:</label></td>
+					<td class="b"><input type="text" th:field="*{name}" /></td>
+				</tr>
+				<tr>
+					<td class="a"><label>Surname:</label></td>
+					<td class="b"><input type="text" th:field="*{surname}" /></td>
+				</tr>
+				<tr>
+					<td class="a"><label>DNI:</label></td>
+					<td class="b"><input type="text" th:field="*{DNI}" /></td>
+				</tr>
+				<tr>
+					<td class="a"><label>Birthdate:</label></td>
+					<td class="b"><input type="date" th:field="*{birthDate}" /></td>
+				</tr>
+				<tr>
+					<td class="a"><label>Address:</label></td>
+					<td class="b"><input type="text" th:field="*{address}" /></td>
+				</tr>
+				<tr>
+					<td class="a"><label>Phone number:</label></td>
+					<td class="b"><input type="text" th:field="*{phoneNumber}" /></td>
+				</tr>
+				<tr>
+					<td class="a"><label>Bank account number:</label></td>
+					<td class="b"><input type="text"
+						th:field="*{bankAccountNumber}" /></td>
+				</tr>
+				<tr>
+					<td class="a"><label>Email:</label></td>
+					<td class="b"><input type="email" th:field="*{email}" /></td>
+				</tr>
+				<tr>
+					<td class="a"><label>Password:</label></td>
+					<td class="b"><input type="password" th:field="*{userPwd}" /></td>
+				</tr>
+				<tr>
+					<td class="a"><label>Date creation:</label></td>
+					<td class="b"><input type="date" th:field="*{dateCreation}" /></td>
+				</tr>
+				<tr>
+					<td class="a"><label>Alergies:</label></td>
+					<td class="b"><input type="text" th:field="*{alergies}" /></td>
+				</tr>
+				<tr>
+					<td class="a"><label>Diseases:</label></td>
+					<td class="b"><input type="text" th:field="*{diseases}" /></td>
+				</tr>
+
+				<tr>
+					<td colspan="2"><input
+						class="btn btn-secondary btn-lg btn-block" type="submit"
+						value="Add elderly" /></td>
+				</tr>
+			</table>
+		</form>
+	</div>
 </body>
 </html>

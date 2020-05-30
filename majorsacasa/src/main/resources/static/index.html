@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
@@ -7,16 +8,18 @@
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
-<link
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css" href="/css/estilosnav.css"
 	th:href="@{/css/estilosnav.css}" />
 </head>
+
+
 <body>
 	<nav class="navbar navbar-inverse">
-		<img src="logo.png" alt="Stickman" width="250" height="120" align="left">
-		<div class="container-fluid">
-			
+
+		<div>
+			<a href="/"> <img src="logo.png" alt="Stickman" width="250"
+				height="120" align="left">
+			</a>
 			<ul class="nav navbar-nav">
 				<li><a class="boton" href="/">Home</a></li>
 			</ul>
@@ -44,7 +47,7 @@
 		</div>
 	</div>
 
-	<img src="seniors.jpg" class="img-responsive" style="width:1800px !important; height:245px !important" alt="">
+	<img src="seniors.jpg" class="img-responsive">
 	<footer>
 		<hr>
 		<p class="text-muted">EI1027 - Disseny i Implementació de

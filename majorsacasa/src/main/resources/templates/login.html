@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{fragments/base}">
 <head>
 <title>Login</title>
 <meta charset="UTF-8" />
@@ -9,7 +11,7 @@
 	th:href="@{/css/estiloslogin.css}" />
 </head>
 <body>
-
+<div layout:fragment="content">
 	<div class="login">
 	  <div class="heading">
 	    <h2>Sign in</h2>
@@ -29,6 +31,6 @@
 	       </form>
  		</div>
  	</div>
-
+</div>
 </body>
 </html>
