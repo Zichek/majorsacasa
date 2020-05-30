@@ -35,8 +35,7 @@ public class ContractDao {
 	
 	public void updateContract(Contract contract) {
 		System.out.println(contract.getNumber());
-		int numero = 
-		jdbcTemplate.updates("UPDATE CONTRACT SET  companyCIF=?, dateBeginning=?, dateEnding=?,"
+		jdbcTemplate.update("UPDATE CONTRACT SET  companyCIF=?, dateBeginning=?, dateEnding=?,"
 				+ "description=?,serviceType=CAST(? AS serviceType), quantityServices=?, unitsOfMeasure=?, priceUnit=? where number=?",
 				contract.getCompanyCIF(),contract.getDateBeginning(),contract.getDateEnding(), contract.getDescription(),
 				contract.getServiceType().name(),contract.getQuantityServices(),contract.getUnitsOfMeasure(),contract.getPriceUnit(), contract.getNumber());
