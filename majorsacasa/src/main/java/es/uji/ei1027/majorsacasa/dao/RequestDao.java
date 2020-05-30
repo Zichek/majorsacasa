@@ -33,10 +33,10 @@ public class RequestDao {
 	}
 	
 	public void updateRequest(Request request) {
-		jdbcTemplate.update("UPDATE REQUEST SET elderlyDNI=?, contractNumber=?, CAST(? AS serviceType),"
-				+ "creationDate=?, CAST(? AS state), approvedDate=?, rejectedDate=?, comments=?, endDate=? where number=?",
+		jdbcTemplate.update("UPDATE REQUEST SET elderlyDNI=?, contractNumber=?, serviceType=CAST(? AS serviceType),"
+				+ "creationDate=?, state=CAST(? AS state), approvedDate=?, rejectedDate=?, comments=?, endDate=? where number=?",
 				request.getElderlyDNI(),request.getContractNumber(),request.getServiceType().name(),request.getCreationDate(),request.getState().name(),
-				request.getApprovedDate(),request.getRejectedDate(),request.getComments(),request.getEndDate());
+				request.getApprovedDate(),request.getRejectedDate(),request.getComments(),request.getEndDate(), request.getNumber());
 	}
 	
 	public Request getRequest(int number) {

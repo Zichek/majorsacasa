@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{fragments/base}">
+<head>
+<title>List Company</title>
+<meta charset="UTF-8" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/css/estiloslist.css"
+	th:href="@{/css/estiloslist.css}" />
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+	<div layout:fragment="content">
+	<h1>List of Request</h1>
+	<table class="table">
+		<thead class="thead-dark">
+			<tr>
+				<th>Number</th>
+				<th>Elderly DNI</th>
+				<th>Contract number</th>
+				<th>Type service</th>
+				<th>Creation date</th>
+				<th>State</th>
+				<th>Aprovved date</th>
+				<th>Rejected Date</th>
+				<th>Comments</th>
+				<th>End date</th>
+				<th></th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="request: ${requests}">
+				<td th:text="${request.number}"></td>
+				<td th:text="${request.elderlyDNI}"></td>
+				<td th:text="${request.contractNumber}"></td>
+				<td th:text="${request.serviceType}"></td>
+				<td th:text="${request.creationDate}"></td>
+				<td th:text="${request.state}"></td>
+				<td th:text="${request.approvedDate}"></td>
+				<td th:text="${request.rejectedDate}"></td>
+				<td th:text="${request.comments}"></td>
+				<td th:text="${request.endDate}"></td>
+				<td><a class="btn btn-warning"
+					th:href="@{/request/update/{number}(number=${request.number})}">Edita</a></td>
+				<td><a class="btn btn-danger"
+					th:href="@{/request/delete/{number}(number=${request.number})}">Esborra</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<a class="btn btn-secondary btn-lg btn-block " href="add">Add
+		request</a>
+	</div>
+</body>
+</html>

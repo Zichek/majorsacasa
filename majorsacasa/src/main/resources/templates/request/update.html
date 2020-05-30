@@ -7,13 +7,13 @@
 <meta charset="UTF-8" />
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" />
-<link rel="stylesheet" type="text/css" href="/css/estilosadd.css"
-	th:href="@{/css/estilosadd.css}" />
+<link rel="stylesheet" type="text/css" href="/css/estilosupdate.css"
+	th:href="@{/css/estilosupdate.css}" />
 </head>
 <body>
 	<div layout:fragment="content">
 		<h1>New request</h1>
-		<form action="#" th:action="@{/request/add}" th:object="${request}"
+		<form action="#" th:action="@{/request/update}" th:object="${request}"
 			method="post">
 			<table class="table">
 				<tr>
@@ -69,7 +69,7 @@
 				<tr>
 					<td colspan="2"><input
 						class="btn btn-secondary btn-lg btn-block" type="submit"
-						value="Add request" /></td>
+						value="Update request" /></td>
 				</tr>
 			</table>
 		</form>

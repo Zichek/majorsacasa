@@ -1,6 +1,6 @@
 package es.uji.ei1027.majorsacasa.model;
 
-public enum States {
+public enum State {
 	DONE,
 	ACCEPTED,
 	REJECTED

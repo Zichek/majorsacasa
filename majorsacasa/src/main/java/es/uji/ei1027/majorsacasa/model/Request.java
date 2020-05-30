@@ -8,7 +8,7 @@ public class Request {
 	private int contractNumber;
 	private ServiceType serviceType;
 	private Date creationDate;
-	private States state;
+	private State state;
 	private Date approvedDate;
 	private Date rejectedDate;
 	private String comments;
@@ -44,10 +44,10 @@ public class Request {
 	public void setCreationDate(Date creationDate) {
 		this.creationDate = creationDate;
 	}	
-	public States getState() {
+	public State getState() {
 		return state;
 	}
-	public void setState(States state) {
+	public void setState(State state) {
 		this.state = state;
 	}
 	public Date getApprovedDate() {
