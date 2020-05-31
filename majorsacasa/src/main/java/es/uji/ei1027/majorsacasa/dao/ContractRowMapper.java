@@ -1,6 +1,7 @@
 package es.uji.ei1027.majorsacasa.dao;
 
 import java.sql.Date;
+import java.time.LocalDate;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import org.springframework.jdbc.core.RowMapper;
@@ -13,8 +14,8 @@ public final class ContractRowMapper implements RowMapper<Contract> {
 		Contract contract = new Contract();
 		contract.setNumber(rs.getInt("number"));
 		contract.setCompanyCIF(rs.getString("companyCIF"));
-		contract.setDateBeginning(rs.getObject("dateBeginning", Date.class));
-		contract.setDateEnding(rs.getObject("dateEnding", Date.class));
+		contract.setDateBeginning(rs.getObject("dateBeginning", LocalDate.class));
+		contract.setDateEnding(rs.getObject("dateEnding", LocalDate.class));
 		contract.setDescription(rs.getString("description"));
 		contract.setQuantityServices(rs.getInt("quantityServices"));
 		contract.setServiceType(ServiceType.valueOf(rs.getString("serviceType")));

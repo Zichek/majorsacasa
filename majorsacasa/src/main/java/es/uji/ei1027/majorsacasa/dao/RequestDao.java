@@ -23,9 +23,9 @@ public class RequestDao {
 	}
 	
 	public void addRequest(Request request) {
-		jdbcTemplate.update("INSERT INTO REQUEST VALUES(DEFAULT,?,?,CAST(? AS serviceType),?,CAST(? AS state),?,?,?,?)",
-				request.getElderlyDNI(),request.getContractNumber(),request.getServiceType().name(),request.getCreationDate(),
-				request.getState().name(),request.getApprovedDate(),request.getRejectedDate(),request.getComments(),request.getEndDate());
+		jdbcTemplate.update("INSERT INTO REQUEST VALUES(?,?,?,CAST(? AS serviceType),?,CAST(? AS state),?,?,?,?)",
+				request.getNumber(),request.getElderlyDNI(),null,request.getServiceType().name(),request.getCreationDate(),
+				"DONE",null,null,request.getComments(),request.getEndDate());
 	}
 	
 	public void deleteRequest(int number) {

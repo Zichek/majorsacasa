@@ -1,12 +1,17 @@
 package es.uji.ei1027.majorsacasa.model;
 
 import java.sql.Date;
+import java.time.LocalDate;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 public class Contract {
 	private int number;
 	private String companyCIF;
-	private Date dateBeginning;
-	private Date dateEnding;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private LocalDate dateBeginning;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private LocalDate dateEnding;
 	private String description;
 	private ServiceType serviceType;
 	private int quantityServices;
@@ -26,16 +31,16 @@ public class Contract {
 	public void setCompanyCIF(String companyCIF) {
 		this.companyCIF = companyCIF;
 	}
-	public Date getDateBeginning() {
+	public LocalDate getDateBeginning() {
 		return dateBeginning;
 	}
-	public void setDateBeginning(Date dateBeginning) {
+	public void setDateBeginning(LocalDate dateBeginning) {
 		this.dateBeginning = dateBeginning;
 	}
-	public Date getDateEnding() {
+	public LocalDate getDateEnding() {
 		return dateEnding;
 	}
-	public void setDateEnding(Date dateEnding) {
+	public void setDateEnding(LocalDate dateEnding) {
 		this.dateEnding = dateEnding;
 	}
 	public String getDescription() {

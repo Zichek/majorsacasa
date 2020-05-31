@@ -7,8 +7,8 @@
 <meta charset="UTF-8" />
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" />
-<link rel="stylesheet" type="text/css" href="/css/estilosadd.css"
-	th:href="@{/css/estilosadd.css}" />
+<link rel="stylesheet" type="text/css" href="/css/estilosupdate.css"
+	th:href="@{/css/estilosupdate.css}" />
 </head>
 <body>
 	<div layout:fragment="content">
@@ -17,13 +17,17 @@
 			method="post">
 			<table class="table">
 				<tr>
+				<td class="a"><label>Number</label></td>
+				<td class="b"><input type="text" th:field="*{number}" /></td>
+				<td class="b" th:if="${#fields.hasErrors('number')}" th:errors="*{number}"></td>
+				
+			</tr>
+				<tr>
 					<td class="a"><label>Elderly DNI:</label></td>
 					<td class="b"><input type="text" th:field="*{elderlyDNI}" /></td>
+					<td class="b" th:if="${#fields.hasErrors('elderlyDNI')}" th:errors="*{elderlyDNI}"></td>
 				</tr>
-				<tr>
-					<td class="a"><label>Contract number:</label></td>
-					<td class="b"><input type="text" th:field="*{contractNumber}" /></td>
-				</tr>
+				
 				<tr>
 					<td class="a"><label>Service type:</label></td>
 					<td class="b"><select class="form_control" type="ServiceType" th:field="*{serviceType}">
@@ -36,30 +40,19 @@
 					<td class="a"><label>Creation date:</label></td>
 					<td class="b"><input type="date"
 						th:field="*{creationDate}" /></td>
+						<td class="b" th:if="${#fields.hasErrors('creationDate')}" th:errors="*{creationDate}"></td>
 				</tr>
-				<tr>
-					<td class="a"><label>State:</label></td>
-					<td class="b"><select class="form_control" type="state" th:field="*{state}">
-							<option value="DONE">Done</option>
-							<option value="ACCEPTED">Accepted</option>
-							<option value="REJECTED">Rejected</option>
-					</select></td>
-				</tr>
-				<tr>
-					<td class="a"><label>Approved date:</label></td>
-					<td class="b"><input type="date" th:field="*{approvedDate}" /></td>
-				</tr>
-				<tr>
-					<td class="a"><label>Rejected date:</label></td>
-					<td class="b"><input type="date" th:field="*{rejectedDate}" /></td>
-				</tr>
+				
+				
 				<tr>
 					<td class="a"><label>Comments:</label></td>
 					<td class="b"><input type="text" th:field="*{comments}" /></td>
+					<td class="b" th:if="${#fields.hasErrors('comments')}" th:errors="*{comments}"></td>
 				</tr>
 				<tr>
 					<td class="a"><label>End date:</label></td>
 					<td class="b"><input type="date" th:field="*{endDate}" /></td>
+					<td class="b" th:if="${#fields.hasErrors('endDate')}" th:errors="*{endDate}"></td>
 				</tr>
 
 				<tr>
@@ -72,59 +65,3 @@
 	</div>
 </body>
 </html>
-
-
-<!-- <form>
-	<div class="form-group row">
-		<label for="inputDNI" class="col-sm-2 col-form-label">DNI</label>
-		<div class="col-sm-10">
-			<input type="text" class="form-control" id="inputDNI"
-				placeholder="DNI" th:field="*{DNI}" >
-		</div>
-	</div>
-	<div class="form-group row">
-		<label for="inputDNI" class="col-sm-2 col-form-label">DNI</label>
-		<div class="col-sm-10">
-			<input type="text" class="form-control" id="inputDNI"
-				placeholder="DNI" th:field="*{DNI}" >
-		</div>
-	</div> 
-	<fieldset class="form-group">
-		<div class="row">
-			<label for="inputEmail3" class="col-sm-2 col-form-label">Service type:</label>
-			<div class="col-sm-10">
-				<div class="form-check">
-					<input class="form-check-input" type="radio" name="gridRadios"
-						id="gridRadios1" value="option1" checked> <label
-						class="form-check-label" for="gridRadios1"> First radio </label>
-				</div>
-				<div class="form-check">
-					<input class="form-check-input" type="radio" name="gridRadios"
-						id="gridRadios2" value="option2"> <label
-						class="form-check-label" for="gridRadios2"> Second radio </label>
-				</div>
-				<div class="form-check disabled">
-					<input class="form-check-input" type="radio" name="gridRadios"
-						id="gridRadios3" value="option3" disabled> <label
-						class="form-check-label" for="gridRadios3"> Third disabled
-						radio </label>
-				</div>
-			</div>
-		</div>
-	</fieldset>
-	<div class="form-group row">
-		<div class="col-sm-2">Checkbox</div>
-		<div class="col-sm-10">
-			<div class="form-check">
-				<input class="form-check-input" type="checkbox" id="gridCheck1">
-				<label class="form-check-label" for="gridCheck1"> Example
-					checkbox </label>
-			</div>
-		</div>
-	</div>
-	<div class="form-group row">
-		<div class="col-sm-10">
-			<button type="submit" class="btn btn-primary">Sign in</button>
-		</div>
-	</div>
-</form> -->

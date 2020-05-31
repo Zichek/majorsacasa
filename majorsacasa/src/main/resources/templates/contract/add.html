@@ -24,6 +24,11 @@
 		method="post">
 		<table class="table table-sm">
 			<tr>
+				<td class="a"><label>Number:</label></td>
+				<td class="b"><input type="text" th:field="*{number}" /></td>
+				<td th:if="${#fields.hasErrors('number')}" th:errors="*{number}"></td>
+			</tr>
+			<tr>
 				<td class="a"><label>Company CIF:</label></td>
 				<td class="b"><input type="text" th:field="*{companyCIF}" /></td>
 				<td th:if="${#fields.hasErrors('companyCIF')}" th:errors="*{companyCIF}"></td>
@@ -54,6 +59,7 @@
 			<tr>
 				<td class="a"><label>Quantity services</label></td>
 				<td class="b"><input type="text" th:field="*{quantityServices}" /></td>
+				<td th:if="${#fields.hasErrors('quantityServices')}" th:errors="*{quantityServices}"></td>
 			</tr>
 			<tr>
 				<td class="a"><label>Units of measure</label></td>
