@@ -33,13 +33,14 @@ public class ContractValidator implements Validator {
             errors.rejectValue("companyCIF", "required",
                     "It must be valid value");
         
-        if (contract.getNumber()<0)
-            errors.rejectValue("number", "required",
-                    "It must be valid value");
+     
       
         if (contract.getPriceUnit()<=0)
             errors.rejectValue("priceUnit", "required",
                     "It must be a valid value");
+        
+        if (contract.getQuantityServices() <= 0)
+        	errors.rejectValue("quantityService", "required","It must be a valid V");
 
         if (contract.getDateBeginning()==null)
             errors.rejectValue("dateBeginning", "required",

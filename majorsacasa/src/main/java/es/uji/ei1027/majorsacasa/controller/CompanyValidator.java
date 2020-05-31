@@ -2,15 +2,28 @@ package es.uji.ei1027.majorsacasa.controller;
 
 import es.uji.ei1027.majorsacasa.dao.CompanyDao;
 import es.uji.ei1027.majorsacasa.dao.ContractDao;
+import es.uji.ei1027.majorsacasa.dao.UserDao;
 import es.uji.ei1027.majorsacasa.model.Company;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.validation.constraints.NotNull;
+
 
 public class CompanyValidator implements Validator {
+	
+	public CompanyDao companyDao;
+	 
+
+	   @Autowired
+	   public void setCompanyDao(CompanyDao companyDao) { 
+	       this.companyDao=companyDao;
+	   }
 	
 	@Override
     public boolean supports(Class<?> cls) {
@@ -20,7 +33,6 @@ public class CompanyValidator implements Validator {
     @Override
     public void validate(Object obj, Errors errors) {
         Company company = (Company) obj;
-        CompanyDao companyDao = new CompanyDao();
         
 //        List<Company> listCompany = companyDao.getAllCompany();
 //        

@@ -51,7 +51,7 @@
 				</tr>
 				<tr>
 					<td class="a"><label>Contact person email:</label></td>
-					<td class="b"><input type="text" th:field="*{contactPersonEmail}" /></td>
+					<td class="b"><input type="email" th:field="*{contactPersonEmail}" /></td>
 					<td class="b" th:if="${#fields.hasErrors('contactPersonEmail')}" th:errors="*{contactPersonEmail}"></td>
 				</tr>
 				<tr>
