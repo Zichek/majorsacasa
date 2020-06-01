@@ -17,6 +17,7 @@ public final class RequestRowMapper implements RowMapper<Request> {
 		request.setContractNumber(rs.getInt("contractNumber"));
 		request.setServiceType(ServiceType.valueOf(rs.getString("serviceType")));
 		request.setCreationDate(rs.getObject("creationDate", LocalDate.class));
+		request.setSchedule(rs.getString("schedule"));
 		request.setState(State.valueOf(rs.getString("state")));
 		request.setApprovedDate(rs.getObject("approvedDate", LocalDate.class));
 		request.setRejectedDate(rs.getObject("rejectedDate", LocalDate.class));

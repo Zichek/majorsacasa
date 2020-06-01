@@ -41,14 +41,14 @@ public class ElderlyDao {
         		+ "bankAccountNumber=?, email=?, userPwd=?, dateCreation=?, alergies=?, diseases=? where DNI=?",
                elderly.getName(), elderly.getSurname(), elderly.getBirthDate(), elderly.getAddress(), elderly.getPhoneNumber(),
                elderly.getBankAccountNumber(), elderly.getEmail(), elderly.getUserPwd(), elderly.getDateCreation(), elderly.getAlergies(),
-               elderly.getDiseases());
+               elderly.getDiseases(), elderly.getDNI());
     }
 
     /* Obt� el elderly amb el nom donat. Torna null si no existeix. */
-    public Elderly getElderly(String name) {
+    public Elderly getElderly(String DNI) {
         try {
-            return jdbcTemplate.queryForObject("SELECT * from Elderly WHERE name=?",
-                    new ElderlyRowMapper(), name);
+            return jdbcTemplate.queryForObject("SELECT * from Elderly WHERE DNI=?",
+                    new ElderlyRowMapper(), DNI);
         }
         catch(EmptyResultDataAccessException e) {
             return null;

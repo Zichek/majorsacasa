@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-
+import es.uji.ei1027.majorsacasa.dao.ElderlyDao;
 import es.uji.ei1027.majorsacasa.dao.RequestDao;
 import es.uji.ei1027.majorsacasa.model.Request;
 
@@ -19,6 +19,13 @@ import es.uji.ei1027.majorsacasa.model.Request;
 public class RequestController {
 
    private RequestDao requestDao;
+   private ElderlyDao elderlyDao;
+   
+   @Autowired
+	public void setElderlyDao(ElderlyDao elderlyDao) {
+		this.elderlyDao=elderlyDao;
+	}
+	
 
    @Autowired
    public void setRequestDao(RequestDao requestDao) { 
@@ -36,6 +43,7 @@ public class RequestController {
    @RequestMapping(value="/add") 
 	public String addRequest(Model model) {
 		model.addAttribute("request", new Request());
+		model.addAttribute("elderlys", elderlyDao.getElderlys());
 		return "request/add";
 	}
    @RequestMapping(value="/add", method=RequestMethod.POST)

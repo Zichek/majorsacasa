@@ -3,11 +3,10 @@
 <head>
 <title>Modify Contract</title>
 <meta charset="UTF-8" />
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" />
+
 <link rel="stylesheet" type="text/css" href="/css/estilosupdate.css"
 	th:href="@{/css/estilosupdate.css}" />
-<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
 </head>
 <body>
 
@@ -15,6 +14,12 @@
 	<form action="#" th:action="@{/contract/update}"
 		th:object="${contract}" method="post">
 		<table class="table table-sm">
+		
+		 <tr style="display:none">
+					<td class="a"><label>Number:</label></td>
+					<td class="b"><input type="text" th:field="*{number}" /></td>
+					
+				</tr>  
 			
 			<tr>
 				<td class="a"><label>Company CIF:</label></td>

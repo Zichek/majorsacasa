@@ -3,8 +3,7 @@
 <head>
 <title>New Invoice</title>
 <meta charset="UTF-8" />
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" />
+
 <link rel="stylesheet" type="text/css" href="/css/estilosadd.css"
 	th:href="@{/css/estilosadd.css}" />
 </head>
@@ -13,7 +12,7 @@
 	<form action="#" th:action="@{/invoice/add}" th:object="${invoice}"
 		method="post">
 		<table class="table table-sm">
-			<tr>
+			<tr style="display:none">
 				<td class="a"><label>Number</label></td>
 				<td class="b"><input type="text" th:field="*{number}" /></td>
 				<td class="b" th:if="${#fields.hasErrors('number')}" th:errors="*{number}"></td>
@@ -46,7 +45,7 @@
 
 			<tr>
 				<td colspan="2"><input
-					class="btn btn-secondary btn-lg btn-block" type="submit"
+					class="btn btn-info btn-lg btn-block" type="submit"
 					value="Add Invoice" /></td>
 			</tr>
 		</table>

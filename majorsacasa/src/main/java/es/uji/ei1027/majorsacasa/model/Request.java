@@ -12,6 +12,13 @@ public class Request {
 	private ServiceType serviceType;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate creationDate;
+	private String schedule;
+	public String getSchedule() {
+		return schedule;
+	}
+	public void setSchedule(String schedule) {
+		this.schedule = schedule;
+	}
 	private State state;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate approvedDate;
@@ -83,11 +90,12 @@ public class Request {
 	}
 	@Override
 	public String toString() {
-		return "Request [Number=" + number + ", elderlyDNI=" + elderlyDNI + ", contractNumber=" + contractNumber
-				+ ", serviceType=" + serviceType + ", creationDate=" + creationDate + ", state=" + state
-				+ ", approvedDate=" + approvedDate + ", rejectedDate=" + rejectedDate + ", comments=" + comments
-				+ ", endDate=" + endDate + "]";
+		return "Request [number=" + number + ", elderlyDNI=" + elderlyDNI + ", contractNumber=" + contractNumber
+				+ ", serviceType=" + serviceType + ", creationDate=" + creationDate + ", schedule=" + schedule
+				+ ", state=" + state + ", approvedDate=" + approvedDate + ", rejectedDate=" + rejectedDate
+				+ ", comments=" + comments + ", endDate=" + endDate + "]";
 	}
+	
 	
 	
 }

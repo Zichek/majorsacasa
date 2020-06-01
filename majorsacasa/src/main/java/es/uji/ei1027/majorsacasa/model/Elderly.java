@@ -1,19 +1,23 @@
 package es.uji.ei1027.majorsacasa.model;
 
-import java.sql.Date;
+import java.time.LocalDate;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 public class Elderly {
 	
 	private String name;
     private String DNI;
     private String surname;
-    private Date birthDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate birthDate;
     private String address;
 	private String phoneNumber;
 	private String bankAccountNumber;
 	private String email;
 	private String userPwd;
-	private Date dateCreation;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private LocalDate dateCreation;
 	private String alergies;
 	private String diseases;
 
@@ -35,10 +39,10 @@ public class Elderly {
 	public void setSurname(String surname) {
 		this.surname = surname;
 	}
-	public Date getBirthDate() {
+	public LocalDate getBirthDate() {
 		return birthDate;
 	}
-	public void setBirthDate(Date birthDate) {
+	public void setBirthDate(LocalDate birthDate) {
 		this.birthDate = birthDate;
 	}
 	public String getAddress() {
@@ -71,10 +75,10 @@ public class Elderly {
 	public void setUserPwd(String userPwd) {
 		this.userPwd = userPwd;
 	}
-	public Date getDateCreation() {
+	public LocalDate getDateCreation() {
 		return dateCreation;
 	}
-	public void setDateCreation(Date dateCreation) {
+	public void setDateCreation(LocalDate dateCreation) {
 		this.dateCreation = dateCreation;
 	}
 	public String getAlergies() {

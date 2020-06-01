@@ -16,20 +16,19 @@
 		<form action="#" th:action="@{/contract/add}" th:object="${contract}"
 			method="post">
 			<table class="table table-sm">
-				<tr>
+				<!-- <tr>
 					<td class="a"><label>Number:</label></td>
 					<td class="b"><input type="text" th:field="*{number}" /></td>
 					<td th:if="${#fields.hasErrors('number')}" th:errors="*{number}"></td>
-				</tr>
+				</tr> -->
 				<tr>
 					<td class="a"><label>Company CIF:</label></td>
 						<td class="b"><select th:field="*{companyCIF}">
-						    <option th:each="company: ${companies}" th:value="${company.CIF}" th:text="${company.CIF}">
+						    <option th:each="company: ${companies}" th:value="${company.CIF}" th:text="${company.CIF} + ' - ' + ${company.name}">
 						    </option>
 						</select>
 					</td>
-					<!-- <td class="b"><input type="text" th:field="*{companyCIF}" /></td>
-					<td th:if="${#fields.hasErrors('companyCIF')}" th:errors="*{companyCIF}"></td> -->
+					
 				</tr>
 				<tr>
 					<td class="a"><label>Date beginning:</label></td>

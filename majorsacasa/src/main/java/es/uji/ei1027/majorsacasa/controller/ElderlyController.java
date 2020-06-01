@@ -30,6 +30,9 @@ public class ElderlyController {
 	public void setElderlyDao(ElderlyDao elderlyDao) {
 		this.elderlyDao=elderlyDao;
 	}
+	
+	
+	
 	@Autowired
 	public void setUserDao(UserDao userDao) {
 		this.userDao=userDao;
@@ -60,6 +63,7 @@ public class ElderlyController {
 	   @RequestMapping(value="/add") 
 	   public String addElderly(Model model) {
 	       model.addAttribute("elderly", new Elderly());
+	       
 	       return "elderly/add";
 	   }
 	   // Gesti� de la resposta del formulari de creaci� d'objectes
@@ -87,8 +91,8 @@ public class ElderlyController {
 		public String processUpdateSubmit(
 	                           @ModelAttribute("elderly") Elderly elderly, 
 	                           BindingResult bindingResult) {
-//		   ElderlyValidator elderlyValidator = new ElderlyValidator();
-//		   elderlyValidator.validate(elderly, bindingResult);
+		   ElderlyValidator elderlyValidator = new ElderlyValidator();
+		   elderlyValidator.validate(elderly, bindingResult);
 			 if (bindingResult.hasErrors()) 
 				 return "elderly/update";
 			 elderlyDao.updateElderly(elderly);

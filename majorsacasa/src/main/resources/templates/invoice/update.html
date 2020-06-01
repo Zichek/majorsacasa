@@ -3,15 +3,14 @@
 <head>
    <title>Modify Invoice</title>
    <meta charset="UTF-8" />
-   <link rel="stylesheet"       
-     href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+  
 </head>
 <body>
     <h2>Modify invoice</h2>
     <form action="#" th:action="@{/invoice/update}" 
                      th:object="${invoice}" method="post"> 
       <table>
-       <tr>
+       <tr style="display:none">
 				<td class="a"><label>Number</label></td>
 				<td class="b"><input type="text" th:field="*{number}" /></td>
 				<td class="b" th:if="${#fields.hasErrors('number')}" th:errors="*{number}"></td>

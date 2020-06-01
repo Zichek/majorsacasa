@@ -5,8 +5,7 @@
 <head>
 <title>New request</title>
 <meta charset="UTF-8" />
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" />
+
 <link rel="stylesheet" type="text/css" href="/css/estilosadd.css"
 	th:href="@{/css/estilosadd.css}" />
 </head>
@@ -16,7 +15,7 @@
 		<form action="#" th:action="@{/request/add}" th:object="${request}"
 			method="post">
 			<table class="table">
-				<tr>
+				<tr style="display:none">
 				<td class="a"><label>Number</label></td>
 				<td class="b"><input type="text" th:field="*{number}" /></td>
 				<td class="b" th:if="${#fields.hasErrors('number')}" th:errors="*{number}"></td>
@@ -24,8 +23,11 @@
 			</tr>
 				<tr>
 					<td class="a"><label>Elderly DNI:</label></td>
-					<td class="b"><input type="text" th:field="*{elderlyDNI}" /></td>
-					<td class="b" th:if="${#fields.hasErrors('elderlyDNI')}" th:errors="*{elderlyDNI}"></td>
+					<td class="b"><select th:field="*{elderlyDNI}">
+					 <option th:each="elderly: ${elderlys}" th:value="${elderly.DNI}" th:text="${elderly.DNI} + ' - ' + ${elderly.name}">
+						    </option>
+						</select>
+						</td>
 				</tr>
 				
 				<tr>
@@ -43,7 +45,10 @@
 						<td class="b" th:if="${#fields.hasErrors('creationDate')}" th:errors="*{creationDate}"></td>
 				</tr>
 				
-				
+				<tr>
+					<td class="a"><label>Schedule:</label></td>
+					<td class="b"><input type="text" th:field="*{schedule}" /></td>
+				</tr>
 				<tr>
 					<td class="a"><label>Comments:</label></td>
 					<td class="b"><input type="text" th:field="*{comments}" /></td>
@@ -57,7 +62,7 @@
 
 				<tr>
 					<td colspan="2"><input
-						class="btn btn-secondary btn-lg btn-block" type="submit"
+						class="btn btn-info btn-lg btn-block" type="submit"
 						value="Add request" /></td>
 				</tr>
 			</table>
