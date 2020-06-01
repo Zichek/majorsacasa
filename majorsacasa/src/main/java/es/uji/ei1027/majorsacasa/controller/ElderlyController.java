@@ -1,5 +1,7 @@
 package es.uji.ei1027.majorsacasa.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import es.uji.ei1027.majorsacasa.dao.ElderlyDao;
 import es.uji.ei1027.majorsacasa.dao.UserDao;
 import es.uji.ei1027.majorsacasa.model.Elderly;
+import es.uji.ei1027.majorsacasa.model.User;
 
 @Controller
 @RequestMapping("/elderly")
@@ -36,6 +39,17 @@ public class ElderlyController {
 	public String listElderly(Model model) {
 		model.addAttribute("elderlys", elderlyDao.getElderlys());
 		return "elderly/list";
+	}
+	
+	@RequestMapping("/indexelderly")
+	public String listIndexElderly(Model model, HttpSession session) {
+		User login = (User) session.getAttribute("user");
+		if(login==null) {
+			model.addAttribute("user",new User());
+			return "login";			
+		}
+			
+		return "elderly/indexelderly";
 	}
 	
 	
@@ -73,8 +87,8 @@ public class ElderlyController {
 		public String processUpdateSubmit(
 	                           @ModelAttribute("elderly") Elderly elderly, 
 	                           BindingResult bindingResult) {
-		   ElderlyValidator elderlyValidator = new ElderlyValidator();
-		   elderlyValidator.validate(elderly, bindingResult);
+//		   ElderlyValidator elderlyValidator = new ElderlyValidator();
+//		   elderlyValidator.validate(elderly, bindingResult);
 			 if (bindingResult.hasErrors()) 
 				 return "elderly/update";
 			 elderlyDao.updateElderly(elderly);

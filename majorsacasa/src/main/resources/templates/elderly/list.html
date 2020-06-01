@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{fragments/base}">
 <head>
 <title>List Elderly</title>
 <meta charset="UTF-8" />
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+
 <link rel="stylesheet" type="text/css" href="/css/estiloslist.css"
 	th:href="@{/css/estiloslist.css}" />
 </head>
 <body>
+	<div layout:fragment="content">
 	<h1>List of elderlies</h1>
 	<table class="table table-sm">
 		<thead class="thead-dark">
@@ -50,7 +52,8 @@
 			</tr>
 		</tbody>
 	</table>
-	<a class="btn btn-secondary btn-lg btn-block " href="add">Add
+	<a class="btn btn-info btn-lg btn-block " href="add">Add
 		elderly</a>
+	</div>
 </body>
 </html>

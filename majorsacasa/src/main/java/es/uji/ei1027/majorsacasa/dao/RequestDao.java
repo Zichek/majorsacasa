@@ -26,6 +26,7 @@ public class RequestDao {
 		jdbcTemplate.update("INSERT INTO REQUEST VALUES(?,?,?,CAST(? AS serviceType),?,CAST(? AS state),?,?,?,?)",
 				request.getNumber(),request.getElderlyDNI(),null,request.getServiceType().name(),request.getCreationDate(),
 				"DONE",null,null,request.getComments(),request.getEndDate());
+		System.out.println("Email al elderly: Su solicitud se ha registrado correctamente. Nos pondremos en contacto con usted con la mayor brevedad posible.");
 	}
 	
 	public void deleteRequest(int number) {
@@ -37,6 +38,8 @@ public class RequestDao {
 				+ "creationDate=?, state=CAST(? AS state), approvedDate=?, rejectedDate=?, comments=?, endDate=? where number=?",
 				request.getElderlyDNI(),request.getContractNumber(),request.getServiceType().name(),request.getCreationDate(),request.getState().name(),
 				request.getApprovedDate(),request.getRejectedDate(),request.getComments(),request.getEndDate(), request.getNumber());
+		System.out.println("Email a la empresa: Buenas, se le acaba de asignar un nuevo contrato con el numero "+ request.getContractNumber()+" para dar servicio al anciano con DNI: "+
+				request.getElderlyDNI()+" entre el "+request.getApprovedDate()+" y "+request.getEndDate()+".");
 	}
 	
 	public Request getRequest(int number) {

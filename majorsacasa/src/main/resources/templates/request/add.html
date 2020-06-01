@@ -7,8 +7,8 @@
 <meta charset="UTF-8" />
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" />
-<link rel="stylesheet" type="text/css" href="/css/estilosupdate.css"
-	th:href="@{/css/estilosupdate.css}" />
+<link rel="stylesheet" type="text/css" href="/css/estilosadd.css"
+	th:href="@{/css/estilosadd.css}" />
 </head>
 <body>
 	<div layout:fragment="content">
@@ -31,7 +31,7 @@
 				<tr>
 					<td class="a"><label>Service type:</label></td>
 					<td class="b"><select class="form_control" type="ServiceType" th:field="*{serviceType}">
-							<option value="DINNER">Dinner</option>
+							<option value="DINNER">Dinner (10 euro per meal)</option>
 							<option value="HEALTH_SERVICE">Health service</option>
 							<option value="CLEANING">Cleaning</option>
 					</select></td>

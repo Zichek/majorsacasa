@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{fragments/base}">
 <head>
 <title>List Contracts</title>
 <meta charset="UTF-8" />
@@ -10,7 +12,7 @@
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
 <body>
-
+	<div layout:fragment="content">
 	<!--end of Navigation bar-->
 	<h1>List of contracts</h1>
 	<table class="table table-sm">
@@ -51,5 +53,6 @@
 	</table>
 	<a class="btn btn-secondary btn-lg btn-block " href="add">Add
 		contract</a>
+	</div>
 </body>
 </html>

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import es.uji.ei1027.majorsacasa.dao.CompanyDao;
 import es.uji.ei1027.majorsacasa.dao.ContractDao;
 import es.uji.ei1027.majorsacasa.model.Contract;
 
@@ -18,10 +19,16 @@ import es.uji.ei1027.majorsacasa.model.Contract;
 public class ContractController {
 
    private ContractDao contractDao;
+   private CompanyDao	companyDao;
 
    @Autowired
    public void setContractDao(ContractDao contractDao) { 
        this.contractDao=contractDao;
+   }
+   
+   @Autowired
+   public void setCompanyDao(CompanyDao companyDao) { 
+       this.companyDao=companyDao;
    }
 
    // Operacions: Crear, llistar, actualitzar, esborrar
@@ -35,6 +42,7 @@ public class ContractController {
    @RequestMapping(value="/add") 
 	public String addContract(Model model) {
 		model.addAttribute("contract", new Contract());
+		model.addAttribute("companies", companyDao.getAllCompany());
 		return "contract/add";
 	}
    @RequestMapping(value="/add", method=RequestMethod.POST)

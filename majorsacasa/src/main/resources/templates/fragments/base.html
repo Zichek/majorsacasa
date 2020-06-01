@@ -5,22 +5,32 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
 
 <link rel="stylesheet" type="text/css" href="/css/estilosnav.css"
 	th:href="@{/css/estilosnav.css}" />
 	
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	
 </head>
 
-<body>
+<body>	
 	<div th:replace="fragments/nav"></div>
 	<!-- <div th:replace="fragments/logininfo"></div> -->
 	<div layout:fragment="content"></div>
 	<footer>
 		<hr>
-		<p class="text-muted">EI1027 - Disseny i Implementació de
-			Sistemes d'Informació</p>
+		<a class="text-muted">EI1027 - Disseny i Implementació de
+			Sistemes d'Informació</a>
+		<div th:replace="fragments/logininfo"></div>
 	</footer>
+	
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
 </body>
+
+
 </html>
