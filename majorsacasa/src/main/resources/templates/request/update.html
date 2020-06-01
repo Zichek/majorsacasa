@@ -17,12 +17,20 @@
 			method="post">
 			<table class="table">
 				<tr>
+				<td class="a"><label>Number</label></td>
+				<td class="b"><input type="text" th:field="*{number}" /></td>
+				<td class="b" th:if="${#fields.hasErrors('number')}" th:errors="*{number}"></td>
+				
+			</tr>
+				<tr>
 					<td class="a"><label>Elderly DNI:</label></td>
 					<td class="b"><input type="text" th:field="*{elderlyDNI}" /></td>
+					<td class="b" th:if="${#fields.hasErrors('elderlyDNI')}" th:errors="*{elderlyDNI}"></td>
 				</tr>
 				<tr>
 					<td class="a"><label>Contract number:</label></td>
 					<td class="b"><input type="text" th:field="*{contractNumber}" /></td>
+					<td class="b" th:if="${#fields.hasErrors('contractNumber')}" th:errors="*{contractNumber}"></td>
 				</tr>
 				<tr>
 					<td class="a"><label>Service type:</label></td>
@@ -36,6 +44,7 @@
 					<td class="a"><label>Creation date:</label></td>
 					<td class="b"><input type="date"
 						th:field="*{creationDate}" /></td>
+						<td class="b" th:if="${#fields.hasErrors('creationDate')}" th:errors="*{creationDate}"></td>
 				</tr>
 				<tr>
 					<td class="a"><label>State:</label></td>
@@ -48,18 +57,22 @@
 				<tr>
 					<td class="a"><label>Approved date:</label></td>
 					<td class="b"><input type="date" th:field="*{approvedDate}" /></td>
+					<td class="b" th:if="${#fields.hasErrors('approvedDate')}" th:errors="*{approvedDate}"></td>
 				</tr>
 				<tr>
 					<td class="a"><label>Rejected date:</label></td>
 					<td class="b"><input type="date" th:field="*{rejectedDate}" /></td>
+					<td class="b" th:if="${#fields.hasErrors('rejectedDate')}" th:errors="*{rejectedDate}"></td>
 				</tr>
 				<tr>
 					<td class="a"><label>Comments:</label></td>
 					<td class="b"><input type="text" th:field="*{comments}" /></td>
+					<td class="b" th:if="${#fields.hasErrors('comments')}" th:errors="*{comments}"></td>
 				</tr>
 				<tr>
 					<td class="a"><label>End date:</label></td>
 					<td class="b"><input type="date" th:field="*{endDate}" /></td>
+					<td class="b" th:if="${#fields.hasErrors('endDate')}" th:errors="*{endDate}"></td>
 				</tr>
 
 				<tr>

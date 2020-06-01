@@ -1,18 +1,25 @@
 package es.uji.ei1027.majorsacasa.model;
 
 import java.sql.Date;
+import java.time.LocalDate;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 public class Request {
 	private int number;
 	private String elderlyDNI;
 	private int contractNumber;
 	private ServiceType serviceType;
-	private Date creationDate;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private LocalDate creationDate;
 	private State state;
-	private Date approvedDate;
-	private Date rejectedDate;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private LocalDate approvedDate;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private LocalDate rejectedDate;
 	private String comments;
-	private Date endDate;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private LocalDate endDate;
 	
 	public int getNumber() {
 		return number;
@@ -38,10 +45,10 @@ public class Request {
 	public void setServiceType(ServiceType serviceType) {
 		this.serviceType = serviceType;
 	}
-	public Date getCreationDate() {
+	public LocalDate getCreationDate() {
 		return creationDate;
 	}
-	public void setCreationDate(Date creationDate) {
+	public void setCreationDate(LocalDate creationDate) {
 		this.creationDate = creationDate;
 	}	
 	public State getState() {
@@ -50,16 +57,16 @@ public class Request {
 	public void setState(State state) {
 		this.state = state;
 	}
-	public Date getApprovedDate() {
+	public LocalDate getApprovedDate() {
 		return approvedDate;
 	}
-	public void setApprovedDate(Date approvedDate) {
+	public void setApprovedDate(LocalDate approvedDate) {
 		this.approvedDate = approvedDate;
 	}
-	public Date getRejectedDate() {
+	public LocalDate getRejectedDate() {
 		return rejectedDate;
 	}
-	public void setRejectedDate(Date rejectedDate) {
+	public void setRejectedDate(LocalDate rejectedDate) {
 		this.rejectedDate = rejectedDate;
 	}
 	public String getComments() {
@@ -68,10 +75,10 @@ public class Request {
 	public void setComments(String comments) {
 		this.comments = comments;
 	}
-	public Date getEndDate() {
+	public LocalDate getEndDate() {
 		return endDate;
 	}
-	public void setEndDate(Date endDate) {
+	public void setEndDate(LocalDate endDate) {
 		this.endDate = endDate;
 	}
 	@Override

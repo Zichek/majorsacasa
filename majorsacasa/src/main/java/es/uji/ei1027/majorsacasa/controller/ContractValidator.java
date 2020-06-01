@@ -40,7 +40,7 @@ public class ContractValidator implements Validator {
                     "It must be a valid value");
         
         if (contract.getQuantityServices() <= 0)
-        	errors.rejectValue("quantityService", "required","It must be a valid V");
+        	errors.rejectValue("quantityServices", "required","It must be a valid value");
 
         if (contract.getDateBeginning()==null)
             errors.rejectValue("dateBeginning", "required",

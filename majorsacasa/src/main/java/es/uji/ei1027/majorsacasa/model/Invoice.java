@@ -9,8 +9,8 @@ public class Invoice {
 	private int number;
 	private String elderlyDNI;
 	private int requestNumber;
-	@DateTimeFormat(iso=DateTimeFormat.ISO.DATE)
-	private Date date;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private LocalDate date;
 	private int amount;
 	private String concept;
 	
@@ -33,10 +33,10 @@ public class Invoice {
 	public void setRequestNumber(int requestNumber) {
 		this.requestNumber = requestNumber;
 	}
-	public Date getDate() {
+	public LocalDate getDate() {
 		return date;
 	}
-	public void setDate(Date date) {
+	public void setDate(LocalDate date) {
 		this.date = date;
 	}
 	public int getAmount() {

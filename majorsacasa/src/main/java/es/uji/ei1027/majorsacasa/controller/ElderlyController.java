@@ -52,6 +52,8 @@ public class ElderlyController {
 	   @RequestMapping(value="/add", method=RequestMethod.POST) 
 	   public String processAddSubmit(@ModelAttribute("elderly") Elderly elderly,
 	                                   BindingResult bindingResult) {  
+		   ElderlyValidator elderlyValidator = new ElderlyValidator();
+		   elderlyValidator.validate(elderly, bindingResult);
 	        if (bindingResult.hasErrors()) 
 	               return "elderly/add";
 	        
@@ -71,6 +73,8 @@ public class ElderlyController {
 		public String processUpdateSubmit(
 	                           @ModelAttribute("elderly") Elderly elderly, 
 	                           BindingResult bindingResult) {
+		   ElderlyValidator elderlyValidator = new ElderlyValidator();
+		   elderlyValidator.validate(elderly, bindingResult);
 			 if (bindingResult.hasErrors()) 
 				 return "elderly/update";
 			 elderlyDao.updateElderly(elderly);
@@ -82,6 +86,7 @@ public class ElderlyController {
 	   @RequestMapping(value="/delete/{DNI}")
 	   public String processDelete(@PathVariable String DNI) {
 	          elderlyDao.deleteElderly(DNI);
+	          userDao.deleteUser(DNI);
 	          return "redirect:../list"; 
 	   }
 
