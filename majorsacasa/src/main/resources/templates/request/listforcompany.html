@@ -12,15 +12,20 @@
 </head>
 <body>
 	<div layout:fragment="content">
-	<h1>List of companies</h1>
+	<h1>List with all the request from elderlies</h1>
 	<table class="table">
 		<thead class="thead-dark">
 			<tr>
+				<th>Number</th>
 				<th>Elderly DNI</th>
-				<th>Compnay CIF</th>
-				<th>Company CIF</th>
+				<th>Contract number</th>
+				<th>Type service</th>
+				<th>Creation date</th>
 				<th>State</th>
-				
+				<th>Aproved date</th>
+				<th>Rejected Date</th>
+				<th>Comments</th>
+				<th>End date</th>
 				<th></th>
 				<th></th>
 			</tr>
@@ -28,14 +33,20 @@
 		<tbody>
 			<tr th:each="request: ${requests}">
 				<td th:text="${request.elderlyDNI}"></td>
-				<td th:text="${request.companyCIF}"></td>
-				<td th:text="${request.name}"></td>
+				<td th:text="${request.contractNumber}"></td>
+				<td th:text="${request.serviceType}"></td>
+				<td th:text="${request.creationDate}"></td>
 				<td th:text="${request.state}"></td>
-				
+				<td th:text="${request.approvedDate}"></td>
+				<td th:text="${request.comments}"></td>
+				<td th:text="${request.endDate}"></td>
+				<td><a class="btn btn-warning"
+					th:href="@{/request/updateforcompany/{number}(number=${request.number})}">Asign hours</a></td>
 			</tr>
 		</tbody>
 	</table>
-	
+<!-- 	<a class="btn btn-info btn-lg btn-block " href="add">Add
+		request</a> -->
 	</div>
 </body>
 </html>

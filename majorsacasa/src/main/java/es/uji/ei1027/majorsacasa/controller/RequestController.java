@@ -1,5 +1,8 @@
 package es.uji.ei1027.majorsacasa.controller;
 
+import javax.servlet.http.HttpSession;
+
+import es.uji.ei1027.majorsacasa.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -47,10 +50,11 @@ public class RequestController {
       return "request/list";
    }
    
-   @RequestMapping("/listforcompany/{companyCIF}")
-   public String listForCompanyRequests(Model model, @PathVariable String companyCIF) {
-      model.addAttribute("requests", requestDao.getRequestByCIF(companyCIF));
-      return "request/list";
+   @RequestMapping("/listforcompany")
+   public String listForCompanyRequests(Model model, HttpSession session) {
+	   User user = (User) session.getAttribute("user");
+      model.addAttribute("requests", requestDao.getRequestByCIF(user.getUsername()));
+      return "request/listforcompany";
    }
    
    @RequestMapping(value="/add") 
@@ -77,6 +81,8 @@ public class RequestController {
 		model.addAttribute("contracts", contractDao.getAllContract());
 		return "request/update"; 
 	}
+   
+   
    @RequestMapping(value="/update", method = RequestMethod.POST) 
 	public String processUpdateSubmit(
                            @ModelAttribute("request") Request request, 
@@ -88,7 +94,26 @@ public class RequestController {
 		 requestDao.updateRequest(request);
 		 return "redirect:list"; 
 	}
-
+   
+   @RequestMapping(value="/updateforcompany/{number}", method = RequestMethod.GET) 
+ 	public String editRequestForCompany(Model model, @PathVariable int number) { 
+ 		model.addAttribute("request", requestDao.getRequest(number));
+ 		model.addAttribute("contracts", contractDao.getAllContract());
+ 		return "request/updateforcompany"; 
+  }
+   
+   @RequestMapping(value="/updateforcompany", method = RequestMethod.POST) 
+	public String processUpdateSubmitCompany(
+                          @ModelAttribute("request") Request request, 
+                          BindingResult bindingResult) {
+	   RequestValidator requestValidator = new RequestValidator();
+	   requestValidator.validate(request, bindingResult);
+		 if (bindingResult.hasErrors()) 
+			 return "request/updateforcompany";
+		 requestDao.updateRequest(request);
+		 return "redirect:listforcompany"; 
+	}
+  
    @RequestMapping(value="/delete/{number}")
 	public String processDelete(@PathVariable int number) {
           requestDao.deleteRequest(number);

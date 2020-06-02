@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{fragments/base}">
+<head>
+<title>Update request</title>
+<meta charset="UTF-8" />
+
+<link rel="stylesheet" type="text/css" href="/css/estilosupdate.css"
+	th:href="@{/css/estilosupdate.css}" />
+</head>
+<body>
+	<div layout:fragment="content">
+		<h1>Update request</h1>
+		<form action="#" th:action="@{/request/update}" th:object="${request}"
+			method="post">
+			<table class="table">
+				<tr style="display:none">
+				<td class="a"><label>Number</label></td>
+				<td class="b"><input type="text" th:field="*{number}" /></td>
+				<td class="b" th:if="${#fields.hasErrors('number')}" th:errors="*{number}"></td>
+				
+			</tr>
+				<tr>
+					<td class="a"><label>Elderly DNI:</label></td>
+					<td class="b"><input type="text" th:field="*{elderlyDNI}" readonly/></td>
+					<td class="b" th:if="${#fields.hasErrors('elderlyDNI')}" th:errors="*{elderlyDNI}"></td>
+				</tr>
+				<tr>
+					<td class="a"><label>Contract number - Company CIF:</label></td>
+					<td class="b"><input type="text" th:field="*{contractNumber}" readonly>
+					 
+					
+				</tr>
+				<tr>
+					<td class="a"><label>Creation date:</label></td>
+					<td class="b"><input type="date"
+						th:field="*{creationDate}" readonly/></td>
+						<td class="b" th:if="${#fields.hasErrors('creationDate')}" th:errors="*{creationDate}"></td>
+				</tr>
+				
+				
+				<tr>
+					<td class="a"><label>Approved date:</label></td>
+					<td class="b"><input type="date" th:field="*{approvedDate}" readonly/></td>
+					<td class="b" th:if="${#fields.hasErrors('approvedDate')}" th:errors="*{approvedDate}"></td>
+				</tr>
+				<tr>
+					<td class="a"><label>Comments:</label></td>
+					<td class="b"><input type="text" th:field="*{comments}" readonly/></td>
+					<td class="b" th:if="${#fields.hasErrors('comments')}" th:errors="*{comments}"></td>
+				</tr>
+				<tr>
+					<td class="a"><label>End date:</label></td>
+					<td class="b"><input type="date" th:field="*{endDate}" readonly/></td>
+					<td class="b" th:if="${#fields.hasErrors('endDate')}" th:errors="*{endDate}"></td>
+				</tr>
+				<tr>
+					<td class="a"><label>Schedule:</label></td>
+					<td class="b"><textarea type="text" th:field="*{schedule}" /></td>
+				</tr>
+
+				<tr>
+					<td colspan="2"><input
+						class="btn btn-info btn-lg btn-block" type="submit"
+						value="Update request" /></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>
+
+

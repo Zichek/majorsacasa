@@ -53,7 +53,7 @@ public class RequestDao {
 	
 	public Request getRequestByCIF(String companyCIF) {
 		try {
-			return jdbcTemplate.queryForObject("SELECT r.* FROM request r, contract c, company co WHERE r.number=c.number AND c.companyCIF=co.CIF AND c.companyCIF = ? ",
+			return jdbcTemplate.queryForObject("SELECT r.* FROM request r, contract c, company co WHERE r.number=c.number AND c.companyCIF=co.CIF AND c.companyCIF = ? AND r.state='ACCEPTED' ",
 					new RequestRowMapper(), companyCIF);
 		} catch(EmptyResultDataAccessException e) {
 	           return null;
