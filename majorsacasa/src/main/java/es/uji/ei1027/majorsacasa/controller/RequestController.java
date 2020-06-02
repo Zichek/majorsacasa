@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import es.uji.ei1027.majorsacasa.dao.ContractDao;
 import es.uji.ei1027.majorsacasa.dao.ElderlyDao;
 import es.uji.ei1027.majorsacasa.dao.RequestDao;
 import es.uji.ei1027.majorsacasa.model.Request;
@@ -20,6 +21,12 @@ public class RequestController {
 
    private RequestDao requestDao;
    private ElderlyDao elderlyDao;
+   private ContractDao	contractDao;
+   
+   @Autowired
+   public void serContractDao(ContractDao contractDao) {
+	   this.contractDao=contractDao;
+   }
    
    @Autowired
 	public void setElderlyDao(ElderlyDao elderlyDao) {
@@ -61,6 +68,7 @@ public class RequestController {
    @RequestMapping(value="/update/{number}", method = RequestMethod.GET) 
 	public String editRequest(Model model, @PathVariable int number) { 
 		model.addAttribute("request", requestDao.getRequest(number));
+		model.addAttribute("contracts", contractDao.getAllContract());
 		return "request/update"; 
 	}
    @RequestMapping(value="/update", method = RequestMethod.POST) 

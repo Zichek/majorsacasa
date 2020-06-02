@@ -17,9 +17,7 @@ public class RequestValidator implements Validator {
         Request request = (Request) obj;
        
 
-        if (request.getNumber() <=0)
-            errors.rejectValue("number", "required",
-                    "Enter a valid value");
+       
 
        
 

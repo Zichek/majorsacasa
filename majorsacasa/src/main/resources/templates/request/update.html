@@ -3,7 +3,7 @@
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorate="~{fragments/base}">
 <head>
-<title>New request</title>
+<title>Update request</title>
 <meta charset="UTF-8" />
 
 <link rel="stylesheet" type="text/css" href="/css/estilosupdate.css"
@@ -11,7 +11,7 @@
 </head>
 <body>
 	<div layout:fragment="content">
-		<h1>New request</h1>
+		<h1>Update request</h1>
 		<form action="#" th:action="@{/request/update}" th:object="${request}"
 			method="post">
 			<table class="table">
@@ -27,9 +27,12 @@
 					<td class="b" th:if="${#fields.hasErrors('elderlyDNI')}" th:errors="*{elderlyDNI}"></td>
 				</tr>
 				<tr>
-					<td class="a"><label>Contract number:</label></td>
-					<td class="b"><input type="text" th:field="*{contractNumber}" /></td>
-					<td class="b" th:if="${#fields.hasErrors('contractNumber')}" th:errors="*{contractNumber}"></td>
+					<td class="a"><label>Contract number - Company CIF:</label></td>
+					<td class="b"><select th:field="*{contractNumber}">
+					 <option th:each="contract: ${contracts}" th:value="${contract.number}" th:text="${contract.number} + ' - ' + ${contract.companyCIF}">
+						    </option>
+						</select>
+					
 				</tr>
 				<tr>
 					<td class="a"><label>Service type:</label></td>

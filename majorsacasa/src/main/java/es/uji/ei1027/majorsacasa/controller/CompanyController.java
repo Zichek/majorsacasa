@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import es.uji.ei1027.majorsacasa.dao.CompanyDao;
+import es.uji.ei1027.majorsacasa.dao.RequestDao;
 import es.uji.ei1027.majorsacasa.dao.UserDao;
 import es.uji.ei1027.majorsacasa.model.Company;
 import es.uji.ei1027.majorsacasa.model.User;
@@ -23,6 +24,12 @@ public class CompanyController {
 
    private CompanyDao companyDao;
    private UserDao userDao;
+   private RequestDao requestDao;
+   
+   @Autowired
+   public void setRequestDao(RequestDao requestDao) {
+	   this.requestDao=requestDao;
+   }
 
    @Autowired
    public void setCompanyDao(CompanyDao companyDao) { 
@@ -46,6 +53,8 @@ public class CompanyController {
 			
 		return "company/indexcompany";
 	}
+	
+
    
    @RequestMapping("/list")
    public String listCompanys(Model model) {

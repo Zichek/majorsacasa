@@ -52,6 +52,7 @@ public class CompanyDao {
 	       }
 	}
 	
+	
 	public List<Company> getAllCompany() {
 		try {
 			return jdbcTemplate.query("SELECT * FROM COMPANY",

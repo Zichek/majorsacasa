@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{fragments/base}">
 <head>
 <title>Modify Contract</title>
 <meta charset="UTF-8" />
 
-<link rel="stylesheet" type="text/css" href="/css/estilosupdate.css"
-	th:href="@{/css/estilosupdate.css}" />
+<link rel="stylesheet" type="text/css" href="/css/estilosadd.css"
+	th:href="@{/css/estilosadd.css}" />
 
 </head>
 <body>
-
+<div layout:fragment="content">
 	<h1>Modify contract</h1>
 	<form action="#" th:action="@{/contract/update}"
 		th:object="${contract}" method="post">
@@ -65,10 +67,11 @@
 			</tr>
 			<tr>
 				<td colspan="2"><input
-					class="btn btn-secondary btn-lg btn-block " type="submit"
+					class="btn btn-info btn-lg btn-block " type="submit"
 					value="Edit contract" /></td>
 			</tr>
 		</table>
 	</form>
+	</div>
 </body>
 </html>
