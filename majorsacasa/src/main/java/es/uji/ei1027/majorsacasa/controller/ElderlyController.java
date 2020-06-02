@@ -47,10 +47,11 @@ public class ElderlyController {
 	@RequestMapping("/indexelderly")
 	public String listIndexElderly(Model model, HttpSession session) {
 		User login = (User) session.getAttribute("user");
-		if(login==null) {
+		if(login==null || login.getRole()!="elderly") {
 			model.addAttribute("user",new User());
 			return "login";			
-		}
+		} 
+		
 		
 			
 		return "elderly/indexelderly";

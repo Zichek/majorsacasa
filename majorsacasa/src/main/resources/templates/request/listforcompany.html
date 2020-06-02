@@ -16,14 +16,12 @@
 	<table class="table">
 		<thead class="thead-dark">
 			<tr>
-				<th>Number</th>
 				<th>Elderly DNI</th>
 				<th>Contract number</th>
 				<th>Type service</th>
 				<th>Creation date</th>
 				<th>State</th>
-				<th>Aproved date</th>
-				<th>Rejected Date</th>
+				<th>Approved date</th>
 				<th>Comments</th>
 				<th>End date</th>
 				<th></th>
@@ -41,7 +39,7 @@
 				<td th:text="${request.comments}"></td>
 				<td th:text="${request.endDate}"></td>
 				<td><a class="btn btn-warning"
-					th:href="@{/request/updateforcompany/{number}(number=${request.number})}">Asign hours</a></td>
+					th:href="@{/request/updateforcompany/{number}(number=${request.number})}">Assign hours</a></td>
 			</tr>
 		</tbody>
 	</table>

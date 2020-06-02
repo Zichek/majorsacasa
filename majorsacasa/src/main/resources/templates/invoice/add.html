@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{fragments/base}">
 <head>
 <title>New Invoice</title>
 <meta charset="UTF-8" />
@@ -8,47 +10,56 @@
 	th:href="@{/css/estilosadd.css}" />
 </head>
 <body>
-	<h2>New invoice</h2>
-	<form action="#" th:action="@{/invoice/add}" th:object="${invoice}"
-		method="post">
-		<table class="table table-sm">
-			<tr style="display:none">
-				<td class="a"><label>Number</label></td>
-				<td class="b"><input type="text" th:field="*{number}" /></td>
-				<td class="b" th:if="${#fields.hasErrors('number')}" th:errors="*{number}"></td>
-			</tr>		
-			<tr>
-				<td class="a"><label>Elderly DNI</label></td>
-				<td class="b"><input type="text" th:field="*{elderlyDNI}" /></td>
-				<td class="b" th:if="${#fields.hasErrors('elderlyDNI')}" th:errors="*{elderlyDNI}"></td>
-			</tr>
-			<tr>
-				<td class="a"><label>Request Number</label></td>
-				<td class="b"><input type="text" th:field="*{requestNumber}" /></td>
-				<td class="b" th:if="${#fields.hasErrors('requestNumber')}" th:errors="*{requestNumber}"></td>
-			</tr>
-			<tr>
-				<td class="a"><label>Date</label></td>
-				<td class="b"><input type="date" th:field="*{date}"/></td>
-					<td class="b" th:if="${#fields.hasErrors('date')}" th:errors="*{date}"></td>
-			</tr>
-			<tr>
-				<td class="a"><label>Amount</label></td>
-				<td class="b"><input type="text" th:field="*{amount}" /></td>
-				<td class="b" th:if="${#fields.hasErrors('amount')}" th:errors="*{amount}"></td>
-			</tr>
-			<tr>
-				<td class="a"><label>Concept</label></td>
-				<td class="b"><input type="text" th:field="*{concept}" /></td>
-				<td class="b" th:if="${#fields.hasErrors('concept')}" th:errors="*{concept}"></td>
-			</tr>
+	<div layout:fragment="content">
+		<h2>New invoice</h2>
+		<form action="#" th:action="@{/invoice/add}" th:object="${invoice}"
+			method="post">
+			<table class="table table-sm">
+				<tr style="display: none">
+					<td class="a"><label>Number</label></td>
+					<td class="b"><input type="text" th:field="*{number}" /></td>
+					<td class="b" th:if="${#fields.hasErrors('number')}"
+						th:errors="*{number}"></td>
+				</tr>
+				<tr>
+					<td class="a"><label>Elderly DNI</label></td>
+					<td class="b"><select th:field="*{elderlyDNI}">
+							<option th:each="elderly: ${elderlies}" th:value="${elderly.DNI}"
+								th:text="${elderly.DNI} + ' - ' + ${elderly.name}"></option>
+					</select></td>
+				</tr>
+				<tr>
+					<td class="a"><label>Request Number</label></td>
+					<td class="b"><select th:field="*{requestNumber}">
+							<option th:each="request: ${requests}" th:value="${request.number}"
+								th:text="${request.number} + ' - ' + ${request.elderlyDNI}"></option>
+					</select></td>
+				</tr>
+				<tr>
+					<td class="a"><label>Date</label></td>
+					<td class="b"><input type="date" th:field="*{date}" /></td>
+					<td class="b" th:if="${#fields.hasErrors('date')}"
+						th:errors="*{date}"></td>
+				</tr>
+				<tr>
+					<td class="a"><label>Amount</label></td>
+					<td class="b"><input type="text" th:field="*{amount}" /></td>
+					<td class="b" th:if="${#fields.hasErrors('amount')}"
+						th:errors="*{amount}"></td>
+				</tr>
+				<tr>
+					<td class="a"><label>Concept</label></td>
+					<td class="b"><input type="text" th:field="*{concept}" /></td>
+					<td class="b" th:if="${#fields.hasErrors('concept')}"
+						th:errors="*{concept}"></td>
+				</tr>
 
-			<tr>
-				<td colspan="2"><input
-					class="btn btn-info btn-lg btn-block" type="submit"
-					value="Add Invoice" /></td>
-			</tr>
-		</table>
-	</form>
+				<tr>
+					<td colspan="2"><input class="btn btn-info btn-lg btn-block"
+						type="submit" value="Add Invoice" /></td>
+				</tr>
+			</table>
+		</form>
+	</div>
 </body>
 </html>

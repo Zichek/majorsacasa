@@ -9,7 +9,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import es.uji.ei1027.majorsacasa.dao.ElderlyDao;
 import es.uji.ei1027.majorsacasa.dao.InvoiceDao;
+import es.uji.ei1027.majorsacasa.dao.RequestDao;
+import es.uji.ei1027.majorsacasa.model.Elderly;
 import es.uji.ei1027.majorsacasa.model.Invoice;
 
 
@@ -17,11 +20,23 @@ import es.uji.ei1027.majorsacasa.model.Invoice;
 @RequestMapping("/invoice") 
 public class InvoiceController {
 
-   private InvoiceDao invoiceDao;
+   private InvoiceDao 	invoiceDao;
+   private ElderlyDao	elderlyDao;
+   private RequestDao	requestDao;
 
    @Autowired
    public void setInvoiceDao(InvoiceDao invoiceDao) { 
        this.invoiceDao=invoiceDao;
+   }
+   
+   @Autowired
+   public void setElderlyDao(ElderlyDao elderlyDao) { 
+       this.elderlyDao=elderlyDao;
+   }
+   
+   @Autowired
+   public void setRequestDao(RequestDao requestDao) { 
+       this.requestDao=requestDao;
    }
 
    // Operacions: Crear, llistar, actualitzar, esborrar
@@ -35,6 +50,8 @@ public class InvoiceController {
    @RequestMapping(value="/add") 
 	public String addInvoice(Model model) {
 		model.addAttribute("invoice", new Invoice());
+		model.addAttribute("elderlies", elderlyDao.getElderlys());
+		model.addAttribute("requests", requestDao.getAllRequest());
 		return "invoice/add";
 	}
    @RequestMapping(value="/add", method=RequestMethod.POST)

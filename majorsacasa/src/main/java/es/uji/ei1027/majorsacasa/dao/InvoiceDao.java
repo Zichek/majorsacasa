@@ -25,6 +25,8 @@ public class InvoiceDao {
 	public void addInvoice(Invoice invoice) {
 		jdbcTemplate.update("INSERT INTO INVOICE VALUES(DEFAULT,?,?,?,?,?)",
 				invoice.getElderlyDNI(), invoice.getRequestNumber(),invoice.getDate(),invoice.getAmount(),invoice.getConcept());
+		System.out.println("Correo para elderly: Se ha generado un nuevo recibo para "+invoice.getElderlyDNI()+" por un valor de "+invoice.getAmount()+" a fecha de "
+				+invoice.getDate()+" con el siguiente concepto: "+invoice.getConcept());
 	}
 	
 	public void deleteInvoice(int number) {

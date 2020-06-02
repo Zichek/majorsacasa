@@ -1,46 +1,51 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{fragments/base}">
 <head>
 <title>List Invoice</title>
 <meta charset="UTF-8" />
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+
 <link rel="stylesheet" type="text/css" href="/css/estiloslist.css"
 	th:href="@{/css/estiloslist.css}" />
 </head>
 <body>
-	<h1>List of Invoice</h1>
-	<table class="table table-sm">
-		<thead class="thead-dark">
-			<tr>
-				<th>Number</th>
-				<th>Elderly DNI</th>
-				<th>Request Number</th>
-				<th>Date</th>
-				<th>Amount</th>
-				<th>concept</th>
+	<div layout:fragment="content">
+		<h1>List of Invoice</h1>
+		<table class="table table-sm">
+			<thead class="thead-dark">
+				<tr>
+					<th>Number</th>
+					<th>Elderly DNI</th>
+					<th>Request Number</th>
+					<th>Date</th>
+					<th>Amount</th>
+					<th>concept</th>
 
-				<th></th>
-				<th></th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr th:each="invoice: ${invoices}">
-				<td th:text="${invoice.number}"></td>
-				<td th:text="${invoice.elderlyDNI}"></td>
-				<td th:text="${invoice.requestNumber}"></td>
-				<td th:text="${invoice.date}"></td>
-				<td th:text="${invoice.amount}"></td>
-				<td th:text="${invoice.concept}"></td>
-				<td><a
-					th:href="@{/invoice/update/{number}(number=${invoice.number})}">Edita</a>
-				</td>
-				<td><a
-					th:href="@{/invoice/delete/{number}(number=${invoice.number})}">Esborra</a>
-				</td>
-			</tr>
-		</tbody>
-	</table>
-	<a class="btn btn-secondary btn-lg btn-block " href="add">Add invoice</a>
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="invoice: ${invoices}">
+					<td th:text="${invoice.number}"></td>
+					<td th:text="${invoice.elderlyDNI}"></td>
+					<td th:text="${invoice.requestNumber}"></td>
+					<td th:text="${invoice.date}"></td>
+					<td th:text="${invoice.amount}"></td>
+					<td th:text="${invoice.concept}"></td>
+					<td><a class="btn btn-warning"
+						th:href="@{/invoice/update/{number}(number=${invoice.number})}">Edita</a>
+					</td>
+					<td><a class="btn btn-danger"
+						th:href="@{/invoice/delete/{number}(number=${invoice.number})}">Esborra</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<a class="btn btn-info btn-lg btn-block " href="add">Add
+			invoice</a>
+	</div>
+
 </body>
 </html>

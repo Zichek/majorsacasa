@@ -10,21 +10,22 @@ import org.springframework.validation.Validator;
 import java.util.List;
 
 public class InvoiceValidator implements Validator {
-    @Override
-    public boolean supports(Class<?> cls) {
-        return Invoice.class.equals(cls);
-    }
+	@Override
+	public boolean supports(Class<?> cls) {
+		return Invoice.class.equals(cls);
+	}
 
-    private InvoiceDao invoiceDao;
-    @Autowired
-    public void setInvoiceDao(InvoiceDao invoiceDao) {
-    	this.invoiceDao=invoiceDao;
-    }
-    
-    @Override
-    public void validate(Object obj, Errors errors) {
-        Invoice invoice = (Invoice) obj;
-   
+	private InvoiceDao invoiceDao;
+
+	@Autowired
+	public void setInvoiceDao(InvoiceDao invoiceDao) {
+		this.invoiceDao = invoiceDao;
+	}
+
+	@Override
+	public void validate(Object obj, Errors errors) {
+		Invoice invoice = (Invoice) obj;
+
 //        List<Invoice> listInvoice = invoiceDao.getAllInvoice();
 //
 //        for(Invoice invoice2 : listInvoice){
@@ -33,24 +34,17 @@ public class InvoiceValidator implements Validator {
 //                        "Existing number");
 //        }
 
-        if (invoice.getNumber()<=0)
-            errors.rejectValue("number", "request",
-                    "Enter a valid value");
+		if (invoice.getElderlyDNI().equals("") || invoice.getElderlyDNI().length() != 9)
+			errors.rejectValue("elderlyDNI", "request", "Enter a valid value. It must be 9 characters");
 
-        if (invoice.getElderlyDNI().equals("") || invoice.getElderlyDNI().length() != 9)
-            errors.rejectValue("elderlyDNI", "request",
-                    "Enter a valid value. It must be 9 characters");
+		if (invoice.getDate() == null)
+			errors.rejectValue("date", "request", "Enter a valid value");
 
-        if (invoice.getDate()==null)
-            errors.rejectValue("date", "request",
-                    "Enter a valid value");
+		if (invoice.getAmount() <= 0)
+			errors.rejectValue("amount", "request", "Enter a valid value");
+		
+		if (invoice.getConcept().equals("") || invoice.getConcept().length() > 20)
+			errors.rejectValue("concept", "request", "Enter a valid value");
 
-        if (invoice.getAmount() <= 0)
-        	errors.rejectValue("amount", "request",
-                    "Enter a valid value");
-        
-        if (invoice.getRequestNumber() <= 0)
-        	errors.rejectValue("requestNumber", "request",
-                    "Enter a valid value");
-    }
+	}
 }

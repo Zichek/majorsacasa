@@ -111,6 +111,7 @@ public class RequestController {
 		 if (bindingResult.hasErrors()) 
 			 return "request/updateforcompany";
 		 requestDao.updateRequest(request);
+		// System.out.println("Mensaje para el anciano: Se le acaba de asignar una fecha y hora para el servicio solicitado. A continuacion podra visualizarla: "+ request.getSchedule());
 		 return "redirect:listforcompany"; 
 	}
   
