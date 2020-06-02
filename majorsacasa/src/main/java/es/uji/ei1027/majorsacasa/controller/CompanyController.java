@@ -1,5 +1,7 @@
 package es.uji.ei1027.majorsacasa.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import es.uji.ei1027.majorsacasa.dao.CompanyDao;
 import es.uji.ei1027.majorsacasa.dao.UserDao;
 import es.uji.ei1027.majorsacasa.model.Company;
+import es.uji.ei1027.majorsacasa.model.User;
 
 
 @Controller
@@ -31,6 +34,18 @@ public class CompanyController {
 	}
 
    // Operacions: Crear, llistar, actualitzar, esborrar
+   
+	@RequestMapping("/indexcompany")
+	public String listIndexCompany(Model model, HttpSession session) {
+		User login = (User) session.getAttribute("user");
+		if(login==null) {
+			model.addAttribute("user",new User());
+			return "login";			
+		}
+		
+			
+		return "company/indexcompany";
+	}
    
    @RequestMapping("/list")
    public String listCompanys(Model model) {

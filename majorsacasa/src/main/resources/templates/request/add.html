@@ -45,10 +45,10 @@
 						<td class="b" th:if="${#fields.hasErrors('creationDate')}" th:errors="*{creationDate}"></td>
 				</tr>
 				
-				<tr>
+<!-- 				<tr>
 					<td class="a"><label>Schedule:</label></td>
 					<td class="b"><input type="text" th:field="*{schedule}" /></td>
-				</tr>
+				</tr>  -->
 				<tr>
 					<td class="a"><label>Comments:</label></td>
 					<td class="b"><input type="text" th:field="*{comments}" /></td>
@@ -64,7 +64,40 @@
 					<td colspan="2"><input
 						class="btn btn-info btn-lg btn-block" type="submit"
 						value="Add request" /></td>
-				</tr>
+				</tr> 
+				
+				<!-- <tr>
+					<td colspan="2"><input type="submit"
+							class="btn btn-info btn-lg btn-block" data-toggle="modal"
+							data-target="#exampleModal" value="Add request"/>
+							
+						<div class="modal fade" id="exampleModalCenter" tabindex="-1"
+							role="dialog" aria-labelledby="exampleModalCenterTitle"
+							aria-hidden="true">
+							<div class="modal-dialog modal-dialog-centered" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title" id="exampleModalLongTitle">Modal
+											title</h5>
+										<button type="button" class="close" data-dismiss="modal"
+											aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+										</button>
+									</div>
+									<div class="modal-body">...</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary"
+											data-dismiss="modal">Close</button>
+										<button type="button" class="btn btn-primary">Save
+											changes</button>
+									</div>
+								</div>
+							</div>
+						</div></td>
+
+
+				</tr> -->
+				
 			</table>
 		</form>
 	</div>

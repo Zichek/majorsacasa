@@ -68,8 +68,8 @@ public class UserController {
 		System.out.println(user.getRole()); //	COMPORBAMOS QUE EL USUARIO SEA EL CORRECTO
 		if (user.getRole().equals("elderly"))
 			return "redirect:/elderly/indexelderly"; //FUNCIONA
-		else if (user.getRole().equals("company")) //NO IMPLEMENTADO
-			return "redirect:/company/indexCompany";
+		else if (user.getRole().equals("company")) //NO FUNCIONA
+			return "redirect:/company/indexcompany";
 		else if (user.getRole().equals("casManager"))  //FUNCIONA
 			return "redirect:/cas/manager";
 		else if (user.getRole().equals("casCommittee")) //FUNCIONA

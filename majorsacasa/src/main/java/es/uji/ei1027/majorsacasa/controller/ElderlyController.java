@@ -51,6 +51,7 @@ public class ElderlyController {
 			model.addAttribute("user",new User());
 			return "login";			
 		}
+		
 			
 		return "elderly/indexelderly";
 	}
