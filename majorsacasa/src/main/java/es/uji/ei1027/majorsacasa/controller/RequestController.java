@@ -47,6 +47,12 @@ public class RequestController {
       return "request/list";
    }
    
+   @RequestMapping("/listforcompany/{companyCIF}")
+   public String listForCompanyRequests(Model model, @PathVariable String companyCIF) {
+      model.addAttribute("requests", requestDao.getRequestByCIF(companyCIF));
+      return "request/list";
+   }
+   
    @RequestMapping(value="/add") 
 	public String addRequest(Model model) {
 		model.addAttribute("request", new Request());

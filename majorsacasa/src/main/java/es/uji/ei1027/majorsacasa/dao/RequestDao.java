@@ -51,9 +51,9 @@ public class RequestDao {
 	       }
 	}
 	
-	public Request getRequestState(String companyCIF) {
+	public Request getRequestByCIF(String companyCIF) {
 		try {
-			return jdbcTemplate.queryForObject("select r.elderlyDNI AS elderlyDNI, c.companyCIF AS companyCIF, co.name AS name, r.state AS state from request r, contract c, company co WHERE r.number=c.number AND c.companyCIF=co.CIF AND c.companyCIF = ? ",
+			return jdbcTemplate.queryForObject("SELECT r.* FROM request r, contract c, company co WHERE r.number=c.number AND c.companyCIF=co.CIF AND c.companyCIF = ? ",
 					new RequestRowMapper(), companyCIF);
 		} catch(EmptyResultDataAccessException e) {
 	           return null;
