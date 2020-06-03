@@ -55,26 +55,24 @@ public class CompanyController {
 
 	@RequestMapping("/list")
 	public String listCompanys(Model model, HttpSession session) {
-		User login = (User) session.getAttribute("user");;
-		if (login == null || login.getRole() != "casManager") {
-			model.addAttribute("user", new User());
-			return "login";
-		}
-		
-		model.addAttribute("companys", companyDao.getAllCompany());
-		return "company/list";
+		if (isCasManager(session)) {
+			model.addAttribute("companys", companyDao.getAllCompany());
+			return "company/list";			
+		}		
+		model.addAttribute("user", new User());
+		return "login";		
 	}
-
+	
 	@RequestMapping(value = "/add")
 	public String addCompany(Model model, HttpSession session) {
-		User login = (User) session.getAttribute("user");
-		if (login == null || login.getRole() != "casManager") {
-			model.addAttribute("user", new User());
-			return "login";
+		if (isCasManager(session)) {
+			model.addAttribute("company", new Company());
+			return "company/add";
+			
 		}
+		model.addAttribute("user", new User());
+		return "login";
 		
-		model.addAttribute("company", new Company());
-		return "company/add";
 	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
@@ -91,14 +89,13 @@ public class CompanyController {
 
 	@RequestMapping(value = "/update/{CIF}", method = RequestMethod.GET)
 	public String editCompany(Model model, @PathVariable String CIF, HttpSession session) {
-		User login = (User) session.getAttribute("user");
-		if (login == null || login.getRole() != "casManager") {
-			model.addAttribute("user", new User());
-			return "login";
+		if (isCasManager(session)) {
+			model.addAttribute("company", companyDao.getCompany(CIF));
+			return "company/update";
 		}
+		model.addAttribute("user", new User());
+		return "login";
 		
-		model.addAttribute("company", companyDao.getCompany(CIF));
-		return "company/update";
 	}
 
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
@@ -118,6 +115,11 @@ public class CompanyController {
 		companyDao.deleteCompany(CIF);
 
 		return "redirect:../list";
+	}
+	
+	private boolean isCasManager(HttpSession session) {
+		User login = (User) session.getAttribute("user");
+		return (login != null && login.getRole().equals("casManager"));
 	}
 
 }

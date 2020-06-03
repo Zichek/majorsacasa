@@ -37,22 +37,24 @@ public class ContractController {
 
 	@RequestMapping("/list")
 	public String listContracts(Model model, HttpSession session) {
-
-		model.addAttribute("contracts", contractDao.getAllContract());
-		return "contract/list";
+		if (isCasManager(session)) {
+			model.addAttribute("contracts", contractDao.getAllContract());
+			return "contract/list";
+		}
+		model.addAttribute("user", new User());
+		return "login";
 	}
 
 	@RequestMapping(value = "/add")
 	public String addContract(Model model, HttpSession session) {
-		User login = (User) session.getAttribute("user");
-		if (login == null) {
-			model.addAttribute("user", new User());
-			return "login";
+		if (isCasManager(session)) {
+			model.addAttribute("contract", new Contract());
+			model.addAttribute("companies", companyDao.getAllCompany());
+			return "contract/add";
 		}
-
-		model.addAttribute("contract", new Contract());
-		model.addAttribute("companies", companyDao.getAllCompany());
-		return "contract/add";
+		
+		model.addAttribute("user", new User());
+		return "login";		
 	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
@@ -68,14 +70,14 @@ public class ContractController {
 
 	@RequestMapping(value = "/update/{number}", method = RequestMethod.GET)
 	public String editContract(Model model, @PathVariable int number, HttpSession session) {
-		User login = (User) session.getAttribute("user");
-		if (login == null || login.getRole() != "casManager") {
-			model.addAttribute("user", new User());
-			return "login";
+		if (isCasManager(session)) {
+			model.addAttribute("contract", contractDao.getContract(number));
+			return "contract/update";
 		}
-
-		model.addAttribute("contract", contractDao.getContract(number));
-		return "contract/update";
+		
+		model.addAttribute("user", new User());
+		return "login";
+		
 	}
 
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
@@ -94,6 +96,11 @@ public class ContractController {
 	public String processDelete(@PathVariable int number) {
 		contractDao.deleteContract(number);
 		return "redirect:../list";
+	}
+	
+	private boolean isCasManager(HttpSession session) {
+		User login = (User) session.getAttribute("user");
+		return (login != null && login.getRole().equals("casManager"));
 	}
 
 }
