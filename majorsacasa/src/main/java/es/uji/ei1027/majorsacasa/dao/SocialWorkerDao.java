@@ -24,8 +24,8 @@ public class SocialWorkerDao {
 
     /* Afegeix el socialWorker a la base de dades */
     public void addSocialWorker(SocialWorker socialWorker) {
-        jdbcTemplate.update("INSERT INTO socialWorker VALUES(?, ?, ?, ?, ?, ?)",
-                socialWorker.getName(), socialWorker.getElderlyDNI(), socialWorker.getUserCAS(), socialWorker.getPwd(),
+        jdbcTemplate.update("INSERT INTO socialWorker VALUES(?, ?, ?, ?, ?)",
+                socialWorker.getName(), socialWorker.getUserCAS(), socialWorker.getPwd(),
                 socialWorker.getPhoneNumber(), socialWorker.getEmail());
     }
 
@@ -38,7 +38,7 @@ public class SocialWorkerDao {
        (excepte el nom, que �s la clau prim�ria) */
     public void updateSocialWorker(SocialWorker socialWorker) {
         jdbcTemplate.update("UPDATE socialWorker SET name=?, socialWorkerDNI=?, userCAS=?, pwd=?, phoneNumber=?, email=? ",
-               socialWorker.getName(), socialWorker.getElderlyDNI(), socialWorker.getUserCAS(), socialWorker.getPwd(),
+               socialWorker.getName(), socialWorker.getUserCAS(), socialWorker.getPwd(),
                socialWorker.getPhoneNumber(), socialWorker.getEmail());
     }
 

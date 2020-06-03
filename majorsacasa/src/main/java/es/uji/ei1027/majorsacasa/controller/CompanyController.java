@@ -44,13 +44,12 @@ public class CompanyController {
 
 	@RequestMapping("/indexcompany")
 	public String listIndexCompany(Model model, HttpSession session) {
-		User login = (User) session.getAttribute("user");
-		if (login == null) {
-			model.addAttribute("user", new User());
-			return "login";
+		if (isCompany(session)) {
+			return "company/indexcompany";
 		}
-
-		return "company/indexcompany";
+		model.addAttribute("user", new User());
+		return "login";
+	
 	}
 
 	@RequestMapping("/list")
@@ -120,6 +119,11 @@ public class CompanyController {
 	private boolean isCasManager(HttpSession session) {
 		User login = (User) session.getAttribute("user");
 		return (login != null && login.getRole().equals("casManager"));
+	}
+	
+	private boolean isCompany(HttpSession session) {
+		User login = (User) session.getAttribute("user");
+		return (login != null && login.getRole().equals("company"));
 	}
 
 }

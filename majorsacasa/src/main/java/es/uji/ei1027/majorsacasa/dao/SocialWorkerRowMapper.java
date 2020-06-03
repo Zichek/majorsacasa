@@ -15,7 +15,6 @@ public class SocialWorkerRowMapper implements RowMapper<SocialWorker> {
 	public SocialWorker mapRow(ResultSet rs, int rowNum) throws SQLException {
 		SocialWorker socialWorker = new SocialWorker();
 		socialWorker.setName(rs.getString("name"));
-		socialWorker.setElderlyDNI(rs.getString("elderlyDNI"));
 		socialWorker.setUserCAS(rs.getString("userCAS"));
 		socialWorker.setPwd(rs.getString("pwd"));
 		socialWorker.setPhoneNumber(rs.getString("phoneNumber"));

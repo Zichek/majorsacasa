@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import es.uji.ei1027.majorsacasa.dao.ElderlyDao;
+import es.uji.ei1027.majorsacasa.dao.SocialWorkerDao;
 import es.uji.ei1027.majorsacasa.dao.UserDao;
 import es.uji.ei1027.majorsacasa.model.Elderly;
 import es.uji.ei1027.majorsacasa.model.User;
@@ -22,6 +23,12 @@ public class ElderlyController {
 
 	private ElderlyDao elderlyDao;
 	private UserDao userDao;
+	private SocialWorkerDao socialWorkerDao;
+	
+	@Autowired
+	public void setSocialWorkerDao(SocialWorkerDao socialWorkerDao) {
+		this.socialWorkerDao=socialWorkerDao;
+	}
 
 	@Autowired
 	public void setElderlyDao(ElderlyDao elderlyDao) {
@@ -38,6 +45,17 @@ public class ElderlyController {
 		if (isCasCommittee(session)) {
 		model.addAttribute("elderlys", elderlyDao.getElderlys());
 		return "elderly/list";
+		}
+		model.addAttribute("user", new User());
+		return "login";
+	}
+	
+	@RequestMapping("/listsocialworker")
+	public String listElderlySocialWorker(Model model, HttpSession session) {
+		if (isCasCommittee(session)) {
+		model.addAttribute("elderlys", elderlyDao.getElderlys());
+		model.addAttribute("socialworkers", socialWorkerDao.getSocialWorker());
+		return "elderly/listsocialworker";
 		}
 		model.addAttribute("user", new User());
 		return "login";
@@ -108,6 +126,29 @@ public class ElderlyController {
 		return "redirect:list";
 	}
 
+	@RequestMapping(value = "/updatesocialworker/{DNI}", method = RequestMethod.GET)
+	public String editElderlySocialWorker(Model model, @PathVariable String DNI, HttpSession session) {
+		if (isCasCommittee(session)) {
+			model.addAttribute("elderly", elderlyDao.getElderly(DNI));
+			model.addAttribute("socialworkers", socialWorkerDao.getSocialWorker());
+			return "elderly/updatesocialworker";
+		}
+		
+		model.addAttribute("user", new User());
+		return "login";
+		
+	}
+	
+	@RequestMapping(value = "/updatesocialworker", method = RequestMethod.POST)
+	public String processUpdateSubmitSocialWorker(@ModelAttribute("elderly") Elderly elderly, BindingResult bindingResult) {
+		ElderlyValidator elderlyValidator = new ElderlyValidator();
+		elderlyValidator.validate(elderly, bindingResult);
+		if (bindingResult.hasErrors())
+			return "elderly/updatesocialworker";
+		elderlyDao.updateElderly(elderly);
+		return "redirect:listsocialworker";
+	}
+
 	// Borrar una actividad
 	@RequestMapping(value = "/delete/{DNI}")
 	public String processDelete(@PathVariable String DNI) {
@@ -115,6 +156,7 @@ public class ElderlyController {
 		userDao.deleteUser(DNI);
 		return "redirect:../list";
 	}
+	
 
 	private boolean isElderly(HttpSession session) {
 		User login = (User) session.getAttribute("user");

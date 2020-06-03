@@ -38,10 +38,10 @@ public class ElderlyDao {
        (excepte el nom, que �s la clau prim�ria) */
     public void updateElderly(Elderly elderly) {
         jdbcTemplate.update("UPDATE elderly SET name=?, surname=?, birthDate=?, address=?, phoneNumber=?,"
-        		+ "bankAccountNumber=?, email=?, userPwd=?, dateCreation=?, alergies=?, diseases=? where DNI=?",
+        		+ "bankAccountNumber=?, email=?, userPwd=?, dateCreation=?, alergies=?, diseases=?, socialWorkerUserCas=? where DNI=?",
                elderly.getName(), elderly.getSurname(), elderly.getBirthDate(), elderly.getAddress(), elderly.getPhoneNumber(),
                elderly.getBankAccountNumber(), elderly.getEmail(), elderly.getUserPwd(), elderly.getDateCreation(), elderly.getAlergies(),
-               elderly.getDiseases(), elderly.getDNI());
+               elderly.getDiseases(), elderly.getSocialWorkerUserCas(), elderly.getDNI());
     }
 
     /* Obt� el elderly amb el nom donat. Torna null si no existeix. */

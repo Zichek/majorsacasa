@@ -20,8 +20,15 @@ public class Elderly {
 	private LocalDate dateCreation;
 	private String alergies;
 	private String diseases;
+	private String socialWorkerUserCas;
 
-    public String getName() {
+    public String getSocialWorkerUserCas() {
+		return socialWorkerUserCas;
+	}
+	public void setSocialWorkerUserCas(String socialWorkerUserCas) {
+		this.socialWorkerUserCas = socialWorkerUserCas;
+	}
+	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
@@ -98,8 +105,9 @@ public class Elderly {
 		return "Elderly [name=" + name + ", DNI=" + DNI + ", surname=" + surname + ", birthDate=" + birthDate
 				+ ", address=" + address + ", phoneNumber=" + phoneNumber + ", bankAccountNumber=" + bankAccountNumber
 				+ ", email=" + email + ", userPwd=" + userPwd + ", dateCreation=" + dateCreation + ", alergies="
-				+ alergies + ", diseases=" + diseases + "]";
+				+ alergies + ", diseases=" + diseases + ", socialWorkerUserCas=" + socialWorkerUserCas + "]";
 	}
+	
 	
 }
 

@@ -3,7 +3,6 @@ package es.uji.ei1027.majorsacasa.model;
 public class SocialWorker {
 	
 	public String name;
-	public String elderlyDNI;
 	public String userCAS;
 	public String pwd;
 	public String phoneNumber;
@@ -14,12 +13,6 @@ public class SocialWorker {
 	}
 	public void setName(String name) {
 		this.name = name;
-	}
-	public String getElderlyDNI() {
-		return elderlyDNI;
-	}
-	public void setElderlyDNI(String elderlyDNI) {
-		this.elderlyDNI = elderlyDNI;
 	}
 	public String getUserCAS() {
 		return userCAS;
@@ -47,7 +40,7 @@ public class SocialWorker {
 	}
 	@Override
 	public String toString() {
-		return "SocialWorker [name=" + name + ", elderlyDNI=" + elderlyDNI + ", userCAS=" + userCAS + ", pwd=" + pwd
+		return "SocialWorker [name=" + name + ", userCAS=" + userCAS + ", pwd=" + pwd
 				+ ", phoneNumber=" + phoneNumber + ", email=" + email + "]";
 	}
 	
