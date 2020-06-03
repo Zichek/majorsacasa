@@ -1,19 +1,8 @@
-td.a {
-	font-size: 30px;
-	text-align: right;
-	width: auto;
+.form-label {
+	font-size: 25px;
+	font-weight: 700;
 }
 
-td.b {
-	font-size: 30px;
-	text-align: left;
-	width: auto;
-}
-
-h1 {
-	color: black;
-	text-align: center;
-}
 
 table {	
 	margin-left: auto;

@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorate="~{fragments/base}">
@@ -12,46 +11,49 @@
 </head>
 <body>
 	<div layout:fragment="content">
-	<!--end of Navigation bar-->
-	<h1>List of contracts</h1>
-	<table class="table table-sm">
-		<thead class="thead-dark">
-			<tr>
-				<th>Number</th>
-				<th>Company CIF</th>
-				<th>Date beginning</th>
-				<th>Date ending</th>
-				<th>Description</th>
-				<th>Service type</th>
-				<th>Quantity services</th>
-				<th>Units of measure</th>
-				<th>Price unit</th>
-				<th></th>
-				<th></th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr th:each="contract: ${contracts}">
-				<td th:text="${contract.number}"></td>
-				<td th:text="${contract.companyCIF}"></td>
-				<td th:text="${contract.dateBeginning}"></td>
-				<td th:text="${contract.dateEnding}"></td>
-				<td th:text="${contract.description}"></td>
-				<td th:text="${contract.serviceType}"></td>
-				<td th:text="${contract.quantityServices}"></td>
-				<td th:text="${contract.unitsOfMeasure}"></td>
-				<td th:text="${contract.priceUnit}"></td>
-				<td><a class="btn btn-warning"
-					th:href="@{/contract/update/{number}(number=${contract.number})}">Edita</a>
-				</td>
-				<td><a class="btn btn-danger"
-					th:href="@{/contract/delete/{number}(number=${contract.number})}">Esborra</a>
-				</td>
-			</tr>
-		</tbody>
-	</table>
-	<a class="btn btn-info btn-lg btn-block " href="add">Add
-		contract</a>
+		<div class="container-fluid">
+			<h1>List of contracts</h1>
+			<div class="table-responsive">
+				<table class="table">
+					<thead class="thead-dark">
+						<tr>
+							<th>Number</th>
+							<th>Company CIF</th>
+							<th>Date beginning</th>
+							<th>Date ending</th>
+							<th>Description</th>
+							<th>Service type</th>
+							<th>Quantity services</th>
+							<th>Units of measure</th>
+							<th>Price unit</th>
+							<th></th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="contract: ${contracts}">
+							<td th:text="${contract.number}"></td>
+							<td th:text="${contract.companyCIF}"></td>
+							<td th:text="${contract.dateBeginning}"></td>
+							<td th:text="${contract.dateEnding}"></td>
+							<td th:text="${contract.description}"></td>
+							<td th:text="${contract.serviceType}"></td>
+							<td th:text="${contract.quantityServices}"></td>
+							<td th:text="${contract.unitsOfMeasure}"></td>
+							<td th:text="${contract.priceUnit}"></td>
+							<td><a class="btn btn-warning"
+								th:href="@{/contract/update/{number}(number=${contract.number})}">Edit</a>
+							</td>
+							<td><a class="btn btn-danger"
+								th:href="@{/contract/delete/{number}(number=${contract.number})}">Delete</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<a class="btn btn-info btn-lg btn-block " href="add">Add
+					contract</a>
+			</div>
+		</div>
 	</div>
 </body>
 </html>

@@ -11,47 +11,52 @@
 </head>
 <body>
 	<div layout:fragment="content">
-	<h1>List of elderlies</h1>
-	<table class="table table-sm">
-		<thead class="thead-dark">
-			<tr>
-				<th>Name</th>
-				<th>Surname</th>
-				<th>DNI</th>
-				<th>Birthdate</th>
-				<th>Address</th>
-				<th>Phone number</th>
-				<th>Bank account number</th>
-				<th>Email</th>
-				<th>Date creation</th>
-				<th>Alergies</th>
-				<th>Diseases</th>
-				<th>Social Worker</th>
-				<th></th>
-				<th></th>
-				<th></th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr th:each="elderly: ${elderlys}">
-				<td th:text="${elderly.name}"></td>
-				<td th:text="${elderly.surname}"></td>
-				<td th:text="${elderly.DNI}"></td>
-				<td th:text="${elderly.birthDate}"></td>
-				<td th:text="${elderly.address}"></td>
-				<td th:text="${elderly.phoneNumber}"></td>
-				<td th:text="${elderly.bankAccountNumber}"></td>
-				<td th:text="${elderly.email}"></td>
-				<td th:text="${elderly.dateCreation}"></td>
-				<td th:text="${elderly.alergies}"></td>
-				<td th:text="${elderly.diseases}"></td>
-				<td th:text="${elderly.socialWorkerUserCas}"></td>
-				<td><a class="btn btn-warning"
-					th:href="@{/elderly/updatesocialworker/{DNI}(DNI=${elderly.DNI})}">Add social worker</a></td>
-				
-			</tr>
-		</tbody>
-	</table>
+		<div class="container-fluid">
+			<h1>List of elderlies</h1>
+			<div class="table-responsive">
+				<table class="table">
+					<thead class="thead-dark">
+						<tr>
+							<th>Name</th>
+							<th>Surname</th>
+							<th>DNI</th>
+							<th>Birthdate</th>
+							<th>Address</th>
+							<th>Phone number</th>
+							<th>Bank account number</th>
+							<th>Email</th>
+							<th>Date creation</th>
+							<th>Alergies</th>
+							<th>Diseases</th>
+							<th>Social Worker</th>
+							<th></th>
+							<th></th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="elderly: ${elderlys}">
+							<td th:text="${elderly.name}"></td>
+							<td th:text="${elderly.surname}"></td>
+							<td th:text="${elderly.DNI}"></td>
+							<td th:text="${elderly.birthDate}"></td>
+							<td th:text="${elderly.address}"></td>
+							<td th:text="${elderly.phoneNumber}"></td>
+							<td th:text="${elderly.bankAccountNumber}"></td>
+							<td th:text="${elderly.email}"></td>
+							<td th:text="${elderly.dateCreation}"></td>
+							<td th:text="${elderly.alergies}"></td>
+							<td th:text="${elderly.diseases}"></td>
+							<td th:text="${elderly.socialWorkerUserCas}"></td>
+							<td><a class="btn btn-warning"
+								th:href="@{/elderly/updatesocialworker/{DNI}(DNI=${elderly.DNI})}">Add
+									social worker</a></td>
+
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
 	</div>
 </body>
 </html>

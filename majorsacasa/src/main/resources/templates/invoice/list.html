@@ -11,41 +11,43 @@
 </head>
 <body>
 	<div layout:fragment="content">
-		<h1>List of Invoice</h1>
-		<table class="table table-sm">
-			<thead class="thead-dark">
-				<tr>
-					<th>Number</th>
-					<th>Elderly DNI</th>
-					<th>Request Number</th>
-					<th>Date</th>
-					<th>Amount</th>
-					<th>concept</th>
+		<div class="container-fluid">
+			<h1>List of Invoice</h1>
+			<div class="table-responsive">
+				<table class="table">
+					<thead class="thead-dark">
+						<tr>
+							<th>Number</th>
+							<th>Elderly DNI</th>
+							<th>Request Number</th>
+							<th>Date</th>
+							<th>Amount</th>
+							<th>concept</th>
 
-					<th></th>
-					<th></th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr th:each="invoice: ${invoices}">
-					<td th:text="${invoice.number}"></td>
-					<td th:text="${invoice.elderlyDNI}"></td>
-					<td th:text="${invoice.requestNumber}"></td>
-					<td th:text="${invoice.date}"></td>
-					<td th:text="${invoice.amount}"></td>
-					<td th:text="${invoice.concept}"></td>
-					<td><a class="btn btn-warning"
-						th:href="@{/invoice/update/{number}(number=${invoice.number})}">Edita</a>
-					</td>
-					<td><a class="btn btn-danger"
-						th:href="@{/invoice/delete/{number}(number=${invoice.number})}">Esborra</a>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-		<a class="btn btn-info btn-lg btn-block " href="add">Add
-			invoice</a>
+							<th></th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="invoice: ${invoices}">
+							<td th:text="${invoice.number}"></td>
+							<td th:text="${invoice.elderlyDNI}"></td>
+							<td th:text="${invoice.requestNumber}"></td>
+							<td th:text="${invoice.date}"></td>
+							<td th:text="${invoice.amount}"></td>
+							<td th:text="${invoice.concept}"></td>
+							<td><a class="btn btn-warning"
+								th:href="@{/invoice/update/{number}(number=${invoice.number})}">Edit</a>
+							</td>
+							<td><a class="btn btn-danger"
+								th:href="@{/invoice/delete/{number}(number=${invoice.number})}">Delete</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<a class="btn btn-info btn-lg btn-block " href="add">Add invoice</a>
+			</div>
+		</div>
 	</div>
-
 </body>
 </html>

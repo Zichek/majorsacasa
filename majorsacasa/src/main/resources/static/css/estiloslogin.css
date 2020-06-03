@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,700);
+/* @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,700);
 @import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css);
 @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css);
 * {
@@ -108,7 +108,7 @@ body, input, button {
   transform: translateY(-3px);
 }
 
-/* Large Devices, Wide Screens */
+Large Devices, Wide Screens
 @media only screen and (max-width: 1200px) {
   .login {
     width: 600px;
@@ -122,7 +122,7 @@ body, input, button {
     font-size: 1.7em;
   }
 }
-/* Medium Devices, Desktops */
+Medium Devices, Desktops
 @media only screen and (max-width: 992px) {
   .login {
     margin-top: 1%;
@@ -131,7 +131,7 @@ body, input, button {
     min-height: 0;
   }
 }
-/* Small Devices, Tablets */
+Small Devices, Tablets
 @media only screen and (max-width: 768px) {
   .login {
     margin-top: 0;
@@ -140,7 +140,7 @@ body, input, button {
     min-height: 0;
   }
 }
-/* Extra Small Devices, Phones */
+Extra Small Devices, Phones
 @media only screen and (max-width: 480px) {
   .login {
     margin-top: 0;
@@ -152,7 +152,7 @@ body, input, button {
     margin-top: 0;
   }
 }
-/* Custom, iPhone Retina */
+Custom, iPhone Retina
 @media only screen and (max-width: 320px) {
   .login {
     margin-top: 0;
@@ -160,4 +160,23 @@ body, input, button {
     font-size: 0.7em;
     min-height: 0;
   }
+}
+ */
+ body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+#login .container #login-row #login-column #login-box {
+  margin-top: 20px;
+  max-width: 600px;
+  height: 320px;
+  border: 1px solid #FFFFFF;
+  background-color: #EAEAEA;
+}
+#login .container #login-row #login-column #login-box #login-form {
+  padding: 20px;
+}
+#login .container #login-row #login-column #login-box #login-form #register-link {
+  margin-top: -85px;
 }

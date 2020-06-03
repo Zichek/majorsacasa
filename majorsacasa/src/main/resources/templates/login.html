@@ -5,32 +5,36 @@
 <head>
 <title>Login</title>
 <meta charset="UTF-8" />
-<link
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="/css/estiloslogin.css"
 	th:href="@{/css/estiloslogin.css}" />
 </head>
 <body>
-<div layout:fragment="content">
-	<div class="login">
-	  <div class="heading">
-	    <h2>Sign in</h2>
-	   <form action="#" th:action="@{/login}" th:object="${user}" method="post">
-	
-	      <div class="input-group input-group-lg">
-	        <span class="input-group-addon"><i class="fa fa-user"></i></span>
-	        <input type="text" th:field="*{username}" class="form-control" placeholder="DNI or CIF"/>
-	          </div>
-	
-	        <div class="input-group input-group-lg">
-	          <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-	          <input type="password" th:field="*{password}" class="form-control" placeholder="Password"/>
-	        </div>
-	
-	        <button type="submit" class="float">Login</button>
-	       </form>
- 		</div>
- 	</div>
-</div>
+	<div layout:fragment="content">
+	    <div class="container">
+	    <div class="row justify-content-center">
+	    <div class="col-lg-6">
+		    <form class="form-signin m-4"  action="#" th:action="@{/login}" th:object="${user}" method="post">
+		      <div class="text-center mb-4">
+		        <i class="fas fa-user-md fa-4x m-4"></i>
+		        <h1	 class="h3 mb-3 font-weight-bold">Login</h1>
+		      </div>
+		
+		      <div class="form-label-group">
+		        <label class="font-weight-bold h4" for="inputEmail">Username</label>
+		        <input th:field="*{username}" type="text" id="inputEmail" class="form-control" placeholder="Username" required="true" autofocus="">
+		        
+		      </div>
+		
+		      <div class="form-label-group">
+		       	<label class="font-weight-bold h4 mt-3" for="inputPassword">Password</label>
+		        <input  th:field="*{password}" type="password" id="inputPassword" class="form-control" placeholder="Password" required="true">
+		        
+		      </div>
+		      <button class="btn btn-lg btn-info btn-block mt-3" type="submit">Sign in</button>
+		    </form>
+	    </div>
+	    </div>
+		</div>
+	</div>
 </body>
 </html>

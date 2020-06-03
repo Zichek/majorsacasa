@@ -12,42 +12,45 @@
 </head>
 <body>
 	<div layout:fragment="content">
-	<h1>List of companies</h1>
-	<table class="table">
-		<thead class="thead-dark">
-			<tr>
-				<th>Name</th>
-				<th>CIF</th>
-				<th>Password</th>
-				<th>Address</th>
-				<th>Contact person name</th>
-				<th>Contact person phone number</th>
-				<th>Contact person email</th>
-				<th>Service type</th>
-				<th></th>
-				<th></th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr th:each="company: ${companys}">
-				<td th:text="${company.name}"></td>
-				<td th:text="${company.CIF}"></td>
-				<td th:text="${company.password}"></td>
-				<td th:text="${company.address}"></td>
-				<td th:text="${company.contactPersonName}"></td>
-				<td th:text="${company.contactPersonPhoneNumber}"></td>
-				<td th:text="${company.contactPersonEmail}"></td>
-				<td th:text="${company.serviceType}"></td>
-				<td><a class="btn btn-warning"
-					th:href="@{/company/update/{CIF}(CIF=${company.CIF})}">Edita</a></td>
-				<td><a class="btn btn-danger"
-					th:href="@{/company/delete/{CIF}(CIF=${company.CIF})}">Esborra</a>
-				</td>
-			</tr>
-		</tbody>
-	</table>
-	<a class="btn btn-info btn-lg btn-block " href="add">Add
-		company</a>
+		<div class="container-fluid">
+			<h1>List of companies</h1>
+			<div class="table-responsive">
+				<table class="table">
+					<thead class="thead-dark">
+						<tr>
+							<th>Name</th>
+							<th>CIF</th>
+							<th>Password</th>
+							<th>Address</th>
+							<th>Contact person name</th>
+							<th>Contact person phone number</th>
+							<th>Contact person email</th>
+							<th>Service type</th>
+							<th></th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="company: ${companys}">
+							<td th:text="${company.name}"></td>
+							<td th:text="${company.CIF}"></td>
+							<td th:text="${company.password}"></td>
+							<td th:text="${company.address}"></td>
+							<td th:text="${company.contactPersonName}"></td>
+							<td th:text="${company.contactPersonPhoneNumber}"></td>
+							<td th:text="${company.contactPersonEmail}"></td>
+							<td th:text="${company.serviceType}"></td>
+							<td><a class="btn btn-warning"
+								th:href="@{/company/update/{CIF}(CIF=${company.CIF})}">Edita</a></td>
+							<td><a class="btn btn-danger"
+								th:href="@{/company/delete/{CIF}(CIF=${company.CIF})}">Esborra</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<a class="btn btn-info btn-lg btn-block " href="add">Add company</a>
+			</div>
+		</div>
 	</div>
 </body>
 </html>

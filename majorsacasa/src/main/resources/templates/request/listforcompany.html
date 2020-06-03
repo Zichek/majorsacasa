@@ -12,39 +12,44 @@
 </head>
 <body>
 	<div layout:fragment="content">
-	<h1>List with all the request from elderlies</h1>
-	<table class="table">
-		<thead class="thead-dark">
-			<tr>
-				<th>Elderly DNI</th>
-				<th>Contract number</th>
-				<th>Type service</th>
-				<th>Creation date</th>
-				<th>State</th>
-				<th>Approved date</th>
-				<th>Comments</th>
-				<th>End date</th>
-				<th></th>
-				<th></th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr th:each="request: ${requests}">
-				<td th:text="${request.elderlyDNI}"></td>
-				<td th:text="${request.contractNumber}"></td>
-				<td th:text="${request.serviceType}"></td>
-				<td th:text="${request.creationDate}"></td>
-				<td th:text="${request.state}"></td>
-				<td th:text="${request.approvedDate}"></td>
-				<td th:text="${request.comments}"></td>
-				<td th:text="${request.endDate}"></td>
-				<td><a class="btn btn-warning"
-					th:href="@{/request/updateforcompany/{number}(number=${request.number})}">Assign hours</a></td>
-			</tr>
-		</tbody>
-	</table>
-<!-- 	<a class="btn btn-info btn-lg btn-block " href="add">Add
+		<div class="container-fluid">
+			<h1>List with all the request from elderlies</h1>
+			<div class="table-responsive">
+				<table class="table">
+					<thead class="thead-dark">
+						<tr>
+							<th>Elderly DNI</th>
+							<th>Contract number</th>
+							<th>Type service</th>
+							<th>Creation date</th>
+							<th>State</th>
+							<th>Approved date</th>
+							<th>Comments</th>
+							<th>End date</th>
+							<th></th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="request: ${requests}">
+							<td th:text="${request.elderlyDNI}"></td>
+							<td th:text="${request.contractNumber}"></td>
+							<td th:text="${request.serviceType}"></td>
+							<td th:text="${request.creationDate}"></td>
+							<td th:text="${request.state}"></td>
+							<td th:text="${request.approvedDate}"></td>
+							<td th:text="${request.comments}"></td>
+							<td th:text="${request.endDate}"></td>
+							<td><a class="btn btn-warning"
+								th:href="@{/request/updateforcompany/{number}(number=${request.number})}">Assign
+									hours</a></td>
+						</tr>
+					</tbody>
+				</table>
+				<!-- 	<a class="btn btn-info btn-lg btn-block " href="add">Add
 		request</a> -->
+			</div>
+		</div>
 	</div>
 </body>
 </html>

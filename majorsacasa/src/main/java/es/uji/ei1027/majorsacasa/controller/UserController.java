@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.validation.Errors; 
 import org.springframework.validation.Validator;
 
@@ -44,12 +45,13 @@ public class UserController {
 	@RequestMapping("/login")
 	public String login(Model model) {
 		model.addAttribute("user", new User());
+		model.addAttribute("pactiva", "login");
 		return "login";
 	}
 
 	@RequestMapping(value="/login", method=RequestMethod.POST)
 	public String checkLogin(@ModelAttribute("user") User user,  		
-				BindingResult bindingResult, HttpSession session) {
+				BindingResult bindingResult, HttpSession session, RedirectAttributes redirectAttributes) {
 //		UserValidator userValidator = new UserValidator(); 
 //		userValidator.validate(user, bindingResult); 
 		if (bindingResult.hasErrors()) {
@@ -65,10 +67,10 @@ public class UserController {
 		// Autenticats correctament. 
 		// Guardem les dades de l'usuari autenticat a la sessió
 		session.setAttribute("user", user); 
-		System.out.println(user.getRole()); //	COMPORBAMOS QUE EL USUARIO SEA EL CORRECTO
+		redirectAttributes.addFlashAttribute("pactiva", "profile");
 		if (user.getRole().equals("elderly"))
 			return "redirect:/elderly/indexelderly"; //FUNCIONA
-		else if (user.getRole().equals("company")) //NO FUNCIONA
+		else if (user.getRole().equals("company")) // FUNCIONA
 			return "redirect:/company/indexcompany";
 		else if (user.getRole().equals("casManager"))  //FUNCIONA
 			return "redirect:/cas/manager";
@@ -80,13 +82,13 @@ public class UserController {
 	}
 	
 	@RequestMapping("/myprofile")
-	public String listIndexElderly(Model model, HttpSession session) {
+	public String listIndexElderly(Model model, HttpSession session, RedirectAttributes redirectAttributes) {
 		User login = (User) session.getAttribute("user");
 		if(login==null) {
 			model.addAttribute("user",new User());
 			return "login";			
 		}
-		
+		redirectAttributes.addFlashAttribute("pactiva", "profile");
 		if (login.getRole().equals("elderly"))
 			return "redirect:/elderly/indexelderly"; //FUNCIONA
 		else if (login.getRole().equals("company")) //NO IMPLEMENTADO

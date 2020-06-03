@@ -6,67 +6,60 @@
 <title>New company</title>
 <meta charset="UTF-8" />
 
-<link rel="stylesheet" type="text/css" href="/css/estilosadd.css"
-	th:href="@{/css/estilosadd.css}" />
-</head>
-<body>
 
-	<div layout:fragment="content">
-		<h1>New company</h1>
-		<form action="#" th:action="@{/company/add}" th:object="${company}"
-			method="post">
-			<table class="table table-sm">
-				<tr>
-					<td class="a"><label>Name:</label></td>
-					<td class="b"><input type="text" th:field="*{name}" /></td>
-					<td class="b" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></td>
-				</tr>
-				<tr>
-					<td class="a"><label>CIF:</label></td>
-					<td class="b"><input type="text" th:field="*{CIF}" /></td>
-					<td class="b" th:if="${#fields.hasErrors('CIF')}" th:errors="*{CIF}"></td>
-				</tr>
-				<tr>
-					<td class="a"><label>Password:</label></td>
-					<td class="b"><input type="password" th:field="*{password}" /></td>
-					<td class="b" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></td>
-				</tr>
-				<tr>
-					<td class="a"><label>Address:</label></td>
-					<td class="b"><input type="text" th:field="*{address}" /></td>
-					<td class="b" th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></td>
-				</tr>
-				<tr>
-					<td class="a"><label>Contact person name:</label></td>
-					<td class="b"><input type="text" th:field="*{contactPersonName}" /></td>
-					<td class="b" th:if="${#fields.hasErrors('contactPersonName')}" th:errors="*{contactPersonName}"></td>
-				</tr>
-				<tr>
-					<td class="a"><label>Contact person phone number:</label></td>
-					<td class="b"><input type="text" th:field="*{contactPersonPhoneNumber}" /></td>
-					<td class="b" th:if="${#fields.hasErrors('contactPersonPhoneNumber')}" th:errors="*{contactPersonPhoneNumber}"></td>
-				</tr>
-				<tr>
-					<td class="a"><label>Contact person email:</label></td>
-					<td class="b"><input type="email" th:field="*{contactPersonEmail}" /></td>
-					<td class="b" th:if="${#fields.hasErrors('contactPersonEmail')}" th:errors="*{contactPersonEmail}"></td>
-				</tr>
-				<tr>
-					<td class="a"><label>Service type:</label></td>
-					<td class="b"><select class="form_control" type="ServiceType" th:field="*{serviceType}">
+</head>
+
+<body>
+<div layout:fragment="content">
+	<div class="container">	
+		<h1 class="text-center">New company</h1>
+		<form class="w-50 mx-auto" action="#" th:action="@{/company/add}" th:object="${company}" method="post">
+			<div class="form-group">
+				<label class="font-weight-bold h3">Name</label>
+				<input th:field="*{name}" type="text" class="form-control" aria-describedby="nameHelp" placeholder="Name">
+				<small th:if="${#fields.hasErrors('name')}" th:errors="*{name}" id="nameHelp" class="form-text text-danger"></small>
+			</div>
+			<div class="form-group">
+				<label class="font-weight-bold h3">CIF</label>
+				<input th:field="*{CIF}" type="text" class="form-control" aria-describedby="CIFHelp" placeholder="CIF">
+				<small th:if="${#fields.hasErrors('CIF')}" th:errors="*{CIF}" id="CIFHelp" class="form-text text-danger"></small>
+			</div>
+			<div class="form-group">
+				<label class="font-weight-bold h3">Password</label>
+				<input th:field="*{password}" type="password" class="form-control" aria-describedby="passwordHelp" placeholder="Password">
+				<small th:if="${#fields.hasErrors('password')}" th:errors="*{password}" id="passwordHelp" class="form-text text-danger"></small>
+			</div>
+			<div class="form-group">
+				<label class="font-weight-bold h3">Address</label>
+				<input th:field="*{address}" type="text" class="form-control" aria-describedby="addressHelp" placeholder="Address">
+				<small th:if="${#fields.hasErrors('address')}" th:errors="*{address}" id="addressHelp" class="form-text text-danger"></small>
+			</div>
+			<div class="form-group">
+				<label class="font-weight-bold h3">Contact person name</label>
+				<input th:field="*{contactPersonName}" type="text" class="form-control" aria-describedby="contactPersonNameHelp" placeholder="Contact person name">
+				<small th:if="${#fields.hasErrors('contactPersonName')}" th:errors="*{contactPersonName}" id="contactPersonNameHelp" class="form-text text-danger"></small>
+			</div>
+			<div class="form-group">
+				<label class="font-weight-bold h3">Contact person phone number</label>
+				<input th:field="*{contactPersonPhoneNumber}" type="text" class="form-control" aria-describedby="contactPersonPhoneNumberHelp" placeholder="Contact person phone number">
+				<small th:if="${#fields.hasErrors('contactPersonPhoneNumber')}" th:errors="*{contactPersonPhoneNumber}" id="contactPersonPhoneNumberHelp" class="form-text text-danger"></small>
+			</div>
+			<div class="form-group">
+				<label class="font-weight-bold h3">Contact person email</label>
+				<input th:field="*{contactPersonEmail}" type="email" class="form-control" aria-describedby="contactPersonEmailHelp" placeholder="Contact person email">
+				<small th:if="${#fields.hasErrors('contactPersonEmail')}" th:errors="*{contactPersonEmail}" id="contactPersonEmailHelp" class="form-text text-danger"></small>
+			</div>
+			<div class="form-group">
+				<label class="font-weight-bold h3">Service type</label>
+				<select class="form-control" type="ServiceType" th:field="*{serviceType}">
 							<option value="DINNER">Dinner</option>
 							<option value="HEALTH_SERVICE">Health service</option>
 							<option value="CLEANING">Cleaning</option>
-					</select></td>
-				</tr>
-				<tr>
-					<td colspan="2"><input
-						class="btn btn-info btn-lg btn-block " type="submit"
-						value="Add Company" /></td>
-				</tr>
-			</table>
+					</select>				
+			</div>
+			<button type="submit" class="btn btn-info w-100">Add Company</button>
 		</form>
 	</div>
-	
+</div>	
 </body>
 </html>

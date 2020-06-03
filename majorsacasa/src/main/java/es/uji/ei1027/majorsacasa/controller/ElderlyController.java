@@ -78,15 +78,12 @@ public class ElderlyController {
 	// Creaci� d'objectes
 	@RequestMapping(value = "/add")
 	public String addElderly(Model model, HttpSession session) {
-		if (isElderly(session)) {
+			model.addAttribute("pactiva", "register");
 			model.addAttribute("elderly", new Elderly());
 			return "elderly/add";
+		
+
 		}
-
-		model.addAttribute("user", new User());
-		return "login";
-
-	}
 
 	// Gesti� de la resposta del formulari de creaci� d'objectes
 	@RequestMapping(value = "/add", method = RequestMethod.POST)

@@ -11,49 +11,52 @@
 </head>
 <body>
 	<div layout:fragment="content">
-	<h1>List of elderlies</h1>
-	<table class="table table-sm">
-		<thead class="thead-dark">
-			<tr>
-				<th>Name</th>
-				<th>Surname</th>
-				<th>DNI</th>
-				<th>Birthdate</th>
-				<th>Address</th>
-				<th>Phone number</th>
-				<th>Bank account number</th>
-				<th>Email</th>
-				<th>Date creation</th>
-				<th>Alergies</th>
-				<th>Diseases</th>
-				<th></th>
-				<th></th>
-				<th></th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr th:each="elderly: ${elderlys}">
-				<td th:text="${elderly.name}"></td>
-				<td th:text="${elderly.surname}"></td>
-				<td th:text="${elderly.DNI}"></td>
-				<td th:text="${elderly.birthDate}"></td>
-				<td th:text="${elderly.address}"></td>
-				<td th:text="${elderly.phoneNumber}"></td>
-				<td th:text="${elderly.bankAccountNumber}"></td>
-				<td th:text="${elderly.email}"></td>
-				<td th:text="${elderly.dateCreation}"></td>
-				<td th:text="${elderly.alergies}"></td>
-				<td th:text="${elderly.diseases}"></td>
-				<td><a class="btn btn-warning"
-					th:href="@{/elderly/update/{DNI}(DNI=${elderly.DNI})}">Edita</a></td>
-				<td><a class="btn btn-danger"
-					th:href="@{/elderly/delete/{DNI}(DNI=${elderly.DNI})}">Esborra</a>
-				</td>
-			</tr>
-		</tbody>
-	</table>
-	<a class="btn btn-info btn-lg btn-block " href="add">Add
-		elderly</a>
+		<div class="container-fluid">
+			<h1>List of elderlies</h1>
+			<div class="table-responsive">
+				<table class="table">
+					<thead class="thead-dark">
+						<tr>
+							<th>Name</th>
+							<th>Surname</th>
+							<th>DNI</th>
+							<th>Birthdate</th>
+							<th>Address</th>
+							<th>Phone number</th>
+							<th>Bank account number</th>
+							<th>Email</th>
+							<th>Date creation</th>
+							<th>Alergies</th>
+							<th>Diseases</th>
+							<th></th>
+							<th></th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="elderly: ${elderlys}">
+							<td th:text="${elderly.name}"></td>
+							<td th:text="${elderly.surname}"></td>
+							<td th:text="${elderly.DNI}"></td>
+							<td th:text="${elderly.birthDate}"></td>
+							<td th:text="${elderly.address}"></td>
+							<td th:text="${elderly.phoneNumber}"></td>
+							<td th:text="${elderly.bankAccountNumber}"></td>
+							<td th:text="${elderly.email}"></td>
+							<td th:text="${elderly.dateCreation}"></td>
+							<td th:text="${elderly.alergies}"></td>
+							<td th:text="${elderly.diseases}"></td>
+							<td><a class="btn btn-warning"
+								th:href="@{/elderly/update/{DNI}(DNI=${elderly.DNI})}">Edit</a></td>
+							<td><a class="btn btn-danger"
+								th:href="@{/elderly/delete/{DNI}(DNI=${elderly.DNI})}">Delete</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<a class="btn btn-info btn-lg btn-block " href="add">Add elderly</a>
+			</div>
+		</div>
 	</div>
 </body>
 </html>
