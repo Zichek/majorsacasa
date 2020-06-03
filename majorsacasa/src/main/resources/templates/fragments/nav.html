@@ -1,21 +1,32 @@
-<nav class="navbar navbar-inverse">	
-		<div class="container-fluid">
-			<a href="/"> <img src="../logo.png" alt="Stickman" width="250"
-				height="120" align="left">
-			</a>
-			<ul class="nav navbar-nav">
-				<li><a class="boton" href="/">Home</a></li>
-			</ul>
-			<ul class="nav navbar-nav">
-				<li><a class="boton" href="company/list">About us</a></li>
-			</ul>
-			<ul class="nav navbar-nav">
-				<li><a class="boton" href="../myprofile">Profile</a></li>
-			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				<li><a class="boton" href="../elderly/add"><span class="glyphicon glyphicon-user"></span> Register</a></li>
-				<li><a class="boton" href="../login"><span
-						class="glyphicon glyphicon-log-in"></span> Login</a></li>
-			</ul>
-		</div>
-	</nav>
+<nav class="navbar navbar-inverse">
+	<div class="container-fluid">
+		<a href="/"> <img src="../logo.png" alt="Stickman" width="250"
+			height="120" align="left">
+		</a>
+		<ul class="nav navbar-nav">
+			<li><a class="boton" href="/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+		</ul>
+		<ul class="nav navbar-nav">
+			<li><a class="boton" href="company/list"><span class="glyphicon glyphicon-info-sign"></span> About us</a></li>
+		</ul>
+		<ul class="nav navbar-nav">
+			<li><a class="boton" href="../myprofile"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+		</ul>
+		<ul class="nav navbar-nav navbar-right">
+			<li><a class="boton" href="../elderly/add"><span
+					class="glyphicon glyphicon-pencil"></span> Register</a></li>
+			<li><div class="loggeduser" th:object="${session}">
+					<p th:if="*{user == null}"><br><br>
+						<a class="boton" href="/login"	th:href="@{/login}"><span class="glyphicon glyphicon-log-in"></span> Login</a><br>
+							Not authenticated 
+					</p>
+					<p th:unless="*{user == null}"><br><br>
+						<a class="boton" href="/logout" th:href="@{/logout}"><span class="glyphicon glyphicon-log-out"></span> Log out </a>
+						 <br>Authenticated as <span th:text="*{user.username}"></span> 
+					</p>
+				</div></li>
+		</ul>
+	</div>
+</nav>
+
+		
