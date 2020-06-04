@@ -70,6 +70,7 @@ public class RequestController {
 		if(isElderly(session)) {
 			model.addAttribute("request", new Request());
 			model.addAttribute("elderlys", elderlyDao.getElderlys());
+			System.out.println("Mensaje para elderly: Se ha recibido correctamente su solicitud. Se le enviara la resolucion al principio del mes siguiente. Un saludo.");
 			return "request/add";
 		}
 		
@@ -84,7 +85,7 @@ public class RequestController {
 		if (bindingResult.hasErrors())
 			return "request/add";
 		requestDao.addRequest(request);
-		return "redirect:list";
+		return "redirect:/";
 	}
 
 	@RequestMapping(value = "/update/{number}", method = RequestMethod.GET)
@@ -129,9 +130,7 @@ public class RequestController {
 		if (bindingResult.hasErrors())
 			return "request/updateforcompany";
 		requestDao.updateRequest(request);
-		// System.out.println("Mensaje para el anciano: Se le acaba de asignar una fecha
-		// y hora para el servicio solicitado. A continuacion podra visualizarla: "+
-		// request.getSchedule());
+		System.out.println("Mensaje para elderly: Se le acaba de asignar una fecha y hora para el servicio solicitado. A continuacion podra visualizarla: "+	 request.getSchedule());
 		return "redirect:listforcompany";
 	}
 

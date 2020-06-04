@@ -6,72 +6,63 @@
 <title>Modify Contract</title>
 <meta charset="UTF-8" />
 
-<link rel="stylesheet" type="text/css" href="/css/estilosadd.css"
-	th:href="@{/css/estilosadd.css}" />
-
 </head>
 <body>
-<div layout:fragment="content">
-	<h1>Modify contract</h1>
-	<form action="#" th:action="@{/contract/update}"
-		th:object="${contract}" method="post">
-		<table class="table table-sm">
-		
-		 <tr style="display:none">
-					<td class="a"><label>Number:</label></td>
-					<td class="b"><input type="text" th:field="*{number}" /></td>
-					
-				</tr>  
+	<div layout:fragment="content">
+	<div class="container">	
+		<h1 class="text-center">Modify contract</h1>
+		<form class="w-50 mx-auto" action="#" th:action="@{/contract/update}" th:object="${contract}" method="post">
+			<div class="form-group" style="display:none">
+				<label class="font-weight-bold h3">Number</label>
+				<input th:field="*{number}" type="text" class="form-control" aria-describedby="numberHelp" placeholder="Company CIF">
+			</div>
+			<div class="form-group">
+				<label class="font-weight-bold h3">Company CIF</label>
+				<input th:field="*{companyCIF}" type="text" class="form-control" aria-describedby="companyCIFHelp" placeholder="Company CIF">
+				<small th:if="${#fields.hasErrors('companyCIF')}" th:errors="*{companyCIF}" id="companyCIFHelp" class="form-text text-danger"></small>
+			</div>
+			<div class="form-group">
+				<label class="font-weight-bold h3">Date beginning</label>
+				<input th:field="*{dateBeginning}" type="date" class="form-control" aria-describedby="dateBeginningHelp" placeholder="Beginning date">
+				<small th:if="${#fields.hasErrors('dateBeginning')}" th:errors="*{dateBeginning}" id="dateBeginningHelp" class="form-text text-danger"></small>
+			</div>
+			<div class="form-group">
+				<label class="font-weight-bold h3">Date ending</label>
+				<input th:field="*{dateEnding}" type="date" class="form-control" aria-describedby="dateEndingHelp" placeholder="Ending date">
+				<small th:if="${#fields.hasErrors('dateEnding')}" th:errors="*{dateEnding}" id="dateEndingHelp" class="form-text text-danger"></small>
+			</div>
+			<div class="form-group">
+				<label class="font-weight-bold h3">Description</label>
+				<input th:field="*{description}" type="text" class="form-control" aria-describedby="descriptionHelp" placeholder="Description">
+				<small th:if="${#fields.hasErrors('description')}" th:errors="*{description}" id="descriptionHelp" class="form-text text-danger"></small>
+			</div>
+			<div class="form-group">
+				<label class="font-weight-bold h3">Service type</label>
+				<select class="form-control" type="ServiceType" th:field="*{serviceType}">
+							<option value="DINNER">Dinner</option>
+							<option value="HEALTH_SERVICE">Health service</option>
+							<option value="CLEANING">Cleaning</option>
+					</select>				
+			</div>
+			<div class="form-group">
+				<label class="font-weight-bold h3">Quantity services</label>
+				<input th:field="*{quantityServices}" type="text" class="form-control" aria-describedby="quantityServicesHelp" placeholder="Quantity services">
+				<small th:if="${#fields.hasErrors('quantityServices')}" th:errors="*{quantityServices}" id="quantityServicesHelp" class="form-text text-danger"></small>
+			</div>
+			<div class="form-group">
+				<label class="font-weight-bold h3">Units of measure</label>
+				<input th:field="*{unitsOfMeasure}" type="text" class="form-control" aria-describedby="unitsOfMeasureHelp" placeholder="Units of mesure">
+<!-- 			<small th:if="${#fields.hasErrors('contactPersonPhoneNumber')}" th:errors="*{contactPersonPhoneNumber}" id="contactPersonPhoneNumberHelp" class="form-text text-danger"></small> -->
+			</div>
+			<div class="form-group">
+				<label class="font-weight-bold h3">Price unit</label>
+				<input th:field="*{priceUnit}" type="text" class="form-control" aria-describedby="priceUnitHelp" placeholder="Price per unit">
+				<small th:if="${#fields.hasErrors('priceUnit')}" th:errors="*{priceUnit}" id="priceUnitHelp" class="form-text text-danger"></small>
+			</div>
 			
-			<tr>
-				<td class="a"><label>Company CIF:</label></td>
-				<td class="b"><input type="text" th:field="*{companyCIF}" /></td>
-				<td th:if="${#fields.hasErrors('companyCIF')}" th:errors="*{companyCIF}"></td>
-			</tr>
-			<tr>
-				<td class="a"><label>Date beginning:</label></td>
-				<td class="b"><input type="date" th:field="*{dateBeginning}" /></td>
-				<td th:if="${#fields.hasErrors('dateBeginning')}" th:errors="*{dateBeginning}"></td>
-			</tr>
-			<tr>
-				<td class="a"><label>Date ending:</label></td>
-				<td class="b"><input type="date" th:field="*{dateEnding}" /></td>
-				<td th:if="${#fields.hasErrors('dateEnding')}" th:errors="*{dateEnding}"></td>
-			</tr>
-			<tr>
-				<td class="a"><label>Description:</label></td>
-				<td class="b"><input type="text" th:field="*{description}" /></td>
-			</tr>
-			<tr>
-				<td class="a"><label>Service type:</label></td>
-				<td class="b"><select class="form_control" type="ServiceType"
-					th:field="*{serviceType}">
-						<option value="DINNER">Dinner</option>
-						<option value="HEALTH_SERVICE">Health service</option>
-						<option value="CLEANING">Cleaning</option>
-				</select></td>
-			</tr>
-			<tr>
-				<td class="a"><label>Quantity services</label></td>
-				<td class="b"><input type="text" th:field="*{quantityServices}" /></td>
-				<td th:if="${#fields.hasErrors('quantityServices')}" th:errors="*{quantityServices}"></td>
-			</tr>
-			<tr>
-				<td class="a"><label>Units of measure</label></td>
-				<td class="b"><input type="text" th:field="*{unitsOfMeasure}" /></td>
-			</tr>
-			<tr>
-				<td class="a"><label>Price unit</label></td>
-				<td class="b"><input type="text" th:field="*{priceUnit}" /></td>
-				<td th:if="${#fields.hasErrors('priceUnit')}" th:errors="*{priceUnit}"></td>
-			</tr>
-			<tr>
-				<td colspan="2"><input
-					class="btn btn-info btn-lg btn-block " type="submit"
-					value="Edit contract" /></td>
-			</tr>
-		</table>
-	</form>
+			<button type="submit" class="btn btn-info w-100" value="Edit contract">Edit contract</button>
+		</form>
 	</div>
+</div>	
 </body>
 </html>

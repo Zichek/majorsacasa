@@ -143,6 +143,8 @@ public class ElderlyController {
 		if (bindingResult.hasErrors())
 			return "elderly/updatesocialworker";
 		elderlyDao.updateElderly(elderly);
+		System.out.println("Mensaje para el elderl: Estimado "+elderly.getName()+" "+elderly.getSurname()+ " queremos informarle de que se le acaba de asignar ya un asistente social."
+				+ " En breves el mismo se pondra en contacto con usted. Un saludo.");
 		return "redirect:listsocialworker";
 	}
 

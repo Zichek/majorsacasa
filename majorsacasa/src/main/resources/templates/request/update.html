@@ -12,80 +12,72 @@
 </head>
 <body>
 	<div layout:fragment="content">
-		<h1>Update request</h1>
-		<form action="#" th:action="@{/request/update}" th:object="${request}"
-			method="post">
-			<table class="table">
-				<tr style="display:none">
-				<td class="a"><label>Number</label></td>
-				<td class="b"><input type="text" th:field="*{number}" /></td>
-				<td class="b" th:if="${#fields.hasErrors('number')}" th:errors="*{number}"></td>
-				
-			</tr>
-				<tr>
-					<td class="a"><label>Elderly DNI:</label></td>
-					<td class="b"><input type="text" th:field="*{elderlyDNI}" /></td>
-					<td class="b" th:if="${#fields.hasErrors('elderlyDNI')}" th:errors="*{elderlyDNI}"></td>
-				</tr>
-				<tr>
-					<td class="a"><label>Contract number - Company CIF:</label></td>
-					<td class="b"><select th:field="*{contractNumber}">
-					 <option th:each="contract: ${contracts}" th:value="${contract.number}" th:text="${contract.number} + ' - ' + ${contract.companyCIF}">
+		<div class="container">	
+			<h1 class="text-center">Update request</h1>
+			<form class="w-50 mx-auto" action="#" th:action="@{/request/update}" th:object="${request}" method="post">
+	 			<div class="form-group" style="display:none">
+					<label class="font-weight-bold h3">Number</label>
+					<input th:field="*{number}" type="text" class="form-control" aria-describedby="numberHelp" placeholder="Number">
+					<small th:if="${#fields.hasErrors('number')}" th:errors="*{number}" id="numberHelp" class="form-text text-danger"></small>
+				</div> 
+				<div class="form-group">
+					<label class="font-weight-bold h3">Elderly DNI</label>
+					<input th:field="*{elderlyDNI}" readonly type="text" class="form-control" aria-describedby="elderlyDNIHelp" placeholder="Elderly DNI">
+					<small th:if="${#fields.hasErrors('elderlyDNI')}" th:errors="*{elderlyDNI}" id="elderlyDNIHelp" class="form-text text-danger"></small>
+				</div>
+				<div class="form-group">
+					<label class="font-weight-bold h3">Contract number - Company CIF</label>
+					<select class="form-control" th:field="*{contractNumber}">
+							 <option th:each="contract: ${contracts}" th:value="${contract.number}" th:text="${contract.number} + ' - ' + ${contract.companyCIF}">
 						    </option>
-						</select>
-					
-				</tr>
-				<tr>
-					<td class="a"><label>Service type:</label></td>
-					<td class="b"><select class="form_control" type="ServiceType" th:field="*{serviceType}">
-							<option value="DINNER">Dinner</option>
-							<option value="HEALTH_SERVICE">Health service</option>
-							<option value="CLEANING">Cleaning</option>
-					</select></td>
-				</tr>
-				<tr>
-					<td class="a"><label>Creation date:</label></td>
-					<td class="b"><input type="date"
-						th:field="*{creationDate}" /></td>
-						<td class="b" th:if="${#fields.hasErrors('creationDate')}" th:errors="*{creationDate}"></td>
-				</tr>
-				<tr>
-					<td class="a"><label>State:</label></td>
-					<td class="b"><select class="form_control" type="state" th:field="*{state}">
-							<option value="DONE">Done</option>
-							<option value="ACCEPTED">Accepted</option>
-							<option value="REJECTED">Rejected</option>
-					</select></td>
-				</tr>
-				<tr>
-					<td class="a"><label>Approved date:</label></td>
-					<td class="b"><input type="date" th:field="*{approvedDate}" /></td>
-					<td class="b" th:if="${#fields.hasErrors('approvedDate')}" th:errors="*{approvedDate}"></td>
-				</tr>
-				<tr>
-					<td class="a"><label>Rejected date:</label></td>
-					<td class="b"><input type="date" th:field="*{rejectedDate}" /></td>
-					<td class="b" th:if="${#fields.hasErrors('rejectedDate')}" th:errors="*{rejectedDate}"></td>
-				</tr>
-				<tr>
-					<td class="a"><label>Comments:</label></td>
-					<td class="b"><input type="text" th:field="*{comments}" /></td>
-					<td class="b" th:if="${#fields.hasErrors('comments')}" th:errors="*{comments}"></td>
-				</tr>
-				<tr>
-					<td class="a"><label>End date:</label></td>
-					<td class="b"><input type="date" th:field="*{endDate}" /></td>
-					<td class="b" th:if="${#fields.hasErrors('endDate')}" th:errors="*{endDate}"></td>
-				</tr>
-
-				<tr>
-					<td colspan="2"><input
-						class="btn btn-info btn-lg btn-block" type="submit"
-						value="Update request" /></td>
-				</tr>
-			</table>
-		</form>
-	</div>
+					</select>
+				</div>
+				<div class="form-group">
+					<label class="font-weight-bold h3">Service type</label>
+					<select class="form-control" type="ServiceType" th:field="*{serviceType}">
+								<option value="DINNER">Dinner</option>
+								<option value="HEALTH_SERVICE">Health service</option>
+								<option value="CLEANING">Cleaning</option>
+						</select>				
+				</div>
+				<div class="form-group">
+					<label class="font-weight-bold h3">Creation date</label>
+					<input th:field="*{creationDate}" type="date" class="form-control" aria-describedby="creationDateHelp" placeholder="Creation date">
+					<small th:if="${#fields.hasErrors('creationDate')}" th:errors="*{creationDate}" id="creationDateHelp" class="form-text text-danger"></small>
+				</div>
+				<div class="form-group">
+					<label class="font-weight-bold h3">State</label>
+					<select class="form-control" type="state" th:field="*{state}">
+								<option value="DONE">Done</option>
+								<option value="ACCEPTED">Accepted</option>
+								<option value="REJECTED">Rejected</option>
+						</select>				
+				</div>
+				<div class="form-group">
+					<label class="font-weight-bold h3">Approved date</label>
+					<input th:field="*{approvedDate}"  type="date" class="form-control" aria-describedby="approvedDateHelp" placeholder="Approved date">
+					<small th:if="${#fields.hasErrors('approvedDate')}" th:errors="*{approvedDate}" id="approvedDateHelp" class="form-text text-danger"></small>
+				</div>
+				<div class="form-group">
+					<label class="font-weight-bold h3">Rejected date</label>
+					<input th:field="*{rejectedDate}"  type="date" class="form-control" aria-describedby="rejectedDateHelp" placeholder="Rejected date">
+					<small th:if="${#fields.hasErrors('rejectedDate')}" th:errors="*{rejectedDate}" id="rejectedDateHelp" class="form-text text-danger"></small>
+				</div>
+				<div class="form-group">
+					<label class="font-weight-bold h3">Comments</label>
+					<input th:field="*{comments}"   type="text" class="form-control" aria-describedby="commentsHelp" placeholder="Comments">
+					<small th:if="${#fields.hasErrors('comments')}" th:errors="*{comments}" id="commentsHelp" class="form-text text-danger"></small>
+				</div>
+				<div class="form-group">
+					<label class="font-weight-bold h3">End date</label>
+					<input th:field="*{endDate}"  type="date" class="form-control" aria-describedby="endDateHelp" placeholder="End date">
+					<small th:if="${#fields.hasErrors('endDate')}" th:errors="*{endDate}" id="endDateHelp" class="form-text text-danger"></small>
+				</div>
+						
+				<button type="submit" class="btn btn-info w-100">Update request</button>
+			</form>
+		</div>
+	</div>	
 </body>
 </html>
 

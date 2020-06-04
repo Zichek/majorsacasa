@@ -12,86 +12,78 @@
 </head>
 <body>
 	<div layout:fragment="content">
-		<h1>Update elderly</h1>
-		<form action="#" th:action="@{/elderly/updatesocialworker}" th:object="${elderly}"
-			method="post">
-			<div class="table-responsive">
-				<table class="table">
-					<tr>
-						<td class="a"><label>Name:</label></td>
-						<td class="b"><input type="text" th:field="*{name}" readonly/></td>
-						<td class="b" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></td>
-					</tr>
-					<tr>
-						<td class="a"><label>Surname:</label></td>
-						<td class="b"><input type="text" th:field="*{surname}" readonly/></td>
-						<td class="b" th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></td>
-					</tr>
-					<tr>
-						<td class="a"><label>DNI:</label></td>
-						<td class="b"><input type="text" th:field="*{DNI}" readonly/></td>
-						<td class="b" th:if="${#fields.hasErrors('DNI')}" th:errors="*{DNI}"></td>
-					</tr>
-					<tr>
-						<td class="a"><label>Birthdate:</label></td>
-						<td class="b"><input type="date" th:field="*{birthDate}" readonly/></td>
-						<td class="b" th:if="${#fields.hasErrors('birthDate')}" th:errors="*{birthDate}"></td>
-					</tr>
-					<tr>
-						<td class="a"><label>Address:</label></td>
-						<td class="b"><input type="text" th:field="*{address}" readonly/></td>
-						<td class="b" th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></td>
-					</tr>
-					<tr>
-						<td class="a"><label>Phone number:</label></td>
-						<td class="b"><input type="text" th:field="*{phoneNumber}" readonly/></td>
-						<td class="b" th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"></td>
-					</tr>
-					<tr>
-						<td class="a"><label>Bank account number:</label></td>
-						<td class="b"><input type="text"
-							th:field="*{bankAccountNumber}" readonly/></td>
-							<td class="b" th:if="${#fields.hasErrors('bankAccountNumber')}" th:errors="*{bankAccountNumber}"></td>
-					</tr>
-					<tr>
-						<td class="a"><label>Email:</label></td>
-						<td class="b"><input type="email" th:field="*{email}" readonly/></td>
-						<td class="b" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></td>
-					</tr>
-					<tr style="display:none">
-						<td class="a"><label>Password:</label></td>
-						<td class="b"><input type="text" th:field="*{userPwd}" /></td>
-						<td class="b" th:if="${#fields.hasErrors('userPwd')}" th:errors="*{userPwd}"></td>
-					</tr>
-					<tr>
-						<td class="a"><label>Date creation:</label></td>
-						<td class="b"><input type="date" th:field="*{dateCreation}" readonly/></td>
-						<td class="b" th:if="${#fields.hasErrors('dateCreation')}" th:errors="*{dateCreation}"></td>
-					</tr>
-					<tr>
-						<td class="a"><label>Alergies:</label></td>
-						<td class="b"><input type="text" th:field="*{alergies}" readonly/></td>
-					</tr>
-					<tr>
-						<td class="a"><label>Diseases:</label></td>
-						<td class="b"><input type="text" th:field="*{diseases}" readonly/></td>
-					</tr>
-					<tr>
-						<td class="a"><label>Social Worker:</label></td>
-						<td class="b"><select th:field="*{socialWorkerUserCas}">
+	<div class="container">	
+		<h1 class="text-center">Asign social worker to elderly</h1>
+		<form class="w-50 mx-auto" action="#" th:action="@{/elderly/updatesocialworker}" th:object="${elderly}" method="post">
+			<div class="form-group">
+				<label class="font-weight-bold h3">Name</label>
+				<input th:field="*{name}" readonly type="text" class="form-control" aria-describedby="nameHelp" placeholder="Name">
+				<small th:if="${#fields.hasErrors('name')}" th:errors="*{name}" id="nameHelp" class="form-text text-danger"></small>
+			</div>
+			<div class="form-group">
+				<label class="font-weight-bold h3">Surname</label>
+				<input th:field="*{surname}" readonly type="text" class="form-control" aria-describedby="surnameHelp" placeholder="Surname">
+				<small th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}" id="surnameHelp" class="form-text text-danger"></small>
+			</div>
+			<div class="form-group">
+				<label class="font-weight-bold h3">DNI</label>
+				<input th:field="*{DNI}" readonly type="text" class="form-control" aria-describedby="DNIHelp" placeholder="DNI">
+				<small th:if="${#fields.hasErrors('DNI')}" th:errors="*{DNI}" id="DNIHelp" class="form-text text-danger"></small>
+			</div>
+			<div class="form-group">
+				<label class="font-weight-bold h3">Birthdate</label>
+				<input th:field="*{birthDate}" readonly type="date" class="form-control" aria-describedby="birthDateHelp" placeholder="Birthdate">
+				<small th:if="${#fields.hasErrors('birthDate')}" th:errors="*{birthDate}" id="birthDateHelp" class="form-text text-danger"></small>
+			</div>
+			<div class="form-group">
+				<label class="font-weight-bold h3">Address</label>
+				<input th:field="*{address}" readonly type="text" class="form-control" aria-describedby="addressHelp" placeholder="Address">
+				<small th:if="${#fields.hasErrors('address')}" th:errors="*{address}" id="addressHelp" class="form-text text-danger"></small>
+			</div>
+			<div class="form-group">
+				<label class="font-weight-bold h3">Phone number</label>
+				<input th:field="*{phoneNumber}" readonly type="text" class="form-control" aria-describedby="phoneNumberHelp" placeholder="Phone number">
+				<small th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}" id="phoneNumberHelp" class="form-text text-danger"></small>
+			</div>
+			<div class="form-group">
+				<label class="font-weight-bold h3">Bank account number</label>
+				<input th:field="*{bankAccountNumber}" readonly type="text" class="form-control" aria-describedby="bankAccountNumberHelp" placeholder="Bank account number">
+				<small th:if="${#fields.hasErrors('bankAccountNumber')}" th:errors="*{bankAccountNumber}" id="bankAccountNumberHelp" class="form-text text-danger"></small>
+			</div>
+			<div class="form-group">
+				<label class="font-weight-bold h3">Email</label>
+				<input th:field="*{email}" readonly type="email" class="form-control" aria-describedby="emailHelp" placeholder="Email">
+				<small th:if="${#fields.hasErrors('email')}" th:errors="*{email}" id="emailHelp" class="form-text text-danger"></small>
+			</div>
+			<div class="form-group">
+				<label class="font-weight-bold h3">Password</label>
+				<input th:field="*{userPwd}" readonly type="text" class="form-control" aria-describedby="userPwdHelp" placeholder="Password">
+				<small th:if="${#fields.hasErrors('userPwd')}" th:errors="*{userPwd}" id="userPwdHelp" class="form-text text-danger"></small>
+			</div>			
+			<div class="form-group">
+				<label class="font-weight-bold h3">Creation date</label>
+				<input th:field="*{dateCreation}" readonly type="date" class="form-control" aria-describedby="dateCreationHelp" placeholder="Creation date">
+				<small th:if="${#fields.hasErrors('dateCreation')}" th:errors="*{dateCreation}" id="dateCreationHelp" class="form-text text-danger"></small>
+			</div>
+			<div class="form-group">
+				<label class="font-weight-bold h3">Allergies</label>
+				<input th:field="*{alergies}" readonly type="text" class="form-control" aria-describedby="alergiesHelp" placeholder="Allergies">
+			</div>
+			<div class="form-group">
+				<label class="font-weight-bold h3">Diseases</label>
+				<input th:field="*{diseases}"  readonly type="text" class="form-control" aria-describedby="diseasesHelp" placeholder="Diseases">
+	
+			</div>
+			<div class="form-group">
+				<label class="font-weight-bold h3">Social Worker</label>
+				<select class="form-control" th:field="*{socialWorkerUserCas}">
 						    <option th:each="socialworker: ${socialworkers}" th:value="${socialworker.userCAS}" th:text="${socialworker.userCAS}">
 						    </option>
 						</select>
-					</tr>
-	
-					<tr>
-						<td colspan="2"><input
-							class="btn btn-info btn-lg btn-block" type="submit"
-							value="Update elderly" /></td>
-					</tr>
-				</table>
 			</div>
+			<button type="submit" class="btn btn-info w-100">Update elderly</button>
 		</form>
 	</div>
+</div>	
 </body>
 </html>

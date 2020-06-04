@@ -39,11 +39,11 @@ public class ElderlyValidator implements Validator {
         
         if (elderly.getName().trim().equals("") || elderly.getName().length()>20)
             errors.rejectValue("name", "required",
-                    "Enter a valid value. It must be 20 characters");
+                    "Enter a valid value. It must be less than 20 characters");
        
         if (elderly.getSurname().equals("") || elderly.getSurname().length() > 20)
             errors.rejectValue("surname", "required",
-                    "Enter a valid value. It must be 20 characters");
+                    "Enter a valid value. It must be less than 20 characters");
         
         if(elderly.getBirthDate()==null)
         	errors.rejectValue("birthDate", "required",
@@ -51,7 +51,7 @@ public class ElderlyValidator implements Validator {
         
         if (elderly.getAddress().equals("") || elderly.getAddress().length() > 30)
             errors.rejectValue("address", "required",
-                    "Enter a valid value. It must be 30 characters");
+                    "Enter a valid value. It must be less than 30 characters");
         
         if (elderly.getPhoneNumber().equals("") || elderly.getPhoneNumber().length() != 9)
             errors.rejectValue("phoneNumber", "required",
@@ -67,7 +67,7 @@ public class ElderlyValidator implements Validator {
         
         if(elderly.getUserPwd().trim().equals("") || elderly.getUserPwd().length() > 20)
         	errors.rejectValue("userPwd", "required",
-                    "Enter a valid value. It must be 20 characters");
+                    "Enter a valid value. It must be less than 20 characters");
         
         if (elderly.getDateCreation() == null)
         	errors.rejectValue("dateCreation", "required", "Enter a valid value");
