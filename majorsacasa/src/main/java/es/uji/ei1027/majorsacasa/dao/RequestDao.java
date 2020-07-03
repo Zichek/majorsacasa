@@ -51,12 +51,12 @@ public class RequestDao {
 	       }
 	}
 	
-	public Request getRequestByCIF(String companyCIF) {
+	public List<Request> getRequestByCIF(String companyCIF) {
 		try {
-			return jdbcTemplate.queryForObject("SELECT r.* FROM request r, contract c, company co WHERE r.number=c.number AND c.companyCIF=co.CIF AND c.companyCIF = ? AND r.state='ACCEPTED' ",
+			return jdbcTemplate.query("SELECT r.* FROM request r, contract c, company co WHERE r.number=c.number AND c.companyCIF=co.CIF AND c.companyCIF = ? AND r.state='ACCEPTED' ",
 					new RequestRowMapper(), companyCIF);
 		} catch(EmptyResultDataAccessException e) {
-	           return null;
+				return new ArrayList<Request>();
 	       }
 	}
 	
@@ -66,6 +66,15 @@ public class RequestDao {
 					new RequestRowMapper());
 		} catch(EmptyResultDataAccessException e) {
 	           return new ArrayList<Request>();
+	       }
+	}
+	
+	public List<Request> getRequestByDNI(String elderlyDNI) {
+		try {
+			return jdbcTemplate.query("SELECT * FROM request WHERE elderlyDNI= ? ",
+					new RequestRowMapper(), elderlyDNI);
+		} catch(EmptyResultDataAccessException e) {
+				return new ArrayList<Request>();
 	       }
 	}
 }

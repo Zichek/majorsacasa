@@ -7,12 +7,37 @@
 
 </head>
 <body>
-<div layout:fragment="content">	
-	<div class="container">
-		<div class="m-3">
-			<a href="../request/add"  type="button" class="btn btn-info btn-lg btn-block">Request new service</a>
+	<div layout:fragment="content">
+		<div class="container-fluid">
+			<h1>My requests</h1>
+			<div class="table-responsive">
+				<table class="table">
+					<thead class="thead-dark">
+						<tr>
+							<th>Elderly DNI</th>
+							<th>Type service</th>
+							<th>State</th>
+							<th>Approved date</th>
+							<th>End date</th>
+
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="request: ${requestsByDNI}">
+							<td th:text="${request.elderlyDNI}"></td>
+							<td th:text="${request.serviceType}"></td>
+							<td th:text="${request.state}"></td>
+							<td th:text="${request.approvedDate}"></td>
+							<td th:text="${request.endDate}"></td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="m-3">
+					<a href="../request/add" type="button"
+						class="btn btn-info btn-lg btn-block">Request new service</a>
+				</div>
+			</div>
 		</div>
 	</div>
-</div>
 </body>
 </html>

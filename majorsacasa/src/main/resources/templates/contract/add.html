@@ -13,7 +13,7 @@
 		<h1 class="text-center">New contract</h1>
 		<form class="w-50 mx-auto" action="#" th:action="@{/contract/add}" th:object="${contract}" method="post">
 			<div class="form-group">
-				<label class="font-weight-bold h3">Company CIF</label>
+				<label class="font-weight-bold h3">Company CIF and name</label>
 				<select class="form-control" th:field="*{companyCIF}">
 						    <option th:each="company: ${companies}" th:value="${company.CIF}" th:text="${company.CIF} + ' - ' + ${company.name}">
 						    </option>

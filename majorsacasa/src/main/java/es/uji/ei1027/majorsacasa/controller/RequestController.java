@@ -70,7 +70,6 @@ public class RequestController {
 		if(isElderly(session)) {
 			model.addAttribute("request", new Request());
 			model.addAttribute("elderlys", elderlyDao.getElderlys());
-			System.out.println("Mensaje para elderly: Se ha recibido correctamente su solicitud. Se le enviara la resolucion al principio del mes siguiente. Un saludo.");
 			return "request/add";
 		}
 		

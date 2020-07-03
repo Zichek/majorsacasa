@@ -1,5 +1,6 @@
 package es.uji.ei1027.majorsacasa.dao;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,7 +27,7 @@ public class CompanyDao {
 		jdbcTemplate.update("INSERT INTO COMPANY VALUES(?,?, ?,?,?,?,?,CAST(? AS serviceType))",
 				company.getName(),company.getCIF(),company.getPassword(), company.getAddress(),company.getContactPersonName(),
 				company.getContactPersonPhoneNumber(),company.getContactPersonEmail(),company.getServiceType().name());
-		System.out.println("Buenas "+company.getName()+" ,queriamos informarles de que su empresa ha sido aceptada dentro del programa MajorsADomicili. "
+				System.out.println("Buenas "+company.getName()+" ,queriamos informarles de que su empresa ha sido aceptada dentro del programa MajorsADomicili. "
 				+ "Su usuario y contraseña para acceder a la plataforma es: "+company.getCIF()+" y "+ company.getPassword());
 	}
 	

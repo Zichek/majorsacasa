@@ -1,5 +1,7 @@
 package es.uji.ei1027.majorsacasa.controller;
 
+import java.sql.SQLException;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -80,11 +82,29 @@ public class CompanyController {
 		companyValidator.validate(company, bindingResult);
 		if (bindingResult.hasErrors())
 			return "company/add";
-
+		
 		userDao.addUser(company.getCIF(), company.getPassword(), "company");
-		companyDao.addCompany(company);
+		companyDao.addCompany(company);			
 		return "redirect:list";
 	}
+	
+//	@RequestMapping(value = "/add", method = RequestMethod.POST)
+//	public String processAddSubmit(@ModelAttribute("company") Company company, BindingResult bindingResult) {
+//		CompanyValidator companyValidator = new CompanyValidator();
+//		companyValidator.validate(company, bindingResult);
+//		if (bindingResult.hasErrors())
+//			return "company/add";
+//		
+//		try {
+//			userDao.addUser(company.getCIF(), company.getPassword(), "company");
+//			companyDao.addCompany(company);
+//		}
+//		catch(SQLException e) {
+//			e.printStackTrace();
+//		}
+//		
+//		return "redirect:list";
+//	}
 
 	@RequestMapping(value = "/update/{CIF}", method = RequestMethod.GET)
 	public String editCompany(Model model, @PathVariable String CIF, HttpSession session) {

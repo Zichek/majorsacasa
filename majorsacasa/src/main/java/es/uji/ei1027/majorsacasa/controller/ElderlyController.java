@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import es.uji.ei1027.majorsacasa.dao.ElderlyDao;
+import es.uji.ei1027.majorsacasa.dao.RequestDao;
 import es.uji.ei1027.majorsacasa.dao.SocialWorkerDao;
 import es.uji.ei1027.majorsacasa.dao.UserDao;
 import es.uji.ei1027.majorsacasa.model.Elderly;
@@ -24,6 +25,7 @@ public class ElderlyController {
 	private ElderlyDao elderlyDao;
 	private UserDao userDao;
 	private SocialWorkerDao socialWorkerDao;
+	private RequestDao requestDao;
 	
 	@Autowired
 	public void setSocialWorkerDao(SocialWorkerDao socialWorkerDao) {
@@ -38,6 +40,11 @@ public class ElderlyController {
 	@Autowired
 	public void setUserDao(UserDao userDao) {
 		this.userDao = userDao;
+	}
+	
+	@Autowired
+	public void setRequestDao(RequestDao requestDao) {
+		this.requestDao = requestDao;
 	}
 
 	@RequestMapping("/list")
@@ -64,6 +71,8 @@ public class ElderlyController {
 	@RequestMapping("/indexelderly")
 	public String listIndexElderly(Model model, HttpSession session) {
 		if (isElderly(session)) {
+			User user = (User) session.getAttribute("user");
+			model.addAttribute("requestsByDNI", requestDao.getRequestByDNI(user.getUsername()));
 			return "elderly/indexelderly";
 		}
 		
@@ -80,8 +89,7 @@ public class ElderlyController {
 	public String addElderly(Model model, HttpSession session) {
 			model.addAttribute("pactiva", "register");
 			model.addAttribute("elderly", new Elderly());
-			return "elderly/add";
-		
+			return "elderly/add";		
 
 		}
 
