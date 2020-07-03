@@ -51,8 +51,11 @@
 			</div>
 			<div class="form-group">
 				<label class="font-weight-bold h3">Units of measure</label>
-				<input th:field="*{unitsOfMeasure}" type="text" class="form-control" aria-describedby="unitsOfMeasureHelp" placeholder="Units of mesure">
-<!-- 			<small th:if="${#fields.hasErrors('contactPersonPhoneNumber')}" th:errors="*{contactPersonPhoneNumber}" id="contactPersonPhoneNumberHelp" class="form-text text-danger"></small> -->
+				<select class="form-control" type="unitsOfMeasure" th:field="*{unitsOfMeasure}">
+							<option value="Hours">Hours</option>
+							<option value="Minutes">Minutes</option>
+							
+					</select>
 			</div>
 			<div class="form-group">
 				<label class="font-weight-bold h3">Price unit</label>

@@ -89,7 +89,7 @@ public class RequestController {
 
 	@RequestMapping(value = "/update/{number}", method = RequestMethod.GET)
 	public String editRequest(Model model, @PathVariable int number, HttpSession session) {
-		if (isCasCommittee(session)) {
+		if (isCasCommittee(session) || isElderly(session)) {
 			model.addAttribute("request", requestDao.getRequest(number));
 			model.addAttribute("contracts", contractDao.getAllContract());
 			return "request/update";
@@ -131,6 +131,29 @@ public class RequestController {
 		requestDao.updateRequest(request);
 		System.out.println("Mensaje para elderly: Se le acaba de asignar una fecha y hora para el servicio solicitado. A continuacion podra visualizarla: "+	 request.getSchedule());
 		return "redirect:listforcompany";
+	}
+	
+	@RequestMapping(value = "/updateforelderly/{number}", method = RequestMethod.GET)
+	public String editRequestForElderly(Model model, @PathVariable int number, HttpSession session) {
+		if (isElderly(session)) {
+			model.addAttribute("request", requestDao.getRequest(number));
+			model.addAttribute("contracts", contractDao.getAllContract());
+			return "request/updateforelderly";
+		}
+		
+		model.addAttribute("user", new User());
+		return "login";
+		
+	}
+
+	@RequestMapping(value = "/updateforelderly", method = RequestMethod.POST)
+	public String processUpdateSubmitElderly(@ModelAttribute("request") Request request, BindingResult bindingResult) {
+		RequestValidator requestValidator = new RequestValidator();
+		requestValidator.validate(request, bindingResult);
+		if (bindingResult.hasErrors())
+			return "request/updateforelderly";
+		requestDao.updateRequest(request);
+		return "redirect:../elderly/indexelderly";
 	}
 
 	@RequestMapping(value = "/delete/{number}")
