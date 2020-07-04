@@ -20,12 +20,12 @@
 					<input th:field="*{number}" type="text" class="form-control" aria-describedby="numberHelp" placeholder="Number">
 					<small th:if="${#fields.hasErrors('number')}" th:errors="*{number}" id="numberHelp" class="form-text text-danger"></small>
 				</div> 
-				<div class="form-group">
+				<div class="form-group" style="display:none">
 					<label class="font-weight-bold h3">Elderly DNI</label>
 					<input th:field="*{elderlyDNI}" readonly type="text" class="form-control" aria-describedby="elderlyDNIHelp" placeholder="Elderly DNI">
 					<small th:if="${#fields.hasErrors('elderlyDNI')}" th:errors="*{elderlyDNI}" id="elderlyDNIHelp" class="form-text text-danger"></small>
 				</div>
-				<div class="form-group">
+				<div class="form-group" style="display:none">
 					<label class="font-weight-bold h3">Contract number - Company CIF</label>
 					<select class="form-control" th:field="*{contractNumber}">
 							 <option th:each="contract: ${contracts}" th:value="${contract.number}" th:text="${contract.number} + ' - ' + ${contract.companyCIF}">
@@ -45,7 +45,7 @@
 					<input th:field="*{creationDate}" type="date" class="form-control" aria-describedby="creationDateHelp" placeholder="Creation date">
 					<small th:if="${#fields.hasErrors('creationDate')}" th:errors="*{creationDate}" id="creationDateHelp" class="form-text text-danger"></small>
 				</div>
-				<div class="form-group">
+				<div class="form-group"style="display:none">
 					<label class="font-weight-bold h3">State</label>
 					<select class="form-control" type="state" th:field="*{state}">
 								<option value="DONE">Done</option>
@@ -53,12 +53,12 @@
 								<option value="REJECTED">Rejected</option>
 						</select>				
 				</div>
-				<div class="form-group">
+				<div class="form-group"style="display:none">
 					<label class="font-weight-bold h3">Approved date</label>
 					<input th:field="*{approvedDate}"  type="date" class="form-control" aria-describedby="approvedDateHelp" placeholder="Approved date">
 					<small th:if="${#fields.hasErrors('approvedDate')}" th:errors="*{approvedDate}" id="approvedDateHelp" class="form-text text-danger"></small>
 				</div>
-				<div class="form-group">
+				<div class="form-group"style="display:none">
 					<label class="font-weight-bold h3">Rejected date</label>
 					<input th:field="*{rejectedDate}"  type="date" class="form-control" aria-describedby="rejectedDateHelp" placeholder="Rejected date">
 					<small th:if="${#fields.hasErrors('rejectedDate')}" th:errors="*{rejectedDate}" id="rejectedDateHelp" class="form-text text-danger"></small>

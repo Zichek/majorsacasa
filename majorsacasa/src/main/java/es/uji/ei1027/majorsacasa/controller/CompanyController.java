@@ -1,6 +1,7 @@
 package es.uji.ei1027.majorsacasa.controller;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -80,8 +81,19 @@ public class CompanyController {
 	public String processAddSubmit(@ModelAttribute("company") Company company, BindingResult bindingResult) {
 		CompanyValidator companyValidator = new CompanyValidator();
 		companyValidator.validate(company, bindingResult);
+		
+		List<User> userList = userDao.getAllUser();
+        for(User user : userList) {
+            if(user.getUsername().equals(company.getCIF())) {
+           
+            	bindingResult.rejectValue("CIF", "required", "A company with this DNI already exists");
+                return "redirect:../company/add";
+            }
+        }
 		if (bindingResult.hasErrors())
 			return "company/add";
+		
+		
 		
 		userDao.addUser(company.getCIF(), company.getPassword(), "company");
 		companyDao.addCompany(company);			
