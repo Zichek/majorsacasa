@@ -69,6 +69,15 @@ public class RequestDao {
 	       }
 	}
 	
+	public List<Request> getAllRequestStateDone() {
+		try {
+			return jdbcTemplate.query("SELECT * FROM Request WHERE state='DONE'",
+					new RequestRowMapper());
+		} catch(EmptyResultDataAccessException e) {
+	           return new ArrayList<Request>();
+	       }
+	}
+	
 	public List<Request> getRequestByDNI(String elderlyDNI) {
 		try {
 			return jdbcTemplate.query("SELECT * FROM request WHERE elderlyDNI= ? ",

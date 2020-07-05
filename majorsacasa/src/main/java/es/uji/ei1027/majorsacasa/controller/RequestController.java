@@ -45,7 +45,7 @@ public class RequestController {
 	@RequestMapping("/list")
 	public String listRequests(Model model, HttpSession session) {
 		if (isCasCommittee(session)) {
-			model.addAttribute("requests", requestDao.getAllRequest());
+			model.addAttribute("requests", requestDao.getAllRequestStateDone());
 			return "request/list";
 		}
 
